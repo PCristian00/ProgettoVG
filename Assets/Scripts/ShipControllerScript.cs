@@ -5,12 +5,8 @@ using UnityEngine;
 public class ShipControllerScript : MonoBehaviour
 {
     //Posizione dopo spostamento
-    private int endXPos = 0;
-
-    //Rotazione dello sprite.
-    //Vedere come rimuovere senza fare danni.
-    private Quaternion rotation;
-    
+    private Vector3 endPos;
+           
     //Quantita di spostamento.
     //La corsia ha 6 di larghezza, NON cambiare.
     public int deltaX = 6;
@@ -48,7 +44,7 @@ public class ShipControllerScript : MonoBehaviour
     //Cambio corsia (sinistra e destra)
     void ChangeLane(int deltaX)
     {
-        endXPos = (int)(transform.position.x + deltaX);
-        gameObject.transform.SetPositionAndRotation(new Vector3(endXPos, transform.position.y, 0), rotation);
+        endPos = new Vector3(transform.position.x + deltaX, transform.position.y, 0);
+        gameObject.transform.position = endPos;       
     }
 }
