@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class ObstacleScript : MonoBehaviour
 {
-    
-    // Dimensione a distanza massima
-    public float scale=0.5f;
-
     //NON UTILIZZATE
     //private Vector3 endPos;
     //private float deltaY;
+    //public float scale = 0.5f;
 
-    //Velocità movimento
+    //Velocità di movimento
     public int moveSpeed=1;
 
     // Start is called before the first frame update
@@ -24,21 +21,30 @@ public class ObstacleScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Slide();
+        //Slide();
+        transform.position += moveSpeed * Time.deltaTime * Vector3.down;
     }
 
-    void Slide()
-    {
+    
+    //OBSOLETA. LE FUNZIONALITA DI INGRANDIMENTO SONO GESTITE DA DISTANCESCRIPT
+
+    //void Slide()
+    //{
         // Ingrandimento dell'ostacolo (Effetto di avvicinamento)
         // DA OTTIMIZZARE / MODIFICARE. STRANO COMPORTAMENTO LAMPEGGIANTE
-        scale+=0.5f;
-        gameObject.transform.localScale =new Vector3 (scale,scale,scale)*moveSpeed*Time.deltaTime;
+        //if (scale <= 2)
+        //{
+            //scale += 0.5f;
+            // Vale 0.02 sul mio portatile
+            //Debug.Log(Time.deltaTime);
+
+         //   float scaleRate =scale*(moveSpeed * Time.deltaTime);
+
+          //  gameObject.transform.localScale = new Vector3(scaleRate, scaleRate, scaleRate);
+        //}
         
-        //SPOSTAMENTO NON USATO, RIMUOVERE?
-        //endPos = new Vector3(transform.position.x, transform.position.y+deltaY, 0);
-        //gameObject.transform.position = endPos;
 
         // Spostamento dell'ostacolo verso il giocatore
-        transform.position = transform.position + (Vector3.down * moveSpeed * Time.deltaTime);
-    }
+        //transform.position += (Vector3.down * moveSpeed * Time.deltaTime);
+ //   }
 }
