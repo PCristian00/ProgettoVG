@@ -6,6 +6,8 @@ public class ShipControllerScript : MonoBehaviour
 {
     //Posizione dopo spostamento
     private Vector3 endPos;
+
+    
            
     //Quantita di spostamento.
     //La corsia ha 6 di larghezza, NON cambiare.
@@ -45,6 +47,8 @@ public class ShipControllerScript : MonoBehaviour
     void ChangeLane(int deltaX)
     {
         endPos = new Vector3(transform.position.x + deltaX, transform.position.y, 0);
-        gameObject.transform.position = endPos;       
+        gameObject.transform.position = endPos;
+
+       
     }
 }
