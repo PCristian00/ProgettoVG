@@ -17,6 +17,7 @@ public class DistanceScript : MonoBehaviour
             // Mostra l'ostacolo quando passa la linea. Presenta errori.
             // Per qualche motivo annulla lo scaling.
             //Forse non serve se gli oggetti spawnano direttamente all'orizzonte
+            
             //obstacle.SetActive(true);
 
             // Appena un oggetto Obstacle raggiunge la linea, la sua dimensione aumenta
