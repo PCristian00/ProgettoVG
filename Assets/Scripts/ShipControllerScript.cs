@@ -8,7 +8,9 @@ public class ShipControllerScript : MonoBehaviour
 
     //Quantita di spostamento.
     //La corsia ha 6 di larghezza, NON cambiare.
-    public int deltaX = 6;
+    //public int deltaX = 6;
+
+    //Velocita di spostamento laterale
     public float speed=10f;
 
     // Update is called once per frame
@@ -17,24 +19,18 @@ public class ShipControllerScript : MonoBehaviour
         //Spostamento verso destra
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            //Si sposta solo se non si trova già al bordo
-            if (transform.position.x < 6)
-            {
-                //ChangeLane(deltaX);
-                Move(speed);
-            }       
+           Move(speed);       
         }
 
         //Spostamento verso sinistra
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            //Si sposta solo se non si trova già al bordo
-            if (transform.position.x > -6)
-            {
-                //ChangeLane(-deltaX);
+            Move(-speed);
+        }
 
-                Move(-speed);
-            }
+        if (Input.GetKey(KeyCode.Space))
+        {
+         Shoot();
         }
     }
 
@@ -44,6 +40,7 @@ public class ShipControllerScript : MonoBehaviour
      void ChangeLane(int deltaX)
      {
          endPos = new Vector3(transform.position.x + deltaX, transform.position.y, 0);
+         endPos.x = Mathf.Clamp(endPos.x,-6,6);
          gameObject.transform.position = endPos;        
      }
     
@@ -53,6 +50,12 @@ public class ShipControllerScript : MonoBehaviour
     private void Move(float speed)
     {
         endPos.x += speed * Time.deltaTime;
+        endPos.x = Mathf.Clamp(endPos.x,-6,6);
         gameObject.transform.position = endPos;
+    }
+
+    private void Shoot()
+    {
+        Debug.Log("ANCORA NIENTE ARMI");
     }
 }
