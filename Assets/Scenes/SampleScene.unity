@@ -383,6 +383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deltaX: 6
+  speed: 10
 --- !u!61 &368739343
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1629,6 +1630,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3640001060106484422, guid: ec1c6e8f113fc5b4e9cc5d4b2ccc694e, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8773585
+      objectReference: {fileID: 0}
+    - target: {fileID: 3640001060106484422, guid: ec1c6e8f113fc5b4e9cc5d4b2ccc694e, type: 3}
+      propertyPath: m_Color.g
+      value: 0.09518514
+      objectReference: {fileID: 0}
+    - target: {fileID: 3640001060106484422, guid: ec1c6e8f113fc5b4e9cc5d4b2ccc694e, type: 3}
+      propertyPath: m_Color.r
+      value: 0.32435614
+      objectReference: {fileID: 0}
     - target: {fileID: 4850936961974336171, guid: ec1c6e8f113fc5b4e9cc5d4b2ccc694e, type: 3}
       propertyPath: m_RootOrder
       value: 13
