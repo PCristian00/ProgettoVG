@@ -27,4 +27,11 @@ public class LogicScript : MonoBehaviour
     {
         gameOverScreen.SetActive(true);
     }
+
+    public void ChangeSpeed(int speed)
+    {
+        if (speed == 1)
+            Debug.Log("AUMENTO VELOCITa");
+        else if (speed == 0) Debug.Log("DIMINUISCO VELOCITa");
+    }
 }

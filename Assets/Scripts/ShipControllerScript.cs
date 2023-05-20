@@ -37,14 +37,14 @@ public class ShipControllerScript : MonoBehaviour
     {
         if (isAlive)
         {
-            if (Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKey(KeyCode.D))
             {
                 //Spostamento verso destra
                 Move(speed);
             }
 
             //Spostamento verso sinistra
-            if (Input.GetKey(KeyCode.LeftArrow))
+            if (Input.GetKey(KeyCode.A))
             {
                 //Spostamento verso sinistra
                 Move(-speed);
@@ -54,6 +54,12 @@ public class ShipControllerScript : MonoBehaviour
             {
                 Shoot();
             }
+
+            if (Input.GetKey(KeyCode.W))
+                logic.ChangeSpeed(1);
+
+            if (Input.GetKey(KeyCode.S))
+                logic.ChangeSpeed(0);
         }
         
        
