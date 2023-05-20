@@ -55,10 +55,10 @@ public class ShipControllerScript : MonoBehaviour
                 Shoot();
             }
 
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.W))
                 logic.ChangeSpeed(1);
 
-            if (Input.GetKey(KeyCode.S))
+            if (Input.GetKeyDown(KeyCode.S))
                 logic.ChangeSpeed(0);
         }
         

@@ -9,6 +9,10 @@ public class LogicScript : MonoBehaviour
     public GameObject gameOverScreen;
     public AudioSource scoreEffect;
 
+    public int speed = 1;
+    public int maxSpeed = 5;
+    public int minSpeed = 1;
+
     [ContextMenu("Increase Score")]
     public void AddScore(int scoreToAdd)
     {
@@ -28,10 +32,18 @@ public class LogicScript : MonoBehaviour
         gameOverScreen.SetActive(true);
     }
 
-    public void ChangeSpeed(int speed)
+    public void ChangeSpeed(int input)
     {
-        if (speed == 1)
-            Debug.Log("AUMENTO VELOCITa");
-        else if (speed == 0) Debug.Log("DIMINUISCO VELOCITa");
+        if (input == 1 && speed<maxSpeed)
+        {
+            speed++;
+            Debug.Log(speed);            
+        }
+
+        else if (input == 0 && speed>minSpeed)
+        {
+            speed--;
+            Debug.Log(speed);            
+        }
     }
 }
