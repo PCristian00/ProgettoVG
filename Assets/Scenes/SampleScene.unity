@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacle: {fileID: 7420188353375557527, guid: 5ab2fc240b9574e45a723daf4dd122d1, type: 3}
   spawnRate: 3
+  logic: {fileID: 0}
 --- !u!4 &28081583
 Transform:
   m_ObjectHideFlags: 0
@@ -732,7 +733,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &519861548
 Transform:
   m_ObjectHideFlags: 0
@@ -1014,7 +1015,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &728221905
 Transform:
   m_ObjectHideFlags: 0
@@ -1413,6 +1414,9 @@ MonoBehaviour:
   scoreText: {fileID: 0}
   gameOverScreen: {fileID: 1980666060}
   scoreEffect: {fileID: 0}
+  speed: 0
+  maxSpeed: 2
+  minSpeed: 0
 --- !u!4 &946896252
 Transform:
   m_ObjectHideFlags: 0

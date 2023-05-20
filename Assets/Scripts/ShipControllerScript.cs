@@ -20,6 +20,9 @@ public class ShipControllerScript : MonoBehaviour
     //Riferimento al rigidBody
     private Rigidbody2D myBody;
 
+    //SOLO PER TESTING IMMORTALITA'
+    private bool NoClip = false;
+
     public LogicScript logic;
 
     private void Start()
@@ -60,8 +63,15 @@ public class ShipControllerScript : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.S))
                 logic.ChangeSpeed(0);
+
+
+            // Astronave immortale. TOGLIERE DA PRODOTTO FINALE
+            if (Input.GetKeyDown(KeyCode.P)){
+                NoClip = !NoClip;
+                if (NoClip) Debug.Log("NO CLIP ATTIVATO");
+                else Debug.Log("NO CLIP DISATTIVATO");
+            }
         }
-        
        
     }
 
@@ -93,7 +103,9 @@ public class ShipControllerScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //La collisione avviene solo con oggetto del layer Obstacle
-        if (collision.gameObject.layer == 3)
+        //  && !NoClip e il campo NoClip SERVE SOLO PER IMMORTALITa al momento.
+        // RIMUOVERE SE INUTILIZZATO DAL GIOCO FINALE
+        if (collision.gameObject.layer == 3 && !NoClip)
         {
             Debug.Log("SEI MORTO");
             logic.GameOver();

@@ -9,10 +9,11 @@ public class LogicScript : MonoBehaviour
     public GameObject gameOverScreen;
     public AudioSource scoreEffect;
 
-    public int speed = 1;
-    public int maxSpeed = 5;
-    public int minSpeed = 1;
+    public float speed = 0;
+    public float maxSpeed = 2f;
+    public float minSpeed = 0f;
 
+    //ANCORA NON IMPLEMENTATA
     [ContextMenu("Increase Score")]
     public void AddScore(int scoreToAdd)
     {
@@ -36,14 +37,14 @@ public class LogicScript : MonoBehaviour
     {
         if (input == 1 && speed<maxSpeed)
         {
-            speed++;
-            Debug.Log(speed);            
+            speed+=0.25f;
+            Debug.Log("VELOCITA': "+speed+" / "+maxSpeed);            
         }
 
         else if (input == 0 && speed>minSpeed)
         {
-            speed--;
-            Debug.Log(speed);            
+            speed-=0.25f;
+            Debug.Log("VELOCITA': " + speed + " / "+maxSpeed);
         }
     }
 }

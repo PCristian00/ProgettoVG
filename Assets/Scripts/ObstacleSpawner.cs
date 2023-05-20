@@ -5,19 +5,22 @@ using UnityEngine;
 public class ObstacleSpawner : MonoBehaviour
 {
     public GameObject obstacle;
-    public float spawnRate = 2;
+    public float spawnRate = 10;
+
+    public LogicScript logic;
 
     private float timer = 0;
     // Start is called before the first frame update
     void Start()
     {
-        SpawnObstacle();
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+        //SpawnObstacle();        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (timer < spawnRate)
+        if (timer < spawnRate-logic.speed)
         {
             timer += Time.deltaTime;
         }
