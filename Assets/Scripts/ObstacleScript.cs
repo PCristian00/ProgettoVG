@@ -3,7 +3,7 @@ using UnityEngine;
 public class ObstacleScript : MonoBehaviour
 {
     //Velocità di movimento
-    public float moveSpeed=0.5f;
+    public float moveSpeed = 0.5f;
     //Zona di despawn
     public int deadZone = -8;
 

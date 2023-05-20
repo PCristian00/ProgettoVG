@@ -20,7 +20,7 @@ public class ObstacleSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer < spawnRate-logic.speed)
+        if (timer < spawnRate - logic.speed)
         {
             timer += Time.deltaTime;
         }
@@ -43,7 +43,7 @@ public class ObstacleSpawner : MonoBehaviour
         if (PositionX <= 33)
         {
             PositionX = -6;
-                    }
+        }
         else if (PositionX <= 66)
         {
             PositionX = 0;

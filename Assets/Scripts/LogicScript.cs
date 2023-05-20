@@ -35,16 +35,16 @@ public class LogicScript : MonoBehaviour
 
     public void ChangeSpeed(int input)
     {
-        if (input == 1 && speed<maxSpeed)
+        if (input == 1 && speed < maxSpeed)
         {
-            speed+=0.25f;
-            Debug.Log("VELOCITA': "+speed+" / "+maxSpeed);            
+            speed += 0.25f;
+            Debug.Log("VELOCITA': " + speed + " / " + maxSpeed);
         }
 
-        else if (input == 0 && speed>minSpeed)
+        else if (input == 0 && speed > minSpeed)
         {
-            speed-=0.25f;
-            Debug.Log("VELOCITA': " + speed + " / "+maxSpeed);
+            speed -= 0.25f;
+            Debug.Log("VELOCITA': " + speed + " / " + maxSpeed);
         }
     }
 }
