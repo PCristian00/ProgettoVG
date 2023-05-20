@@ -5,17 +5,17 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class EnemyScript : MonoBehaviour
 {
-    public SpriteRenderer spriteRenderer { get; private set; }
+    public SpriteRenderer SpriteRenderer { get; private set; }
     public Sprite[] animationSprites = new Sprite[0];
     public float animationTime = 1f;
-    public int animationFrame { get; private set; }
+    public int AnimationFrame { get; private set; }
     public int score = 10;
     public System.Action<EnemyScript> killed;
 
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = animationSprites[0];
+        SpriteRenderer = GetComponent<SpriteRenderer>();
+        SpriteRenderer.sprite = animationSprites[0];
     }
 
     private void Start()
@@ -25,15 +25,15 @@ public class EnemyScript : MonoBehaviour
 
     private void AnimateSprite()
     {
-        animationFrame++;
+        AnimationFrame++;
 
         // Loop back to the start if the animation frame exceeds the length
-        if (animationFrame >= animationSprites.Length)
+        if (AnimationFrame >= animationSprites.Length)
         {
-            animationFrame = 0;
+            AnimationFrame = 0;
         }
 
-        spriteRenderer.sprite = animationSprites[animationFrame];
+        SpriteRenderer.sprite = animationSprites[AnimationFrame];
     }
 
     private void OnTriggerEnter2D(Collider2D other)

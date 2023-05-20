@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class ShipControllerScript : MonoBehaviour
 {
-
-   //Posizione dopo spostamento
+    //Posizione dopo spostamento
     private Vector3 endPos = new(0, -4, 0);
 
     //Quantita di spostamento (usata solo in ChangeLane)
@@ -11,7 +10,7 @@ public class ShipControllerScript : MonoBehaviour
     //public int deltaX = 6;
 
     //Velocita di spostamento laterale
-    public float speed=10f;
+    public float speed = 10f;
     // Indica se l'astronave sia viva o no
     private bool isAlive = true;
 
@@ -34,8 +33,6 @@ public class ShipControllerScript : MonoBehaviour
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }
 
-
-    // Update is called once per frame
     void Update()
     {
         if (isAlive)
@@ -64,34 +61,31 @@ public class ShipControllerScript : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.S))
                 logic.ChangeSpeed(0);
 
-
             // Astronave immortale. TOGLIERE DA PRODOTTO FINALE
-            if (Input.GetKeyDown(KeyCode.P)){
+            if (Input.GetKeyDown(KeyCode.P))
+            {
                 NoClip = !NoClip;
                 if (NoClip) Debug.Log("NO CLIP ATTIVATO");
                 else Debug.Log("NO CLIP DISATTIVATO");
             }
         }
-       
     }
 
     /*
-     * Cambio corsia (sinistra e destra) fissato a centro colonna
-     * 
+    Cambio corsia (sinistra e destra) fissato a centro colonna
      void ChangeLane(int deltaX)
      {
          endPos = new Vector3(transform.position.x + deltaX, transform.position.y, 0);
          endPos.x = Mathf.Clamp(endPos.x,-6,6);
          gameObject.transform.position = endPos;        
-     }
-    
+     }    
      */
 
     //Movimento libero fluido
     private void Move(float speed)
     {
         endPos.x += speed * Time.deltaTime;
-        endPos.x = Mathf.Clamp(endPos.x,-6,6);
+        endPos.x = Mathf.Clamp(endPos.x, -6, 6);
         gameObject.transform.position = endPos;
     }
 
@@ -107,21 +101,20 @@ public class ShipControllerScript : MonoBehaviour
         // RIMUOVERE SE INUTILIZZATO DAL GIOCO FINALE
         if (collision.gameObject.layer == 3 && !NoClip)
         {
+            //Distruzione dell'ostacolo all'impatto
+            Destroy(collision.gameObject);
+
             Debug.Log("SEI MORTO");
             logic.GameOver();
             isAlive = false;
             //Disattiva il trigger dell'ostacolo per evitare di morire piu' volte contro lo stesso ostacolo
             collision.isTrigger = false;
-            
 
-            //CAPIRE COME DISTRUGGERE L'OSTACOLO ALL'IMPATTO
-
-             //Sposta l'astronave al contatto con l'ostacolo in una direzione casuale
+            //Sposta l'astronave al contatto con l'ostacolo in una direzione casuale
             //Non e' necessario per il funzionamento del gioco, solo effetto estetico della collisione 
-            colliderComponent.isTrigger = false;           
+            colliderComponent.isTrigger = false;
             myBody.isKinematic = false;
-           gameObject.GetComponent<Rigidbody2D>().AddForce(Random.insideUnitCircle.normalized * 500f);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(Random.insideUnitCircle.normalized * 500f);
         }
-        
     }
 }
