@@ -20,12 +20,15 @@ public class ShipControllerScript : MonoBehaviour
     //Riferimento al rigidBody
     private Rigidbody2D myBody;
 
+    public LogicScript logic;
+
     private void Start()
     {
         myBody = gameObject.GetComponent<Rigidbody2D>();
         myBody.isKinematic = true;
         colliderComponent = gameObject.GetComponent<Collider2D>();
         colliderComponent.isTrigger = true;
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }
 
 
@@ -87,6 +90,7 @@ public class ShipControllerScript : MonoBehaviour
         if (collision.gameObject.layer == 3)
         {
             Debug.Log("SEI MORTO");
+            logic.GameOver();
             isAlive = false;
             //Disattiva il trigger dell'ostacolo per evitare di morire piu' volte contro lo stesso ostacolo
             collision.isTrigger = false;
@@ -98,7 +102,7 @@ public class ShipControllerScript : MonoBehaviour
             //Non e' necessario per il funzionamento del gioco, solo effetto estetico della collisione 
             colliderComponent.isTrigger = false;           
             myBody.isKinematic = false;
-           gameObject.GetComponent<Rigidbody2D>().AddForce(Random.insideUnitCircle.normalized * 1000f);
+           gameObject.GetComponent<Rigidbody2D>().AddForce(Random.insideUnitCircle.normalized * 500f);
         }
         
     }
