@@ -3,15 +3,9 @@ using UnityEngine;
 public class ObstacleScript : MonoBehaviour
 {
     //Velocità di movimento
-    public int moveSpeed=1;
+    public float moveSpeed=0.5f;
     //Zona di despawn
     public int deadZone = -8;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

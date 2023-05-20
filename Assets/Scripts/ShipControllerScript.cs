@@ -20,12 +20,18 @@ public class ShipControllerScript : MonoBehaviour
     //Riferimento al rigidBody
     private Rigidbody2D myBody;
 
+    //SOLO PER TESTING IMMORTALITA'
+    private bool NoClip = false;
+
+    public LogicScript logic;
+
     private void Start()
     {
         myBody = gameObject.GetComponent<Rigidbody2D>();
         myBody.isKinematic = true;
         colliderComponent = gameObject.GetComponent<Collider2D>();
         colliderComponent.isTrigger = true;
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }
 
 
@@ -34,14 +40,14 @@ public class ShipControllerScript : MonoBehaviour
     {
         if (isAlive)
         {
-            if (Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKey(KeyCode.D))
             {
                 //Spostamento verso destra
                 Move(speed);
             }
 
             //Spostamento verso sinistra
-            if (Input.GetKey(KeyCode.LeftArrow))
+            if (Input.GetKey(KeyCode.A))
             {
                 //Spostamento verso sinistra
                 Move(-speed);
@@ -51,8 +57,21 @@ public class ShipControllerScript : MonoBehaviour
             {
                 Shoot();
             }
+
+            if (Input.GetKeyDown(KeyCode.W))
+                logic.ChangeSpeed(1);
+
+            if (Input.GetKeyDown(KeyCode.S))
+                logic.ChangeSpeed(0);
+
+
+            // Astronave immortale. TOGLIERE DA PRODOTTO FINALE
+            if (Input.GetKeyDown(KeyCode.P)){
+                NoClip = !NoClip;
+                if (NoClip) Debug.Log("NO CLIP ATTIVATO");
+                else Debug.Log("NO CLIP DISATTIVATO");
+            }
         }
-        
        
     }
 
@@ -84,9 +103,12 @@ public class ShipControllerScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //La collisione avviene solo con oggetto del layer Obstacle
-        if (collision.gameObject.layer == 3)
+        //  && !NoClip e il campo NoClip SERVE SOLO PER IMMORTALITa al momento.
+        // RIMUOVERE SE INUTILIZZATO DAL GIOCO FINALE
+        if (collision.gameObject.layer == 3 && !NoClip)
         {
             Debug.Log("SEI MORTO");
+            logic.GameOver();
             isAlive = false;
             //Disattiva il trigger dell'ostacolo per evitare di morire piu' volte contro lo stesso ostacolo
             collision.isTrigger = false;
@@ -98,7 +120,7 @@ public class ShipControllerScript : MonoBehaviour
             //Non e' necessario per il funzionamento del gioco, solo effetto estetico della collisione 
             colliderComponent.isTrigger = false;           
             myBody.isKinematic = false;
-           gameObject.GetComponent<Rigidbody2D>().AddForce(Random.insideUnitCircle.normalized * 1000f);
+           gameObject.GetComponent<Rigidbody2D>().AddForce(Random.insideUnitCircle.normalized * 500f);
         }
         
     }
