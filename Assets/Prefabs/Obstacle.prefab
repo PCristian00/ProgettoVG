@@ -127,7 +127,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
-  deadZone: -8
+  deadZone: -6.5
+  logic: {fileID: 0}
+  scoreValue: 1
+  player: {fileID: 0}
 --- !u!50 &678199513
 Rigidbody2D:
   serializedVersion: 4

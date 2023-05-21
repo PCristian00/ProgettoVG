@@ -10,7 +10,7 @@ public class ShipControllerScript : MonoBehaviour
     //public int deltaX = 6;
 
     //Velocita di spostamento laterale
-    public float speed = 10f;
+    public float speed = 15f;
     // Indica se l'astronave sia viva o no
     private bool isAlive = true;
 
