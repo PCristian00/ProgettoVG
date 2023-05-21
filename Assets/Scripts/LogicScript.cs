@@ -6,12 +6,24 @@ public class LogicScript : MonoBehaviour
 {
     public int playerScore;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI highScoreText;
     public GameObject gameOverScreen;
     public AudioSource scoreEffect;
 
     public float speed = 0f;
     public float maxSpeed = 2f;
     public float minSpeed = 0f;
+    public static int highScore;
+
+    private void Start()
+    {
+        //highScoreText = GetComponent<TextMeshProUGUI>();
+
+        playerScore = 0;
+
+        highScore = PlayerPrefs.GetInt("highscore", highScore);
+        highScoreText.text = highScore.ToString();
+    }
 
     //ANCORA NON IMPLEMENTATA
     [ContextMenu("Increase Score")]
@@ -24,7 +36,6 @@ public class LogicScript : MonoBehaviour
             CheckDifficulty();
             //scoreEffect.Play();
         }
-
     }
 
     public void RestartGame()
@@ -35,6 +46,16 @@ public class LogicScript : MonoBehaviour
     public void GameOver()
     {
         gameOverScreen.SetActive(true);
+
+        Debug.Log("Partita finita con un punteggio di " + playerScore);
+        if (playerScore > highScore)
+        {
+            Debug.Log("NUOVO RECORD");
+            highScore = playerScore;
+            highScoreText.text = playerScore.ToString();
+            PlayerPrefs.SetInt("highscore", highScore);
+            Debug.Log(highScore);
+        }
     }
 
     public void ChangeSpeed(int input)
