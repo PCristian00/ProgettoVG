@@ -17,15 +17,18 @@ public class LogicScript : MonoBehaviour
     [ContextMenu("Increase Score")]
     public void AddScore(int scoreToAdd)
     {
-        playerScore += scoreToAdd;
-        scoreText.text = playerScore.ToString();
-        scoreEffect.Play();
+        if (!gameOverScreen.activeSelf)
+        {
+            playerScore += scoreToAdd;
+            scoreText.text = playerScore.ToString();
+            //scoreEffect.Play();
+        }
+
     }
 
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
     }
 
     public void GameOver()
