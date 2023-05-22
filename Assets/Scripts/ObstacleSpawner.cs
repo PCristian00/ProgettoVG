@@ -13,8 +13,7 @@ public class ObstacleSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
-        //SpawnObstacle();        
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();        
     }
 
     // Update is called once per frame
@@ -36,7 +35,6 @@ public class ObstacleSpawner : MonoBehaviour
     void SpawnObstacle()
     {
         //Il range (-6,6) indica l'area delle corsie
-        //        Instantiate(obstacle, new Vector3(Random.Range(-6, 6),transform.position.y, 0), transform.rotation);
 
         int PositionX = Random.Range(1, 100);
 

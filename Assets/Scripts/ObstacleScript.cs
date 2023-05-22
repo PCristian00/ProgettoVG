@@ -22,7 +22,6 @@ public class ObstacleScript : MonoBehaviour
 
         if (transform.position.y <= deadZone)
         {
-            //Debug.Log("Ostacolo distrutto");
             Destroy(gameObject);
             logic.AddScore(scoreValue);
         }

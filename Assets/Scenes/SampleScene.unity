@@ -558,6 +558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   logic: {fileID: 0}
+  Bullet: {fileID: 6078835131181412349, guid: ec1c6e8f113fc5b4e9cc5d4b2ccc694e, type: 3}
 --- !u!61 &368739343
 BoxCollider2D:
   m_ObjectHideFlags: 0
