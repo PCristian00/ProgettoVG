@@ -3,11 +3,7 @@ using UnityEngine;
 public class ShipControllerScript : MonoBehaviour
 {
     //Posizione dopo spostamento
-    private Vector3 endPos = new(0, -4, 0);
-
-    //Quantita di spostamento (usata solo in ChangeLane)
-    //La corsia ha 6 di larghezza, NON cambiare.
-    //public int deltaX = 6;
+    private Vector2 endPos = new(0, -4);
 
     //Velocita di spostamento laterale
     public float speed = 15f;
@@ -22,6 +18,7 @@ public class ShipControllerScript : MonoBehaviour
     //SOLO PER TESTING IMMORTALITA'
     private bool NoClip = false;
 
+    //Riferimento al LogicManager
     public LogicScript logic;
 
     //Proiettile
@@ -74,16 +71,6 @@ public class ShipControllerScript : MonoBehaviour
         }
     }
 
-    /*
-    Cambio corsia (sinistra e destra) fissato a centro colonna
-     void ChangeLane(int deltaX)
-     {
-         endPos = new Vector3(transform.position.x + deltaX, transform.position.y, 0);
-         endPos.x = Mathf.Clamp(endPos.x,-6,6);
-         gameObject.transform.position = endPos;        
-     }    
-     */
-
     //Movimento libero fluido
     private void Move(float speed)
     {
@@ -98,7 +85,7 @@ public class ShipControllerScript : MonoBehaviour
         //Il movimento del Bullet viene gestito in un altro script
         GameObject bullet = Instantiate(Bullet);
         //Il Bullet parte dalla posizione di Ship modificata di +1 in verticale 
-        Vector2 shootPos = new(transform.position.x, transform.position.y+1);
+        Vector2 shootPos = new(transform.position.x, transform.position.y + 1);
         bullet.transform.position = shootPos;
     }
 

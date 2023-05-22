@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ShipBullet : MonoBehaviour
 {
+    //Velocita' del proiettile
     public float bulletSpeed = 8f;
     //Zona di despawn
     public float deadZone = 5.5f;

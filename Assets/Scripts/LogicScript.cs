@@ -4,29 +4,34 @@ using UnityEngine.SceneManagement;
 
 public class LogicScript : MonoBehaviour
 {
+    //Punteggio del giocatore
     public int playerScore;
+    //Casella di testo che mostra il punteggio attuale
     public TextMeshProUGUI scoreText;
+    //Casella di testo che mostra il punteggio migliore di sempre
     public TextMeshProUGUI highScoreText;
+    //Schermata da caricare quando le vite finiscono
     public GameObject gameOverScreen;
+    //Suono da attivare per ogni punto ottenuto
     public AudioSource scoreEffect;
+    //Musica di sottofondo
     public AudioSource backGroundMusic;
 
+    //Velocita' di gioco (tasso di spawn ostacoli)
     public float speed = 0f;
     public float maxSpeed = 2f;
     public float minSpeed = 0f;
+    //Punteggio migliore di sempre
     public static int highScore;
 
     private void Start()
     {
-        //highScoreText = GetComponent<TextMeshProUGUI>();
-
         playerScore = 0;
-
+        //Preleva il punteggio migliore dai salvataggi di Unity
         highScore = PlayerPrefs.GetInt("highscore", highScore);
         highScoreText.text = highScore.ToString();
     }
 
-    //ANCORA NON IMPLEMENTATA
     [ContextMenu("Increase Score")]
     public void AddScore(int scoreToAdd)
     {
