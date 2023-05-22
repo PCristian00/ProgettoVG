@@ -9,6 +9,7 @@ public class LogicScript : MonoBehaviour
     public TextMeshProUGUI highScoreText;
     public GameObject gameOverScreen;
     public AudioSource scoreEffect;
+    public AudioSource backGroundMusic;
 
     public float speed = 0f;
     public float maxSpeed = 2f;
