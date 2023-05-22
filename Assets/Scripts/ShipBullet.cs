@@ -1,24 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShipBullet : MonoBehaviour
 {
     public float bulletSpeed = 8f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //Zona di despawn
+    public float deadZone = 5.5f;
 
     // Update is called once per frame
     void Update()
     {
         Vector2 pos = transform.position;
         pos.y += bulletSpeed * Time.deltaTime;
-
-        //bullet.GetComponent<EnemyBullet>().SetDirection(direction);
-
         transform.position = pos;
+
+        //Despawn del proiettile
+        if (transform.position.y >deadZone)
+            Destroy(gameObject);
     }
 }
