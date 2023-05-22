@@ -24,6 +24,9 @@ public class ShipControllerScript : MonoBehaviour
 
     public LogicScript logic;
 
+    //Proiettile
+    public GameObject Bullet;
+
     private void Start()
     {
         myBody = gameObject.GetComponent<Rigidbody2D>();
@@ -91,7 +94,11 @@ public class ShipControllerScript : MonoBehaviour
 
     private void Shoot()
     {
-        Debug.Log("ANCORA NIENTE ARMI");
+        //Debug.Log("ANCORA NIENTE ARMI");
+        GameObject bullet = Instantiate(Bullet);
+        bullet.transform.position = transform.position; // gli assegnamo la posizione dell'enemy
+        Vector2 direction = bullet.transform.position + Vector3.up;
+        bullet.GetComponent<EnemyBullet>().SetDirection(direction);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
