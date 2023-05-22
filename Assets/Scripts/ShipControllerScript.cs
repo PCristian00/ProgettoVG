@@ -94,9 +94,12 @@ public class ShipControllerScript : MonoBehaviour
 
     private void Shoot()
     {
+        //Crea un oggetto di tipo Bullet
+        //Il movimento del Bullet viene gestito in un altro script
         GameObject bullet = Instantiate(Bullet);
-        //Il Bullet parte dalla posizione di Ship
-        bullet.transform.position = transform.position;
+        //Il Bullet parte dalla posizione di Ship modificata di +1 in verticale 
+        Vector2 shootPos = new(transform.position.x, transform.position.y+1);
+        bullet.transform.position = shootPos;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
