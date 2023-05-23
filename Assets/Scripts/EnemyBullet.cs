@@ -63,6 +63,7 @@ public class EnemyBullet : MonoBehaviour
             // Disattiva il trigger dell'ostacolo per evitare di morire piu' volte
             // contro lo stesso ostacolo
             collision.isTrigger = false;
+            ship.DeathAnimation();
         }
     }
 }
