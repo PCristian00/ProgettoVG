@@ -21,7 +21,7 @@ public class EnemyScript : MonoBehaviour
         if (other.gameObject.layer == 6)
         {
             Destroy(gameObject);
-            Destroy(other);
+            Destroy(other.gameObject);
         }
     }
 }
