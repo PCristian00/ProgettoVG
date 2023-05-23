@@ -11,7 +11,7 @@ public class ShipControllerScript : MonoBehaviour
     float horizontalMove = 0f;
 
     // Indica se l'astronave sia viva o no
-    private bool isAlive = true;
+    public bool isAlive = true;
 
     // Riferimento al collider
     private Collider2D colliderComponent;
@@ -136,12 +136,17 @@ public class ShipControllerScript : MonoBehaviour
             // contro lo stesso ostacolo
             collision.isTrigger = false;
 
-            // Sposta l'astronave al contatto con l'ostacolo in una direzione casuale
-            // Non e' necessario per il funzionamento del gioco, solo effetto estetico
-            // della collisione
-            colliderComponent.isTrigger = false;
-            myBody.isKinematic = false;
-            gameObject.GetComponent<Rigidbody2D>().AddForce(Random.insideUnitCircle.normalized * 500f);
+            
         }
+    }
+
+    // Sposta l'astronave al contatto con l'ostacolo in una direzione casuale
+    // Non e' necessario per il funzionamento del gioco, solo effetto estetico
+    // della collisione
+    public void DeathAnimation()
+    {
+        colliderComponent.isTrigger = false;
+        myBody.isKinematic = false;
+        gameObject.GetComponent<Rigidbody2D>().AddForce(Random.insideUnitCircle.normalized * 500f);
     }
 }

@@ -9,6 +9,11 @@ public class EnemyBullet : MonoBehaviour
     bool isReady; // controlla se il proiettile ha trovato la direzione dove andare
     // Start is called before the first frame update
 
+    public ShipControllerScript ship;
+
+    // Riferimento al LogicManager
+    public LogicScript logic;
+
     public void Awake() // nel momento in cui viene istanziato il gameobject del proiettile, gli assegnamo una velocità 
     {
         speed = 4f;
@@ -16,7 +21,9 @@ public class EnemyBullet : MonoBehaviour
     }
     void Start()
     {
-        
+        ship = GameObject.FindGameObjectWithTag("Player").GetComponent<ShipControllerScript>();
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+        Debug.Log("Caricamento ship e logic riusciti");
     }
     public void SetDirection(Vector2 direction)  // calcoliamo la direzione, la normalizziamo, quindi isReady
     {
@@ -39,6 +46,24 @@ public class EnemyBullet : MonoBehaviour
             if (transform.position.x < min.x || transform.position.x > max.x || transform.position.y < min.y || transform.position.y > max.y)
                 Destroy(gameObject);
 
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Debug.Log("COLLISIONE!!!");
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            
+            //Destroy(collision.gameObject);
+
+            //Debug.Log("SEI MORTO");
+            logic.GameOver();
+            ship.isAlive = false;
+            // Disattiva il trigger dell'ostacolo per evitare di morire piu' volte
+            // contro lo stesso ostacolo
+            collision.isTrigger = false;
+            ship.DeathAnimation();
         }
     }
 }
