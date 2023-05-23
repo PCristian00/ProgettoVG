@@ -11,7 +11,7 @@ public class ShipControllerScript : MonoBehaviour
     float horizontalMove = 0f;
 
     // Indica se l'astronave sia viva o no
-    private bool isAlive = true;
+    public bool isAlive = true;
 
     // Riferimento al collider
     private Collider2D colliderComponent;

@@ -557,6 +557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+  isAlive: 1
   logic: {fileID: 0}
   Bullet: {fileID: 6078835131181412349, guid: ec1c6e8f113fc5b4e9cc5d4b2ccc694e, type: 3}
   sprites:
@@ -1187,8 +1188,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df6699c40b275741a3816f867e843f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: {fileID: 2862883385369808615, guid: 83844528e040c354b86bd5c898bb423e, type: 3}
+  Enemy_1: {fileID: 2862883385369808615, guid: 83844528e040c354b86bd5c898bb423e, type: 3}
+  Enemy_2: {fileID: 2862883385369808615, guid: 83844528e040c354b86bd5c898bb423e, type: 3}
   maxSpawnRate: 5
+  timer: 0
 --- !u!4 &957245572
 Transform:
   m_ObjectHideFlags: 0
