@@ -4,24 +4,47 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject Enemy;
+    public GameObject Enemy_1;
+    public GameObject Enemy_2;
+
     public float maxSpawnRate = 5f; // tempo di spawn
+    public float timer = 0;
+    public System.Action<EnemySpawner> killed;
+
+    
     void Start()
     {
         Invoke("ScheduleEnemySpawn", maxSpawnRate);
     }
+     void Update()
+    {
+        if(timer < maxSpawnRate)
+        {
+            timer += Time.deltaTime;
+        }
+        else
+        {
+            SpawnEnemy();
+            timer = 0;
+            if (true)
+            {
+                Invoke("UnscheduleEnemySpawn", maxSpawnRate);
+            }
+        }
+    }
     void SpawnEnemy()  //preleva i bordi e istanzia una navicella nemica e gli assegna una posizione random sull'asse x
     {
-        
         //prelevo i bordi della camera
         Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
         Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
-      max.x -= 0.225f;
-      min.x += 0.225f;
-      max.y -= 0.225f;
+        max.x = 8f;
+        min.x = -8f;
+        max.y -= 3.03f;
 
-        GameObject enemy = Instantiate(Enemy);
-        enemy.transform.position = new Vector2(Random.Range(min.x, max.x), max.y);
+
+        GameObject[] enemies = {Enemy_1, Enemy_2 };
+        GameObject enemy = Instantiate(enemies[Random.Range(0,2)]);
+            enemy.transform.position = new Vector2(Random.Range(min.x, max.x), max.y);
         ScheduleNextEnemySpawn();
     }
     void ScheduleNextEnemySpawn()  
@@ -36,7 +59,7 @@ public class EnemySpawner : MonoBehaviour
             spawnInNSeconds = 1f;
         }
     }
-    void increseSpawnRate() //aumenta la difficoltà
+    /*void increseSpawnRate() //aumenta la difficoltà
     {
         if (maxSpawnRate > 1f)
         {
@@ -46,7 +69,7 @@ public class EnemySpawner : MonoBehaviour
         {
             CancelInvoke("increseSpawnRate");
         }
-    }
+    }*/
     public void ScheduleEnemySpawn()
     {
         maxSpawnRate = 5f; // va ridefinito perchè nei metodi precedenti ne abbiamo modificato il valore
@@ -58,5 +81,12 @@ public class EnemySpawner : MonoBehaviour
     {
         CancelInvoke("SpawnEnemy");
         CancelInvoke("increseSpawnRate");
+    }
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Laser"))
+        {
+            killed?.Invoke(this);
+        }
     }
 }
