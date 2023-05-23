@@ -2,26 +2,31 @@ using UnityEngine;
 
 public class ShipControllerScript : MonoBehaviour
 {
-    //Posizione dopo spostamento
+    // Posizione dopo spostamento
     private Vector2 endPos = new(0, -4);
 
-    //Velocita di spostamento laterale
+    // Velocita di spostamento laterale
     public float speed = 15f;
+    // Direzione del movimento orizzontale
+    float horizontalMove = 0f;
+
     // Indica se l'astronave sia viva o no
     private bool isAlive = true;
 
-    //Riferimento al collider
+
+    // Riferimento al collider
     private Collider2D colliderComponent;
+
     //Riferimento al rigidBody
     private Rigidbody2D myBody;
 
-    //SOLO PER TESTING IMMORTALITA'
+    // SOLO PER TESTING IMMORTALITA'
     private bool NoClip = false;
 
-    //Riferimento al LogicManager
+    // Riferimento al LogicManager
     public LogicScript logic;
 
-    //Proiettile
+    // Riferimento al Bullet
     public GameObject Bullet;
 
     private void Start()
@@ -35,49 +40,51 @@ public class ShipControllerScript : MonoBehaviour
 
     void Update()
     {
+        // Se il giocatore e' ancora in vita
         if (isAlive)
         {
-            if (Input.GetKey(KeyCode.D))
-            {
-                //Spostamento verso destra
-                Move(speed);
-            }
+            // Spostamento laterale
+            horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
+            Move(horizontalMove);
 
-            //Spostamento verso sinistra
-            if (Input.GetKey(KeyCode.A))
-            {
-                //Spostamento verso sinistra
-                Move(-speed);
-            }
+            // Aumento velocita'
+            if (Input.GetButtonDown("Speed Up"))
+                logic.ChangeSpeed(1);
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            // Diminuzione velocita'
+            if (Input.GetButtonDown("Speed Down"))
+                logic.ChangeSpeed(-1);
+
+            // Sparo (Arma 1)
+            if (Input.GetButtonDown("Fire1"))
             {
                 Shoot();
             }
-
-            if (Input.GetKeyDown(KeyCode.W))
-                logic.ChangeSpeed(1);
-
-            if (Input.GetKeyDown(KeyCode.S))
-                logic.ChangeSpeed(0);
+            
 
             // Astronave immortale. TOGLIERE DA PRODOTTO FINALE
-            if (Input.GetKeyDown(KeyCode.P))
+            if (Input.GetButtonDown("No Clip"))
             {
                 NoClip = !NoClip;
                 if (NoClip) Debug.Log("NO CLIP ATTIVATO");
                 else Debug.Log("NO CLIP DISATTIVATO");
             }
         }
+        // Se il giocatore e' morto, il pulsante Restart riavvia la partita
+        else if (Input.GetButtonDown("Restart"))
+        {
+            logic.RestartGame();
+        }
     }
 
     //Movimento libero fluido
-    private void Move(float speed)
+    private void Move(float moveRate)
     {
-        endPos.x += speed * Time.deltaTime;
+        endPos.x += moveRate * Time.deltaTime;
         endPos.x = Mathf.Clamp(endPos.x, -6, 6);
         gameObject.transform.position = endPos;
     }
+
 
     private void Shoot()
     {
