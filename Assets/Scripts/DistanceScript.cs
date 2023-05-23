@@ -11,8 +11,7 @@ public class DistanceScript : MonoBehaviour
         {
             // Appena un oggetto Obstacle raggiunge la linea, la sua dimensione
             // aumenta
-            collision.gameObject.transform.localScale +=
-                new Vector3(scaleRate, scaleRate, 0);
+            collision.gameObject.transform.localScale += new Vector3(scaleRate, scaleRate, 0);
         }
     }
 }

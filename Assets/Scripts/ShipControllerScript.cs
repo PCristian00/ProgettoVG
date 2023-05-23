@@ -39,8 +39,7 @@ public class ShipControllerScript : MonoBehaviour
         myBody.isKinematic = true;
         colliderComponent = gameObject.GetComponent<Collider2D>();
         colliderComponent.isTrigger = true;
-        logic =
-            GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }
 
     void Update()
@@ -142,8 +141,7 @@ public class ShipControllerScript : MonoBehaviour
             // della collisione
             colliderComponent.isTrigger = false;
             myBody.isKinematic = false;
-            gameObject.GetComponent<Rigidbody2D>().AddForce(
-                Random.insideUnitCircle.normalized * 500f);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(Random.insideUnitCircle.normalized * 500f);
         }
     }
 }
