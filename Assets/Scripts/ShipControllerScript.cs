@@ -2,26 +2,30 @@ using UnityEngine;
 
 public class ShipControllerScript : MonoBehaviour
 {
-    //Posizione dopo spostamento
+    // Posizione dopo spostamento
     private Vector2 endPos = new(0, -4);
 
-    //Velocita di spostamento laterale
+    // Velocita di spostamento laterale
     public float speed = 15f;
+
     // Indica se l'astronave sia viva o no
     private bool isAlive = true;
+    // Direzione del movimento orizzontale
+    float horizontalMove = 0f;
 
-    //Riferimento al collider
+    // Riferimento al collider
     private Collider2D colliderComponent;
+
     //Riferimento al rigidBody
     private Rigidbody2D myBody;
 
-    //SOLO PER TESTING IMMORTALITA'
+    // SOLO PER TESTING IMMORTALITA'
     private bool NoClip = false;
 
-    //Riferimento al LogicManager
+    // Riferimento al LogicManager
     public LogicScript logic;
 
-    //Proiettile
+    // Riferimento al Bullet
     public GameObject Bullet;
 
     private void Start()
@@ -37,32 +41,44 @@ public class ShipControllerScript : MonoBehaviour
     {
         if (isAlive)
         {
-            if (Input.GetKey(KeyCode.D))
-            {
-                //Spostamento verso destra
+            // Spostamento laterale
+            horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
+            Move(horizontalMove);
+
+           /* //Spostamento verso destra
+            if (Input.GetAxisRaw("Horizontal")== 1)
                 Move(speed);
-            }
 
             //Spostamento verso sinistra
-            if (Input.GetKey(KeyCode.A))
-            {
-                //Spostamento verso sinistra
-                Move(-speed);
-            }
+            if (Input.GetAxisRaw("Horizontal") == -1)
+                Move(-speed);*/
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            /*if (Input.GetKey(KeyCode.D))
+             {
+                 //Spostamento verso destra
+                 Move(speed);
+             }
+
+             //Spostamento verso sinistra
+             if (Input.GetKey(KeyCode.A))
+             {
+                 //Spostamento verso sinistra
+                 Move(-speed);
+             }*/
+
+            if (Input.GetButtonDown("Fire1"))
             {
                 Shoot();
             }
 
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetButtonDown("Speed Up"))
                 logic.ChangeSpeed(1);
 
-            if (Input.GetKeyDown(KeyCode.S))
-                logic.ChangeSpeed(0);
+            if (Input.GetButtonDown("Speed Down"))
+                logic.ChangeSpeed(-1);
 
             // Astronave immortale. TOGLIERE DA PRODOTTO FINALE
-            if (Input.GetKeyDown(KeyCode.P))
+            if (Input.GetButtonDown("No Clip"))
             {
                 NoClip = !NoClip;
                 if (NoClip) Debug.Log("NO CLIP ATTIVATO");
@@ -72,13 +88,14 @@ public class ShipControllerScript : MonoBehaviour
     }
 
     //Movimento libero fluido
-    private void Move(float speed)
+    private void Move(float moveRate)
     {
-        endPos.x += speed * Time.deltaTime;
+        endPos.x += moveRate * Time.deltaTime;
         endPos.x = Mathf.Clamp(endPos.x, -6, 6);
         gameObject.transform.position = endPos;
     }
 
+    
     private void Shoot()
     {
         //Crea un oggetto di tipo Bullet
