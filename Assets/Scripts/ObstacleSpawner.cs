@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
@@ -13,7 +11,8 @@ public class ObstacleSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();        
+        logic =
+            GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }
 
     // Update is called once per frame
@@ -28,13 +27,11 @@ public class ObstacleSpawner : MonoBehaviour
             SpawnObstacle();
             timer = 0;
         }
-
-
     }
 
     void SpawnObstacle()
     {
-        //Il range (-6,6) indica l'area delle corsie
+        // Il range (-6,6) indica l'area delle corsie
 
         int PositionX = Random.Range(1, 100);
 
@@ -51,6 +48,7 @@ public class ObstacleSpawner : MonoBehaviour
             PositionX = 6;
         }
 
-        Instantiate(obstacle, new Vector3(PositionX, transform.position.y, 0), transform.rotation);
+        Instantiate(obstacle, new Vector3(PositionX, transform.position.y, 0),
+                    transform.rotation);
     }
 }

@@ -22,7 +22,7 @@ public class LogicScript : MonoBehaviour
     public float speed = 0f;
     public float maxSpeed = 2f;
     public float minSpeed = 0f;
-    //Punteggio migliore di sempre
+    // Punteggio migliore di sempre
     public static int highScore;
 
     private void Start()
@@ -41,7 +41,7 @@ public class LogicScript : MonoBehaviour
             playerScore += scoreToAdd;
             scoreText.text = playerScore.ToString();
             CheckDifficulty();
-            //scoreEffect.Play();
+            // scoreEffect.Play();
         }
     }
 
