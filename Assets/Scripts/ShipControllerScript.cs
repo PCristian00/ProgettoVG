@@ -85,6 +85,10 @@ public class ShipControllerScript : MonoBehaviour
                 else Debug.Log("NO CLIP DISATTIVATO");
             }
         }
+        else if (Input.GetButtonDown("Restart"))
+        {
+            logic.RestartGame();
+        }
     }
 
     //Movimento libero fluido
