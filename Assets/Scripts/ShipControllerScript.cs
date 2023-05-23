@@ -7,11 +7,12 @@ public class ShipControllerScript : MonoBehaviour
 
     // Velocita di spostamento laterale
     public float speed = 15f;
+    // Direzione del movimento orizzontale
+    float horizontalMove = 0f;
 
     // Indica se l'astronave sia viva o no
     private bool isAlive = true;
-    // Direzione del movimento orizzontale
-    float horizontalMove = 0f;
+
 
     // Riferimento al collider
     private Collider2D colliderComponent;
@@ -39,43 +40,27 @@ public class ShipControllerScript : MonoBehaviour
 
     void Update()
     {
+        // Se il giocatore e' ancora in vita
         if (isAlive)
         {
             // Spostamento laterale
             horizontalMove = Input.GetAxisRaw("Horizontal") * speed;
             Move(horizontalMove);
 
-           /* //Spostamento verso destra
-            if (Input.GetAxisRaw("Horizontal")== 1)
-                Move(speed);
+            // Aumento velocita'
+            if (Input.GetButtonDown("Speed Up"))
+                logic.ChangeSpeed(1);
 
-            //Spostamento verso sinistra
-            if (Input.GetAxisRaw("Horizontal") == -1)
-                Move(-speed);*/
+            // Diminuzione velocita'
+            if (Input.GetButtonDown("Speed Down"))
+                logic.ChangeSpeed(-1);
 
-            /*if (Input.GetKey(KeyCode.D))
-             {
-                 //Spostamento verso destra
-                 Move(speed);
-             }
-
-             //Spostamento verso sinistra
-             if (Input.GetKey(KeyCode.A))
-             {
-                 //Spostamento verso sinistra
-                 Move(-speed);
-             }*/
-
+            // Sparo (Arma 1)
             if (Input.GetButtonDown("Fire1"))
             {
                 Shoot();
             }
-
-            if (Input.GetButtonDown("Speed Up"))
-                logic.ChangeSpeed(1);
-
-            if (Input.GetButtonDown("Speed Down"))
-                logic.ChangeSpeed(-1);
+            
 
             // Astronave immortale. TOGLIERE DA PRODOTTO FINALE
             if (Input.GetButtonDown("No Clip"))
@@ -85,6 +70,7 @@ public class ShipControllerScript : MonoBehaviour
                 else Debug.Log("NO CLIP DISATTIVATO");
             }
         }
+        // Se il giocatore e' morto, il pulsante Restart riavvia la partita
         else if (Input.GetButtonDown("Restart"))
         {
             logic.RestartGame();
@@ -99,7 +85,7 @@ public class ShipControllerScript : MonoBehaviour
         gameObject.transform.position = endPos;
     }
 
-    
+
     private void Shoot()
     {
         //Crea un oggetto di tipo Bullet
