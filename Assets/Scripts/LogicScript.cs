@@ -100,6 +100,9 @@ public class LogicScript : MonoBehaviour
     }
 
     // Svuota il DebugLog
+    //ATTENZIONE! CAUSA ERRORI DURANTE BUILD
+    //INSERIRE IN COMMENTO PRIMA DI BUILD
+
     public void ClearLog()
     {
         var assembly = Assembly.GetAssembly(typeof(UnityEditor.Editor));
