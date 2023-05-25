@@ -23,7 +23,7 @@ public class EnemyBullet : MonoBehaviour
     {
         ship = GameObject.FindGameObjectWithTag("Player").GetComponent<ShipControllerScript>();
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
-        Debug.Log("Caricamento ship e logic riusciti");
+        // Debug.Log("Caricamento ship e logic riusciti");
     }
     public void SetDirection(Vector2 direction)  // calcoliamo la direzione, la normalizziamo, quindi isReady
     {
@@ -59,7 +59,7 @@ public class EnemyBullet : MonoBehaviour
 
             //Debug.Log("SEI MORTO");
             logic.GameOver();
-            ship.isAlive = false;
+            // ship.isAlive = false;
             // Disattiva il trigger dell'ostacolo per evitare di morire piu' volte
             // contro lo stesso ostacolo
             collision.isTrigger = false;

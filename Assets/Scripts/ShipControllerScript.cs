@@ -131,10 +131,11 @@ public class ShipControllerScript : MonoBehaviour
 
             Debug.Log("SEI MORTO");
             logic.GameOver();
-            isAlive = false;
+            //isAlive = false;
             // Disattiva il trigger dell'ostacolo per evitare di morire piu' volte
             // contro lo stesso ostacolo
             collision.isTrigger = false;
+            DeathAnimation();
 
             
         }
@@ -145,6 +146,7 @@ public class ShipControllerScript : MonoBehaviour
     // della collisione
     public void DeathAnimation()
     {
+        isAlive = false;
         colliderComponent.isTrigger = false;
         myBody.isKinematic = false;
         gameObject.GetComponent<Rigidbody2D>().AddForce(Random.insideUnitCircle.normalized * 500f);
