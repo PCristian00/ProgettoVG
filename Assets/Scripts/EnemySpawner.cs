@@ -37,9 +37,9 @@ public class EnemySpawner : MonoBehaviour
         //prelevo i bordi della camera
         Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
         Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
-        max.x = 8f;
-        min.x = -8f;
-        max.y -= 3.03f;
+        max.x = 6f;
+        min.x = -6f;
+        max.y -= 3f;
 
 
         GameObject[] enemies = {Enemy_1, Enemy_2 };
