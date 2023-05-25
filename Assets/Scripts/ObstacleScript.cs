@@ -4,25 +4,18 @@ public
 class ObstacleScript : MonoBehaviour
 {
     // Velocita' di movimento
-    public
-      float moveSpeed = 0.5f;
+    public float moveSpeed = 0.5f;
     // Zona di despawn
-    public
-      float deadZone = -6.5f;
-    public
-      LogicScript logic;
+    public float deadZone = -6.5f;
+    public LogicScript logic;
     // Punteggio assegnato da ogni ostacolo superato
-    public
-      int scoreValue = 1;
-    public
-      ShipControllerScript player;
+    public int scoreValue = 1;
+    public ShipControllerScript player;
 
     // Tasso di ridimensionamento, inversamente proporzionale
-    public
-      float scaleRate = 350f;
+    public float scaleRate = 350f;
 
-    private
-      void Start()
+    private void Start()
     { logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>(); }
     // Update is called once per frame
     void Update()
