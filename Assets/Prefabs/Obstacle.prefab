@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1324006937702616653}
   - component: {fileID: 678199513}
   - component: {fileID: 5687102632418945449}
+  - component: {fileID: 2402899214981261019}
   m_Layer: 3
   m_Name: Obstacle
   m_TagString: Untagged
@@ -142,3 +143,24 @@ CircleCollider2D:
   m_Offset: {x: 0.03, y: -0.01}
   serializedVersion: 2
   m_Radius: 0.25
+--- !u!95 &2402899214981261019
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7420188353375557527}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 963d40015a75ec24e8cdbfa612da30df, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
