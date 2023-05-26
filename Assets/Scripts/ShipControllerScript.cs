@@ -33,6 +33,11 @@ public class ShipControllerScript : MonoBehaviour
     // Riferimento allo SpriteRenderer
     public SpriteRenderer spriteRenderer;
 
+    // Contatore che calcola il tempo al prossimo sparo possibile
+    private float nextFireTime;
+    // Secondi che devono passare tra uno sparo e l'altro, misurato in secondi
+    private float timeBetweenShots=1;
+
     private void Start()
     {
         myBody = gameObject.GetComponent<Rigidbody2D>();
@@ -109,14 +114,27 @@ public class ShipControllerScript : MonoBehaviour
         }
     }
 
+    //Controlla se l'astronave puo' sparare
+    private bool CanFire
+    {
+        get { return Time.time > nextFireTime; }
+    }
+
     private void Shoot()
     {
-        // Crea un oggetto di tipo Bullet
-        // Il movimento del Bullet viene gestito in un altro script
-        GameObject bullet = Instantiate(Bullet);
-        // Il Bullet parte dalla posizione di Ship modificata di +1 in verticale
-        Vector2 shootPos = new(transform.position.x, transform.position.y + 1);
-        bullet.transform.position = shootPos;
+        if (CanFire)
+        {
+            nextFireTime = Time.time + timeBetweenShots;
+
+            // Crea un oggetto di tipo Bullet
+            // Il movimento del Bullet viene gestito in un altro script
+            GameObject bullet = Instantiate(Bullet);
+            // Il Bullet parte dalla posizione di Ship modificata di +1 in verticale
+            Vector2 shootPos = new(transform.position.x, transform.position.y + 1);
+            bullet.transform.position = shootPos;
+        }
+        
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
