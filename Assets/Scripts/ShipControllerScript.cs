@@ -36,12 +36,15 @@ public class ShipControllerScript : MonoBehaviour
     // Contatore che calcola il tempo al prossimo sparo possibile
     private float nextFireTime;
     // Secondi che devono passare tra uno sparo e l'altro, misurato in secondi
-    private readonly float timeBetweenShots=1;
+    private readonly float timeBetweenShots = 1;
 
+    // Riferimento alla barra della vita
     public GameObject lifeBar;
+    // Riferimento allo spriteRenderer della barra della vita
     private SpriteRenderer lifeSpriteRenderer;
-
+    // Array contenente i vari sprite della barra della vita
     public Sprite[] lifeSprites;
+    // La vita dell'astronave
     private int life;
     private void Start()
     {
@@ -52,10 +55,7 @@ public class ShipControllerScript : MonoBehaviour
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
 
         life = 5;
-        lifeSpriteRenderer=lifeBar.GetComponent<SpriteRenderer>();
-        
-        //TEST. RIMUOVERE PRIMA DI COMMIT
-        // lifeSprite.sprite = this.spriteRenderer.sprite;
+        lifeSpriteRenderer = lifeBar.GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -125,7 +125,7 @@ public class ShipControllerScript : MonoBehaviour
         }
     }
 
-    //Controlla se l'astronave puo' sparare
+    // Controlla se l'astronave puo' sparare
     private bool CanFire
     {
         get { return Time.time > nextFireTime; }
@@ -144,8 +144,6 @@ public class ShipControllerScript : MonoBehaviour
             Vector2 shootPos = new(transform.position.x, transform.position.y + 1);
             bullet.transform.position = shootPos;
         }
-        
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -153,10 +151,10 @@ public class ShipControllerScript : MonoBehaviour
         // La collisione avviene solo con oggetto del layer Obstacle o Enemy
         //   && !NoClip e il campo NoClip SERVE SOLO PER IMMORTALITa al momento.
         //  RIMUOVERE SE INUTILIZZATO DAL GIOCO FINALE
-        if ((collision.gameObject.layer == 3 || collision.gameObject.layer==7) && !NoClip)
+        if ((collision.gameObject.layer == 3 || collision.gameObject.layer == 7) && !NoClip)
         {
             life--;
-            lifeSpriteRenderer.sprite=lifeSprites[life];
+            lifeSpriteRenderer.sprite = lifeSprites[life];
             // Distruzione dell'ostacolo / proiettile all'impatto
             Destroy(collision.gameObject);
             Debug.Log("Ti rimane " + life + "/5 salute");
@@ -164,12 +162,11 @@ public class ShipControllerScript : MonoBehaviour
             {
                 Debug.Log("SEI MORTO");
                 logic.GameOver();
-                //isAlive = false;
                 // Disattiva il trigger dell'ostacolo / proiettile per evitare di morire piu' volte
                 // contro lo stesso ostacolo
                 collision.isTrigger = false;
                 DeathAnimation();
-            }       
+            }
         }
     }
 
@@ -182,5 +179,7 @@ public class ShipControllerScript : MonoBehaviour
         colliderComponent.isTrigger = false;
         myBody.isKinematic = false;
         gameObject.GetComponent<Rigidbody2D>().AddForce(Random.insideUnitCircle.normalized * 500f);
+        // Rende invisibile la barra della vita dopo la morta
+        lifeBar.SetActive(false);
     }
 }
