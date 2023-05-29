@@ -139,18 +139,18 @@ public class ShipControllerScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // La collisione avviene solo con oggetto del layer Obstacle
+        // La collisione avviene solo con oggetto del layer Obstacle o Enemy
         //   && !NoClip e il campo NoClip SERVE SOLO PER IMMORTALITa al momento.
         //  RIMUOVERE SE INUTILIZZATO DAL GIOCO FINALE
-        if (collision.gameObject.layer == 3 && !NoClip)
+        if ((collision.gameObject.layer == 3 || collision.gameObject.layer==7) && !NoClip)
         {
-            // Distruzione dell'ostacolo all'impatto
+            // Distruzione dell'ostacolo / proiettile all'impatto
             Destroy(collision.gameObject);
 
             Debug.Log("SEI MORTO");
             logic.GameOver();
             //isAlive = false;
-            // Disattiva il trigger dell'ostacolo per evitare di morire piu' volte
+            // Disattiva il trigger dell'ostacolo / proiettile per evitare di morire piu' volte
             // contro lo stesso ostacolo
             collision.isTrigger = false;
             DeathAnimation();
