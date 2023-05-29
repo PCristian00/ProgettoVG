@@ -36,8 +36,13 @@ public class ShipControllerScript : MonoBehaviour
     // Contatore che calcola il tempo al prossimo sparo possibile
     private float nextFireTime;
     // Secondi che devono passare tra uno sparo e l'altro, misurato in secondi
-    private float timeBetweenShots=1;
+    private readonly float timeBetweenShots=1;
 
+    public GameObject lifeBar;
+    private SpriteRenderer lifeSpriteRenderer;
+
+    public Sprite[] lifeSprites;
+    private int life;
     private void Start()
     {
         myBody = gameObject.GetComponent<Rigidbody2D>();
@@ -45,6 +50,12 @@ public class ShipControllerScript : MonoBehaviour
         colliderComponent = gameObject.GetComponent<Collider2D>();
         colliderComponent.isTrigger = true;
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+
+        life = 5;
+        lifeSpriteRenderer=lifeBar.GetComponent<SpriteRenderer>();
+        
+        //TEST. RIMUOVERE PRIMA DI COMMIT
+        // lifeSprite.sprite = this.spriteRenderer.sprite;
     }
 
     void Update()
@@ -144,18 +155,21 @@ public class ShipControllerScript : MonoBehaviour
         //  RIMUOVERE SE INUTILIZZATO DAL GIOCO FINALE
         if ((collision.gameObject.layer == 3 || collision.gameObject.layer==7) && !NoClip)
         {
+            life--;
+            lifeSpriteRenderer.sprite=lifeSprites[life];
             // Distruzione dell'ostacolo / proiettile all'impatto
             Destroy(collision.gameObject);
-
-            Debug.Log("SEI MORTO");
-            logic.GameOver();
-            //isAlive = false;
-            // Disattiva il trigger dell'ostacolo / proiettile per evitare di morire piu' volte
-            // contro lo stesso ostacolo
-            collision.isTrigger = false;
-            DeathAnimation();
-
-            
+            Debug.Log("Ti rimane " + life + "/5 salute");
+            if (life == 0)
+            {
+                Debug.Log("SEI MORTO");
+                logic.GameOver();
+                //isAlive = false;
+                // Disattiva il trigger dell'ostacolo / proiettile per evitare di morire piu' volte
+                // contro lo stesso ostacolo
+                collision.isTrigger = false;
+                DeathAnimation();
+            }       
         }
     }
 

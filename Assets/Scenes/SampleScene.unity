@@ -451,6 +451,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 369a61e3200d92a4a8fbaac069fdf41a, type: 3}
   - {fileID: 21300000, guid: 62b29540ab88bdd438b773fea0248be4, type: 3}
   spriteRenderer: {fileID: 368739341}
+  lifeBar: {fileID: 1390980491}
+  lifeSprites: []
 --- !u!61 &368739343
 BoxCollider2D:
   m_ObjectHideFlags: 0
