@@ -11,6 +11,8 @@ public class LogicScript : MonoBehaviour
     public TextMeshProUGUI scoreText;
     // Casella di testo che mostra il punteggio migliore di sempre
     public TextMeshProUGUI highScoreText;
+    // Casella di testo che mostra la velocita' attuale
+    public TextMeshProUGUI speedText;
     // Schermata da caricare quando le vite finiscono
     public GameObject gameOverScreen;
     // Suono da attivare per ogni punto ottenuto
@@ -18,10 +20,12 @@ public class LogicScript : MonoBehaviour
     // Musica di sottofondo
     public AudioSource backGroundMusic;
 
-    // Velocita' di gioco (tasso di spawn ostacoli)
-    public float speed = 0f;
-    public float maxSpeed = 2f;
-    public float minSpeed = 0f;
+    // Velocita' di gioco (tasso di spawn ostacoli), inversamente proporzionale
+    public float speed = 7f;
+    private float maxSpeed;
+    private float minSpeed;
+    // Contatore di velocita' (TROVARE MODO DI RIMUOVERE)
+    private int speedLevel = 0;
     // Punteggio migliore di sempre
     public static int highScore;
 
@@ -31,9 +35,12 @@ public class LogicScript : MonoBehaviour
         // Preleva il punteggio migliore dai salvataggi di Unity
         highScore = PlayerPrefs.GetInt("highscore", highScore);
         highScoreText.text = highScore.ToString();
+
+        speed = 7f;
+        maxSpeed = 2f;
+        minSpeed = speed;
     }
 
-    [ContextMenu("Increase Score")]
     public void AddScore(int scoreToAdd)
     {
         if (!gameOverScreen.activeSelf)
@@ -70,19 +77,28 @@ public class LogicScript : MonoBehaviour
 
     public void ChangeSpeed(float input)
     {
-        if (input == 1f && speed < maxSpeed)
+        // Debug.Log("Changing speed");
+
+        // Aumento di velocita'
+        if (input == 1f && speed > maxSpeed)
         {
-            speed += 0.25f;
-            Debug.Log("VELOCITA': " + speed + " / " + maxSpeed);
+            speed--;
+            speedLevel++;
+
+
+        }
+        // Diminuzione di velocita'
+        else if (input == -1f && speed < minSpeed)
+        {
+            speed++;
+            speedLevel--;
         }
 
-        else if (input == -1f && speed > minSpeed)
-        {
-            speed -= 0.25f;
-            Debug.Log("VELOCITA': " + speed + " / " + maxSpeed);
-        }
+        Debug.Log("VELOCITA': " + speedLevel + " / 5");
+        speedText.text = speedLevel.ToString();
     }
 
+    // Controlla il punteggio e regola la difficolta' (velocita') di conseguenza
     public void CheckDifficulty()
     {
         // Se il punteggio e' multiplo di 10
@@ -91,17 +107,17 @@ public class LogicScript : MonoBehaviour
             // Aumento velocita'
             ChangeSpeed(1);
             // Aumento velocita' minima
-            if (minSpeed < maxSpeed)
+            if (minSpeed > maxSpeed)
             {
-                minSpeed += 0.25f;
-                Debug.Log("NUOVA VELOCITA' MINIMA: " + minSpeed);
+                minSpeed--;
+                Debug.Log("NUOVA VELOCITA' MINIMA: " + (7 - minSpeed));
             }
         }
     }
 
     // Svuota il DebugLog
-    //ATTENZIONE! CAUSA ERRORI DURANTE BUILD
-    //INSERIRE IN COMMENTO PRIMA DI BUILD
+    // ATTENZIONE! CAUSA ERRORI DURANTE BUILD
+    // INSERIRE IN COMMENTO PRIMA DI BUILD
 
     public void ClearLog()
     {

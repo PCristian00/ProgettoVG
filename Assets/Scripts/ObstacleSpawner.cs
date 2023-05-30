@@ -3,7 +3,7 @@ using UnityEngine;
 public class ObstacleSpawner : MonoBehaviour
 {
     public GameObject obstacle;
-    public float spawnRate = 10;
+    //public float spawnRate = 5;
 
     public LogicScript logic;
 
@@ -18,7 +18,7 @@ public class ObstacleSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer < spawnRate - logic.speed)
+        if (timer < logic.speed)
         {
             timer += Time.deltaTime;
         }
