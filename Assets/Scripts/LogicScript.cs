@@ -21,11 +21,11 @@ public class LogicScript : MonoBehaviour
     public AudioSource backGroundMusic;
 
     // Velocita' di gioco (tasso di spawn ostacoli)
-    public float speed = 0f;
-    public float maxSpeed = 2f;
-    public float minSpeed = 0f;
+    public float speed = 7f;
+    public float maxSpeed = 5f;
+    public float minSpeed = 7f;
     // Contatore di velocita' (TROVARE MODO DI RIMUOVERE)
-    private int speedLevel = 1;
+    private int speedLevel = 0;
     // Punteggio migliore di sempre
     public static int highScore;
 
@@ -35,6 +35,10 @@ public class LogicScript : MonoBehaviour
         // Preleva il punteggio migliore dai salvataggi di Unity
         highScore = PlayerPrefs.GetInt("highscore", highScore);
         highScoreText.text = highScore.ToString();
+
+        speed = 7f;
+        maxSpeed = 2f;
+        minSpeed = speed;
     }
 
     [ContextMenu("Increase Score")]
@@ -74,20 +78,24 @@ public class LogicScript : MonoBehaviour
 
     public void ChangeSpeed(float input)
     {
-        if (input == 1f && speed < maxSpeed)
-        {
-            speed += 0.25f;
-            Debug.Log("VELOCITA': " + speed + " / " + maxSpeed);
-            speedLevel++;
-        }
+        Debug.Log("Changing speed");
 
-        else if (input == -1f && speed > minSpeed)
+        // Aumento di velocita'
+        if (input == 1f && speed > maxSpeed)
         {
-            speed -= 0.25f;
-            Debug.Log("VELOCITA': " + speed + " / " + maxSpeed);
+            speed --;
+            speedLevel++;
+            
+            
+        }
+        // Diminuzione di velocita'
+        else if (input == -1f && speed < minSpeed)
+        {
+            speed ++;
             speedLevel--;
         }
 
+        Debug.Log("VELOCITA': " + speedLevel + " / 5");
         speedText.text = speedLevel.ToString();
     }
 
@@ -99,9 +107,9 @@ public class LogicScript : MonoBehaviour
             // Aumento velocita'
             ChangeSpeed(1);
             // Aumento velocita' minima
-            if (minSpeed < maxSpeed)
+            if (minSpeed > maxSpeed)
             {
-                minSpeed += 0.25f;
+                minSpeed --;
                 Debug.Log("NUOVA VELOCITA' MINIMA: " + minSpeed);
             }
         }
