@@ -103,7 +103,7 @@ public class ShipControllerScript : MonoBehaviour
     {
         endPos.x += moveRate * Time.deltaTime;
         endPos.x = Mathf.Clamp(endPos.x, -6, 6);
-        gameObject.transform.position = endPos;
+        transform.position = endPos;
 
         if (moveRate != 0)
         {
@@ -111,17 +111,20 @@ public class ShipControllerScript : MonoBehaviour
             {
                 // Debug.Log("VERSO SINISTRA");
                 spriteRenderer.sprite = sprites[1];
+                transform.rotation = Quaternion.Euler(0, 0, 10);
             }
             else if (Mathf.Sign(moveRate) == 1)
             {
                 // Debug.Log("VERSO DESTRA");
                 spriteRenderer.sprite = sprites[2];
+                transform.rotation = Quaternion.Euler(0, 0, -10);
             }
         }
         else
         {
             // Debug.Log("Sto fermo");
             spriteRenderer.sprite = sprites[0];
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 
