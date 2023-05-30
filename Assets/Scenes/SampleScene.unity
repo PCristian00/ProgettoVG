@@ -153,7 +153,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacle: {fileID: 7420188353375557527, guid: 5ab2fc240b9574e45a723daf4dd122d1, type: 3}
-  spawnRate: 3
   logic: {fileID: 0}
 --- !u!4 &28081583
 Transform:
@@ -894,10 +893,8 @@ MonoBehaviour:
   speedText: {fileID: 1904708565}
   gameOverScreen: {fileID: 1980666060}
   scoreEffect: {fileID: 0}
-  backGroundMusic: {fileID: 0}
+  backGroundMusic: {fileID: 946896253}
   speed: 0
-  maxSpeed: 2
-  minSpeed: 0
 --- !u!4 &946896252
 Transform:
   m_ObjectHideFlags: 0
@@ -1602,7 +1599,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -300, y: -200}
+  m_AnchoredPosition: {x: 0, y: 150}
   m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1614904397
@@ -2190,7 +2187,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2531,7 +2528,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: / 9
+  m_text: / 5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -20,10 +20,10 @@ public class LogicScript : MonoBehaviour
     // Musica di sottofondo
     public AudioSource backGroundMusic;
 
-    // Velocita' di gioco (tasso di spawn ostacoli)
+    // Velocita' di gioco (tasso di spawn ostacoli), inversamente proporzionale
     public float speed = 7f;
-    public float maxSpeed = 5f;
-    public float minSpeed = 7f;
+    private float maxSpeed;
+    private float minSpeed;
     // Contatore di velocita' (TROVARE MODO DI RIMUOVERE)
     private int speedLevel = 0;
     // Punteggio migliore di sempre
@@ -41,7 +41,6 @@ public class LogicScript : MonoBehaviour
         minSpeed = speed;
     }
 
-    [ContextMenu("Increase Score")]
     public void AddScore(int scoreToAdd)
     {
         if (!gameOverScreen.activeSelf)
@@ -78,20 +77,20 @@ public class LogicScript : MonoBehaviour
 
     public void ChangeSpeed(float input)
     {
-        Debug.Log("Changing speed");
+        // Debug.Log("Changing speed");
 
         // Aumento di velocita'
         if (input == 1f && speed > maxSpeed)
         {
-            speed --;
+            speed--;
             speedLevel++;
-            
-            
+
+
         }
         // Diminuzione di velocita'
         else if (input == -1f && speed < minSpeed)
         {
-            speed ++;
+            speed++;
             speedLevel--;
         }
 
@@ -99,6 +98,7 @@ public class LogicScript : MonoBehaviour
         speedText.text = speedLevel.ToString();
     }
 
+    // Controlla il punteggio e regola la difficolta' (velocita') di conseguenza
     public void CheckDifficulty()
     {
         // Se il punteggio e' multiplo di 10
@@ -109,15 +109,15 @@ public class LogicScript : MonoBehaviour
             // Aumento velocita' minima
             if (minSpeed > maxSpeed)
             {
-                minSpeed --;
-                Debug.Log("NUOVA VELOCITA' MINIMA: " + minSpeed);
+                minSpeed--;
+                Debug.Log("NUOVA VELOCITA' MINIMA: " + (7 - minSpeed));
             }
         }
     }
 
     // Svuota il DebugLog
-    //ATTENZIONE! CAUSA ERRORI DURANTE BUILD
-    //INSERIRE IN COMMENTO PRIMA DI BUILD
+    // ATTENZIONE! CAUSA ERRORI DURANTE BUILD
+    // INSERIRE IN COMMENTO PRIMA DI BUILD
 
     public void ClearLog()
     {
