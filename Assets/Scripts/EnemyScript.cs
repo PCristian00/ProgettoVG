@@ -19,8 +19,11 @@ public class EnemyScript : MonoBehaviour
             // Distrugge se stesso e ShipBullet
             Destroy(gameObject);
             Destroy(other.gameObject);
-            spawner.countSpawn--;
-            Debug.Log("Nemici in gioco: " + spawner.countSpawn);
+            if (spawner.countSpawn > 0)
+            {
+                spawner.countSpawn--;
+                Debug.Log("Nemici in gioco: " + spawner.countSpawn);
+            }            
         }
     }
 }
