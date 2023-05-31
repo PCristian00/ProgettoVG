@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
+    // public GameObject spawner;
+    public EnemySpawner spawner;
     // Start is called before the first frame update
     void Start()
     {
-        
+        //spawner = gameObject.GetComponent<EnemySpawner>();
+        spawner = GameObject.FindGameObjectWithTag("Respawn").GetComponent<EnemySpawner>();
     }
 
     // Update is called once per frame
@@ -24,6 +27,8 @@ public class EnemyScript : MonoBehaviour
             // Distrugge se stesso e ShipBullet
             Destroy(gameObject);
             Destroy(other.gameObject);
+            spawner.countSpawn--;
+            Debug.Log(spawner.countSpawn);
         }
     }
 }
