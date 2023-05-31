@@ -26,7 +26,7 @@ public class LogicScript : MonoBehaviour
     // Suono da attivare per ogni punto ottenuto
     public AudioSource scoreEffect;
     // Musica di sottofondo
-    //public AudioSource backGroundMusic;
+    // public AudioSource backGroundMusic;
     // Strati musicali, regolati da velocita'
     public AudioSource[] musicLayers;
 
@@ -90,7 +90,9 @@ public class LogicScript : MonoBehaviour
             speed--;
             speedLevel++;
             Debug.Log("Nuova traccia musicale");
+            // Attiva il layer attuale
             musicLayers[speedLevel].mute = false;
+            // Diminuisce il volume del layer inferiore
             musicLayers[speedLevel - 1].volume -= 0.2f;
 
 
@@ -101,8 +103,9 @@ public class LogicScript : MonoBehaviour
             Debug.Log("Velocita' in diminuzione");
             speed++;
             Debug.Log("Traccia musicale rimossa");
-
-            musicLayers[speedLevel].mute= true;
+            // Spegne il layer attuale
+            musicLayers[speedLevel].mute = true;
+            // Aumenta il volume del layer inferiore 
             musicLayers[speedLevel - 1].volume += 0.2f;
             speedLevel--;
 
