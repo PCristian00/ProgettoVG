@@ -86,11 +86,12 @@ public class LogicScript : MonoBehaviour
         // Aumento di velocita'
         if (input == 1f && speed > maxSpeed)
         {
-            Debug.Log("Velocita' in auemnto");
+            Debug.Log("Velocita' in aumento");
             speed--;
             speedLevel++;
             Debug.Log("Nuova traccia musicale");
             musicLayers[speedLevel].mute = false;
+            musicLayers[speedLevel - 1].volume -= 0.2f;
 
 
         }
@@ -102,6 +103,7 @@ public class LogicScript : MonoBehaviour
             Debug.Log("Traccia musicale rimossa");
 
             musicLayers[speedLevel].mute= true;
+            musicLayers[speedLevel - 1].volume += 0.2f;
             speedLevel--;
 
         }
