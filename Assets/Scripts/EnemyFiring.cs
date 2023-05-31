@@ -5,6 +5,9 @@ using UnityEngine;
 public class EnemyFiring : MonoBehaviour
 {
     public GameObject Bullet;
+    private float timer = 0;
+    private float spawnRate = 2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +18,15 @@ public class EnemyFiring : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (timer < spawnRate)
+        {
+            timer += Time.deltaTime;
+        }
+        else
+        {
+            timer = 0;
+            FireBullet();
+        }
     }
     void FireBullet()
     {
