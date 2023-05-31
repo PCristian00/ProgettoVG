@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
@@ -13,12 +11,6 @@ public class EnemyScript : MonoBehaviour
         spawner = GameObject.FindGameObjectWithTag("Respawn").GetComponent<EnemySpawner>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OnTriggerEnter2D(Collider2D other)
     {
         // Se entra in collisione con uno ShipBullet
@@ -28,7 +20,7 @@ public class EnemyScript : MonoBehaviour
             Destroy(gameObject);
             Destroy(other.gameObject);
             spawner.countSpawn--;
-            Debug.Log(spawner.countSpawn);
+            Debug.Log("Nemici in gioco: " + spawner.countSpawn);
         }
     }
 }

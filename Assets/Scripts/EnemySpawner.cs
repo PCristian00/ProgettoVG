@@ -1,28 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
- 
 
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject Enemy_1;
     public GameObject Enemy_2;
 
-
-
     public float maxSpawnRate = 5f; // tempo di spawn
-    public float timer = 0;
+    public float timer = 0;
     public float countSpawn = 0;
     public System.Action<EnemySpawner> killed;
 
-
-
-
-    void Start()
-    {
-        Invoke("ScheduleEnemySpawn", maxSpawnRate);
-    }
+    void Start() { Invoke(nameof(ScheduleEnemySpawn), maxSpawnRate); }
     void Update()
     {
         if (countSpawn < 5f)
@@ -37,29 +25,26 @@ public class EnemySpawner : MonoBehaviour
                 timer = 0;
                 if (true)
                 {
-                    Invoke("UnscheduleEnemySpawn", maxSpawnRate);
-
+                    Invoke(nameof(UnscheduleEnemySpawn), maxSpawnRate);
                 }
             }
         }
     }
-    void SpawnEnemy()  //preleva i bordi e istanzia una navicella nemica e gli assegna una posizione random sull'asse x
+    void
+    SpawnEnemy()  //preleva i bordi e istanzia una navicella nemica e gli assegna una posizione random sull'asse x
     {
         countSpawn++;
-        Debug.Log(countSpawn);
-        //prelevo i bordi della camera
-        Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
+        Debug.Log("Nemici in gioco: "+countSpawn);
+        //prelevo i bordi della camera
+        Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
         Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
         max.x = 6f;
         min.x = -6f;
         max.y -= 3f;
 
-
-
-
         GameObject[] enemies = { Enemy_1, Enemy_2 };
         GameObject enemy = Instantiate(enemies[Random.Range(0, 2)]);
-        enemy.transform.position = new Vector2(Random.Range(min.x, max.x), Random.Range(1,max.y));
+        enemy.transform.position = new Vector2(Random.Range(min.x, max.x), Random.Range(1, max.y));
         ScheduleNextEnemySpawn();
     }
     void ScheduleNextEnemySpawn()
@@ -67,14 +52,16 @@ public class EnemySpawner : MonoBehaviour
         float spawnInNSeconds;
         if (maxSpawnRate > 1f)
         {
-            spawnInNSeconds = Random.Range(1f, maxSpawnRate); //questa variabile assume un valore casuale tra 1 e 5 
-        }
+            spawnInNSeconds =
+                Random.Range(1f, maxSpawnRate); // questa variabile assume un valore casuale tra 1 e 5 
+
+        }
         else
         {
             spawnInNSeconds = 1f;
         }
     }
-    void increseSpawnRate() //aumenta la difficoltà
+    public void IncreaseSpawnRate() // aumenta la difficoltà
     {
         if (maxSpawnRate > 1f)
         {
@@ -82,17 +69,19 @@ public class EnemySpawner : MonoBehaviour
         }
         else if (maxSpawnRate == 1)
         {
-            CancelInvoke("increseSpawnRate");
+            CancelInvoke("IncreaseSpawnRate");
         }
     }
     public void ScheduleEnemySpawn()
     {
         maxSpawnRate = 5f; // va ridefinito perchè nei metodi precedenti ne abbiamo modificato il valore
-        Invoke("SpawnEnemy", maxSpawnRate);
-        //incrementiamo lo spawnrate ogni 10 secondi
-        InvokeRepeating("increseSpawnRate", 0f, 10f); // il metodo incresespawnrate viene chiamato ogni 10 secondi
-    }
-    public void UnscheduleEnemySpawn() //stoppa l'enemy spawn
+        Invoke(nameof(SpawnEnemy), maxSpawnRate);
+        //incrementiamo lo spawnrate ogni 10 secondi
+        InvokeRepeating(nameof(IncreaseSpawnRate), 0f,
+                         10f); // il metodo incresespawnrate viene chiamato ogni 10 secondi
+
+    }
+    public void UnscheduleEnemySpawn() // stoppa l'enemy spawn
     {
         CancelInvoke("SpawnEnemy");
         CancelInvoke("increseSpawnRate");
@@ -101,7 +90,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Bullet"))
         {
-            killed?.Invoke(this);            
+            killed?.Invoke(this);
         }
     }
 }
