@@ -1527,7 +1527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy_1: {fileID: 2862883385369808615, guid: 83844528e040c354b86bd5c898bb423e, type: 3}
-  Enemy_2: {fileID: 7352713272412537379, guid: d6cc672354478644794a8fca6690e911, type: 3}
+  Enemy_2: {fileID: 7352713272412537379, guid: 2cdfc11be270445418ce760a01d52cc6, type: 3}
   maxSpawnRate: 5
   timer: 0
   countSpawn: 0
