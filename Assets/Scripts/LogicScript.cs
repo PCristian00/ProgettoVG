@@ -7,6 +7,14 @@ public class LogicScript : MonoBehaviour
 {
     // Punteggio del giocatore
     public int playerScore;
+    // Punteggio migliore di sempre
+    public static int highScore;
+    // Velocita' di gioco (tasso di spawn ostacoli), inversamente proporzionale
+    public float speed = 7f;
+    private float maxSpeed;
+    private float minSpeed;
+    // Contatore di velocita' (TROVARE MODO DI RIMUOVERE)
+    private int speedLevel = 0;
     // Casella di testo che mostra il punteggio attuale
     public TextMeshProUGUI scoreText;
     // Casella di testo che mostra il punteggio migliore di sempre
@@ -18,16 +26,12 @@ public class LogicScript : MonoBehaviour
     // Suono da attivare per ogni punto ottenuto
     public AudioSource scoreEffect;
     // Musica di sottofondo
-    public AudioSource backGroundMusic;
+    // public AudioSource backGroundMusic;
+    // Strati musicali, regolati da velocita'
+    public AudioSource[] musicLayers;
 
-    // Velocita' di gioco (tasso di spawn ostacoli), inversamente proporzionale
-    public float speed = 7f;
-    private float maxSpeed;
-    private float minSpeed;
-    // Contatore di velocita' (TROVARE MODO DI RIMUOVERE)
-    private int speedLevel = 0;
-    // Punteggio migliore di sempre
-    public static int highScore;
+    
+   
 
     private void Start()
     {
@@ -82,20 +86,34 @@ public class LogicScript : MonoBehaviour
         // Aumento di velocita'
         if (input == 1f && speed > maxSpeed)
         {
+            Debug.Log("Velocita' in aumento");
             speed--;
             speedLevel++;
+            Debug.Log("Nuova traccia musicale");
+            // Attiva il layer attuale
+            musicLayers[speedLevel].mute = false;
+            // Diminuisce il volume del layer inferiore
+            musicLayers[speedLevel - 1].volume -= 0.2f;
 
 
         }
         // Diminuzione di velocita'
         else if (input == -1f && speed < minSpeed)
         {
+            Debug.Log("Velocita' in diminuzione");
             speed++;
+            Debug.Log("Traccia musicale rimossa");
+            // Spegne il layer attuale
+            musicLayers[speedLevel].mute = true;
+            // Aumenta il volume del layer inferiore 
+            musicLayers[speedLevel - 1].volume += 0.2f;
             speedLevel--;
+
         }
 
         Debug.Log("VELOCITA': " + speedLevel + " / 5");
         speedText.text = speedLevel.ToString();
+        
     }
 
     // Controlla il punteggio e regola la difficolta' (velocita') di conseguenza
