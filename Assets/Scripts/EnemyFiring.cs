@@ -12,7 +12,7 @@ public class EnemyFiring : MonoBehaviour
     void Start()
     {
         //spara dopo due secondi
-        Invoke("FireBullet", 2f);
+        //Invoke("FireBullet", 2f);
     }
 
     // Update is called once per frame
