@@ -26,7 +26,7 @@ public class LogicScript : MonoBehaviour
     // Suono da attivare per ogni punto ottenuto
     public AudioSource scoreEffect;
     // Musica di sottofondo
-    public AudioSource backGroundMusic;
+    //public AudioSource backGroundMusic;
     // Strati musicali, regolati da velocita'
     public AudioSource[] musicLayers;
 
