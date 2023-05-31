@@ -25,13 +25,8 @@ public class LogicScript : MonoBehaviour
     public GameObject gameOverScreen;
     // Suono da attivare per ogni punto ottenuto
     public AudioSource scoreEffect;
-    // Musica di sottofondo
-    // public AudioSource backGroundMusic;
     // Strati musicali, regolati da velocita'
     public AudioSource[] musicLayers;
-
-    
-   
 
     private void Start()
     {
@@ -95,7 +90,6 @@ public class LogicScript : MonoBehaviour
             // Diminuisce il volume del layer inferiore
             musicLayers[speedLevel - 1].volume -= 0.2f;
 
-
         }
         // Diminuzione di velocita'
         else if (input == -1f && speed < minSpeed)
@@ -105,15 +99,13 @@ public class LogicScript : MonoBehaviour
             Debug.Log("Traccia musicale rimossa");
             // Spegne il layer attuale
             musicLayers[speedLevel].mute = true;
-            // Aumenta il volume del layer inferiore 
+            // Aumenta il volume del layer inferiore
             musicLayers[speedLevel - 1].volume += 0.2f;
             speedLevel--;
-
         }
 
         Debug.Log("VELOCITA': " + speedLevel + " / 5");
         speedText.text = speedLevel.ToString();
-        
     }
 
     // Controlla il punteggio e regola la difficolta' (velocita') di conseguenza
