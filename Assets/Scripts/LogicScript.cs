@@ -2,6 +2,7 @@ using System.Reflection;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LogicScript : MonoBehaviour
 {
@@ -34,9 +35,12 @@ public class LogicScript : MonoBehaviour
     // Riferimento alla barra della velocita'
     public GameObject speedBar;
     // Riferimento allo spriteRenderer della barra della velocita'
-    private SpriteRenderer speedSpriteRenderer;
+    //private SpriteRenderer speedSpriteRenderer;
     // Array contenente i vari sprite della barra della velocita'
     public Sprite[] speedSprites;
+
+    //Riferimento a Image della barra della velocita'
+    private Image speedImage;
 
     private void Start()
     {
@@ -49,7 +53,8 @@ public class LogicScript : MonoBehaviour
         maxSpeed = 2f;
         minSpeed = speed;
 
-        speedSpriteRenderer = speedBar.GetComponent<SpriteRenderer>();
+        //speedSpriteRenderer = speedBar.GetComponent<SpriteRenderer>();
+        speedImage = speedBar.GetComponent<Image>();
     }
 
     public void AddScore(int scoreToAdd)
@@ -118,7 +123,8 @@ public class LogicScript : MonoBehaviour
 
         Debug.Log("VELOCITA': " + speedLevel + " / 5");
         // speedText.text = speedLevel.ToString();
-        speedSpriteRenderer.sprite = speedSprites[speedLevel];
+        // speedSpriteRenderer.sprite = speedSprites[speedLevel];
+        speedImage.sprite = speedSprites[speedLevel];
     }
 
     // Controlla il punteggio e regola la difficolta' (velocita') di conseguenza
