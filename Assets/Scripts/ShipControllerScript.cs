@@ -156,6 +156,9 @@ public class ShipControllerScript : MonoBehaviour
         get { return Time.time > nextFireTime; }
     }
 
+    // Permette di sparare proiettili.
+    // Il valore type indica il tipo di nemico che il proiettile puo' distruggere.
+    // Associare ogni tipo di nemico ad un layer diverso e collegare al proiettile giusto.
     private void Shoot(int type)
     {
         if (CanFire)
@@ -167,8 +170,9 @@ public class ShipControllerScript : MonoBehaviour
             // Crea un oggetto di tipo Bullet
             // Il movimento del Bullet viene gestito in un altro script
             GameObject bullet = Instantiate(Bullet);
-            bullet.gameObject.layer = type;
-            
+            // Il proiettile ha lo stesso layer specificato dall'input
+            bullet.layer = type;
+
             // Il Bullet parte dalla posizione di Ship modificata di +1 in verticale
             Vector2 shootPos = new(transform.position.x, transform.position.y + 1);
             bullet.transform.position = shootPos;
