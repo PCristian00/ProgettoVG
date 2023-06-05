@@ -980,7 +980,6 @@ MonoBehaviour:
   speed: 0
   scoreText: {fileID: 1344122451}
   highScoreText: {fileID: 1754790768}
-  speedText: {fileID: 1904708565}
   gameOverScreen: {fileID: 1980666060}
   scoreEffect: {fileID: 0}
   musicLayers:
@@ -2947,7 +2946,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1980666061
 RectTransform:
   m_ObjectHideFlags: 0
