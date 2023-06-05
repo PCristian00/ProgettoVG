@@ -2,6 +2,7 @@ using System.Reflection;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LogicScript : MonoBehaviour
 {
@@ -13,17 +14,14 @@ public class LogicScript : MonoBehaviour
     public float speed = 7f;
     private float maxSpeed;
     private float minSpeed;
-    
+
     // Contatore di velocita' (TROVARE MODO DI RIMUOVERE)
     private int speedLevel = 0;
     // Casella di testo che mostra il punteggio attuale
     public TextMeshProUGUI scoreText;
     // Casella di testo che mostra il punteggio migliore di sempre
     public TextMeshProUGUI highScoreText;
-    
-    //// Casella di testo che mostra la velocita' attuale
-    //public TextMeshProUGUI speedText;
-    
+
     // Schermata da caricare quando le vite finiscono
     public GameObject gameOverScreen;
     // Suono da attivare per ogni punto ottenuto
@@ -33,10 +31,10 @@ public class LogicScript : MonoBehaviour
 
     // Riferimento alla barra della velocita'
     public GameObject speedBar;
-    // Riferimento allo spriteRenderer della barra della velocita'
-    private SpriteRenderer speedSpriteRenderer;
     // Array contenente i vari sprite della barra della velocita'
     public Sprite[] speedSprites;
+    //Riferimento a Image della barra della velocita'
+    private Image speedImage;
 
     private void Start()
     {
@@ -48,8 +46,7 @@ public class LogicScript : MonoBehaviour
         speed = 7f;
         maxSpeed = 2f;
         minSpeed = speed;
-
-        speedSpriteRenderer = speedBar.GetComponent<SpriteRenderer>();
+        speedImage = speedBar.GetComponent<Image>();
     }
 
     public void AddScore(int scoreToAdd)
@@ -73,6 +70,7 @@ public class LogicScript : MonoBehaviour
 
     public void GameOver()
     {
+        speedBar.SetActive(false);
         gameOverScreen.SetActive(true);
 
         Debug.Log("Partita finita con un punteggio di " + playerScore);
@@ -117,8 +115,8 @@ public class LogicScript : MonoBehaviour
         }
 
         Debug.Log("VELOCITA': " + speedLevel + " / 5");
-        // speedText.text = speedLevel.ToString();
-        speedSpriteRenderer.sprite = speedSprites[speedLevel];
+
+        speedImage.sprite = speedSprites[speedLevel];
     }
 
     // Controlla il punteggio e regola la difficolta' (velocita') di conseguenza

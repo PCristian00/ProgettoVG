@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShipControllerScript : MonoBehaviour
 {
@@ -40,8 +41,8 @@ public class ShipControllerScript : MonoBehaviour
 
     // Riferimento alla barra della vita
     public GameObject lifeBar;
-    // Riferimento allo spriteRenderer della barra della vita
-    private SpriteRenderer lifeSpriteRenderer;
+    //Riferimento a Image della barra della vita
+    private Image lifeImage;
     // Array contenente i vari sprite della barra della vita
     public Sprite[] lifeSprites;
     // La vita dell'astronave
@@ -55,11 +56,14 @@ public class ShipControllerScript : MonoBehaviour
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
 
         life = 5;
-        lifeSpriteRenderer = lifeBar.GetComponent<SpriteRenderer>();
+        lifeImage = lifeBar.GetComponent<Image>();
+
+
     }
 
     void Update()
     {
+
         // Se il giocatore e' ancora in vita
         if (isAlive)
         {
@@ -157,7 +161,8 @@ public class ShipControllerScript : MonoBehaviour
         if ((collision.gameObject.layer == 3 || collision.gameObject.layer == 7) && !NoClip)
         {
             life--;
-            lifeSpriteRenderer.sprite = lifeSprites[life];
+            lifeImage.sprite = lifeSprites[life];
+
             // Distruzione dell'ostacolo / proiettile all'impatto
             Destroy(collision.gameObject);
             Debug.Log("Ti rimane " + life + "/5 salute");
