@@ -85,6 +85,18 @@ public class ShipControllerScript : MonoBehaviour
                 Shoot();
             }
 
+            // Sparo (Arma 2)
+            if (Input.GetButtonDown("Fire2"))
+            {
+                Shoot();
+            }
+
+            // Sparo (Arma 3)
+            if (Input.GetButtonDown("Fire3"))
+            {
+                Shoot();
+            }
+
             // Astronave immortale. TOGLIERE DA PRODOTTO FINALE
             if (Input.GetButtonDown("No Clip"))
             {
