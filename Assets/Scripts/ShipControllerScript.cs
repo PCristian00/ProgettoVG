@@ -82,19 +82,25 @@ public class ShipControllerScript : MonoBehaviour
             // Sparo (Arma 1)
             if (Input.GetButtonDown("Fire1"))
             {
-                Shoot();
+                //Spara un proiettile che colpisce il layer 6, ovvero i nemici
+                //Bozza
+                Shoot(6);
             }
 
             // Sparo (Arma 2)
             if (Input.GetButtonDown("Fire2"))
             {
-                Shoot();
+                //Colpisce su layer 2, NON UCCIDE NEMICI PER ORA
+
+                Shoot(2);
             }
 
             // Sparo (Arma 3)
             if (Input.GetButtonDown("Fire3"))
             {
-                Shoot();
+                //Colpisce su layer 3, NON UCCIDE NEMICI PER ORA
+
+                Shoot(3);
             }
 
             // Astronave immortale. TOGLIERE DA PRODOTTO FINALE
@@ -150,15 +156,19 @@ public class ShipControllerScript : MonoBehaviour
         get { return Time.time > nextFireTime; }
     }
 
-    private void Shoot()
+    private void Shoot(int type)
     {
         if (CanFire)
         {
             nextFireTime = Time.time + timeBetweenShots;
 
+            Debug.Log("Proiettile di tipo " + type);
+
             // Crea un oggetto di tipo Bullet
             // Il movimento del Bullet viene gestito in un altro script
             GameObject bullet = Instantiate(Bullet);
+            bullet.gameObject.layer = type;
+            
             // Il Bullet parte dalla posizione di Ship modificata di +1 in verticale
             Vector2 shootPos = new(transform.position.x, transform.position.y + 1);
             bullet.transform.position = shootPos;
