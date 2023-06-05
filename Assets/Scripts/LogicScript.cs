@@ -13,14 +13,17 @@ public class LogicScript : MonoBehaviour
     public float speed = 7f;
     private float maxSpeed;
     private float minSpeed;
+    
     // Contatore di velocita' (TROVARE MODO DI RIMUOVERE)
     private int speedLevel = 0;
     // Casella di testo che mostra il punteggio attuale
     public TextMeshProUGUI scoreText;
     // Casella di testo che mostra il punteggio migliore di sempre
     public TextMeshProUGUI highScoreText;
-    // Casella di testo che mostra la velocita' attuale
-    public TextMeshProUGUI speedText;
+    
+    //// Casella di testo che mostra la velocita' attuale
+    //public TextMeshProUGUI speedText;
+    
     // Schermata da caricare quando le vite finiscono
     public GameObject gameOverScreen;
     // Suono da attivare per ogni punto ottenuto
@@ -114,7 +117,7 @@ public class LogicScript : MonoBehaviour
         }
 
         Debug.Log("VELOCITA': " + speedLevel + " / 5");
-        speedText.text = speedLevel.ToString();
+        // speedText.text = speedLevel.ToString();
         speedSpriteRenderer.sprite = speedSprites[speedLevel];
     }
 
