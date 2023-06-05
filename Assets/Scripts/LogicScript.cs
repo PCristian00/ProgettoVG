@@ -28,6 +28,13 @@ public class LogicScript : MonoBehaviour
     // Strati musicali, regolati da velocita'
     public AudioSource[] musicLayers;
 
+    // Riferimento alla barra della velocita'
+    public GameObject speedBar;
+    // Riferimento allo spriteRenderer della barra della velocita'
+    private SpriteRenderer speedSpriteRenderer;
+    // Array contenente i vari sprite della barra della velocita'
+    public Sprite[] speedSprites;
+
     private void Start()
     {
         playerScore = 0;
@@ -38,6 +45,8 @@ public class LogicScript : MonoBehaviour
         speed = 7f;
         maxSpeed = 2f;
         minSpeed = speed;
+
+        speedSpriteRenderer = speedBar.GetComponent<SpriteRenderer>();
     }
 
     public void AddScore(int scoreToAdd)
@@ -106,6 +115,7 @@ public class LogicScript : MonoBehaviour
 
         Debug.Log("VELOCITA': " + speedLevel + " / 5");
         speedText.text = speedLevel.ToString();
+        speedSpriteRenderer.sprite = speedSprites[speedLevel];
     }
 
     // Controlla il punteggio e regola la difficolta' (velocita') di conseguenza
