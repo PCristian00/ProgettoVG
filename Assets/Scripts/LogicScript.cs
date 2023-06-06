@@ -64,7 +64,7 @@ public class LogicScript : MonoBehaviour
     {
         // Svuota il DebugLog prima di riavviare la scena
         // Forse inutile in gioco finale
-        ClearLog();
+        // ClearLog();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -140,11 +140,14 @@ public class LogicScript : MonoBehaviour
     // ATTENZIONE! CAUSA ERRORI DURANTE BUILD
     // INSERIRE IN COMMENTO PRIMA DI BUILD
 
-    public void ClearLog()
-    {
-        var assembly = Assembly.GetAssembly(typeof(UnityEditor.Editor));
-        var type = assembly.GetType("UnityEditor.LogEntries");
-        var method = type.GetMethod("Clear");
-        method.Invoke(new object(), null);
-    }
+    
+    //public void ClearLog()
+    //{
+    //    var assembly = Assembly.GetAssembly(typeof(UnityEditor.Editor));
+    //    var type = assembly.GetType("UnityEditor.LogEntries");
+    //    var method = type.GetMethod("Clear");
+    //    method.Invoke(new object(), null);
+    //}
+
+ 
 }
