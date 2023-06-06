@@ -533,6 +533,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e4bccbf6e00a69b4b99b3daafd42b7e9, type: 3}
   - {fileID: 21300000, guid: 2ab1c31f0121f9241a82f9ed5942d74f, type: 3}
   - {fileID: 21300000, guid: 841d6144a5d2e054f976ddfb44da7738, type: 3}
+  - {fileID: 21300000, guid: 4b53bc72a400fb7499bfc08f3ff63952, type: 3}
+  life: 0
 --- !u!61 &368739343
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2633,6 +2635,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4803162757409877373, guid: 9e42f942e742aee4097766cad228dd88, type: 3}
+      propertyPath: moveSpeed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e42f942e742aee4097766cad228dd88, type: 3}
 --- !u!1001 &6636638421250545615
@@ -2642,17 +2648,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6554693512222139244, guid: c1657756631806c4fba88b819b93ff72, type: 3}
+      propertyPath: moveSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6636638421958929678, guid: c1657756631806c4fba88b819b93ff72, type: 3}
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6636638421958929678, guid: c1657756631806c4fba88b819b93ff72, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6
+      value: -0.91
       objectReference: {fileID: 0}
     - target: {fileID: 6636638421958929678, guid: c1657756631806c4fba88b819b93ff72, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 4.7
       objectReference: {fileID: 0}
     - target: {fileID: 6636638421958929678, guid: c1657756631806c4fba88b819b93ff72, type: 3}
       propertyPath: m_LocalPosition.z

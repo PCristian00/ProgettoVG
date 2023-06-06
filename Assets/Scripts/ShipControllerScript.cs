@@ -46,7 +46,7 @@ public class ShipControllerScript : MonoBehaviour
     // Array contenente i vari sprite della barra della vita
     public Sprite[] lifeSprites;
     // La vita dell'astronave
-    private int life;
+    public int life;
     private void Start()
     {
         myBody = gameObject.GetComponent<Rigidbody2D>();
@@ -201,6 +201,19 @@ public class ShipControllerScript : MonoBehaviour
                 collision.isTrigger = false;
                 DeathAnimation();
             }
+        }
+
+        if (collision.gameObject.layer == 8)
+        {
+            Debug.Log("TOCCATO");
+            if (life < 5)
+            {
+                Debug.Log("La vita non e' al massimo");
+                life++;
+                lifeImage.sprite = lifeSprites[life];
+                Debug.Log("SPRITE INCREMENTATO; VITA AUMENTATA");
+            }
+            Destroy(collision.gameObject);
         }
     }
 
