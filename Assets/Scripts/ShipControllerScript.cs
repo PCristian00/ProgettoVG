@@ -37,7 +37,7 @@ public class ShipControllerScript : MonoBehaviour
     // Contatore che calcola il tempo al prossimo sparo possibile
     private float nextFireTime;
     // Secondi che devono passare tra uno sparo e l'altro, misurato in secondi
-    private readonly float timeBetweenShots = 1;
+    private float timeBetweenShots = 1;
 
     // Riferimento alla barra della vita
     public GameObject lifeBar;
@@ -215,6 +215,14 @@ public class ShipControllerScript : MonoBehaviour
             }
             Destroy(collision.gameObject);
         }
+
+        if (collision.gameObject.layer == 9)
+        {
+            Debug.Log("Sparo veloce");
+            timeBetweenShots = 0.5f;
+            Invoke(nameof(ResetEffect), 10);
+            Destroy(collision.gameObject);
+        }
     }
 
     // Sposta l'astronave al contatto con l'ostacolo in una direzione casuale
@@ -228,5 +236,12 @@ public class ShipControllerScript : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().AddForce(Random.insideUnitCircle.normalized * 500f);
         // Rende invisibile la barra della vita dopo la morta
         //lifeBar.SetActive(false);
+    }
+
+    private void ResetEffect()
+    {
+        Debug.Log("Tempo power-up scaduto");
+        timeBetweenShots = 1;
+        //Destroy(gameObject);
     }
 }
