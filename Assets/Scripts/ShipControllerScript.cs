@@ -41,7 +41,7 @@ public class ShipControllerScript : MonoBehaviour
 
     // Riferimento alla barra della vita
     public GameObject lifeBar;
-    //Riferimento a Image della barra della vita
+    // Riferimento a Image della barra della vita
     private Image lifeImage;
     // Array contenente i vari sprite della barra della vita
     public Sprite[] lifeSprites;
@@ -57,13 +57,10 @@ public class ShipControllerScript : MonoBehaviour
 
         life = 5;
         lifeImage = lifeBar.GetComponent<Image>();
-
-
     }
 
     void Update()
     {
-
         // Se il giocatore e' ancora in vita
         if (isAlive)
         {
@@ -82,15 +79,15 @@ public class ShipControllerScript : MonoBehaviour
             // Sparo (Arma 1)
             if (Input.GetButtonDown("Fire1"))
             {
-                //Spara un proiettile che colpisce il layer 6, ovvero i nemici
-                //Bozza
+                // Spara un proiettile che colpisce il layer 6, ovvero i nemici
+                // Bozza
                 Shoot(6);
             }
 
             // Sparo (Arma 2)
             if (Input.GetButtonDown("Fire2"))
             {
-                //Colpisce su layer 2, NON UCCIDE NEMICI PER ORA
+                // Colpisce su layer 2, NON UCCIDE NEMICI PER ORA
 
                 Shoot(2);
             }
@@ -98,7 +95,7 @@ public class ShipControllerScript : MonoBehaviour
             // Sparo (Arma 3)
             if (Input.GetButtonDown("Fire3"))
             {
-                //Colpisce su layer 3, NON UCCIDE NEMICI PER ORA
+                // Colpisce su layer 3, NON UCCIDE NEMICI PER ORA
 
                 Shoot(3);
             }
@@ -181,9 +178,7 @@ public class ShipControllerScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // La collisione avviene solo con oggetto del layer Obstacle o Enemy
-        //   && !NoClip e il campo NoClip SERVE SOLO PER IMMORTALITa al momento.
-        //  RIMUOVERE SE INUTILIZZATO DAL GIOCO FINALE
+        // Se la collisione avviene con Obstacle o Enemy e il NoClip disattivato (Immortalita')
         if ((collision.gameObject.layer == 3 || collision.gameObject.layer == 7) && !NoClip)
         {
             life--;
@@ -203,6 +198,7 @@ public class ShipControllerScript : MonoBehaviour
             }
         }
 
+        // Se la collisione avviene con HealthPowerUp
         if (collision.gameObject.layer == 8)
         {
             Debug.Log("TOCCATO");
@@ -216,10 +212,12 @@ public class ShipControllerScript : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
+        // Se la collisione avviene con MultiplierPowerUp
         if (collision.gameObject.layer == 9)
         {
             Debug.Log("Sparo veloce");
             timeBetweenShots = 0.5f;
+            // Il power-up dura 10 secondi
             Invoke(nameof(ResetEffect), 10);
             Destroy(collision.gameObject);
         }
@@ -234,14 +232,15 @@ public class ShipControllerScript : MonoBehaviour
         colliderComponent.isTrigger = false;
         myBody.isKinematic = false;
         gameObject.GetComponent<Rigidbody2D>().AddForce(Random.insideUnitCircle.normalized * 500f);
-        // Rende invisibile la barra della vita dopo la morta
-        //lifeBar.SetActive(false);
+
+        // Rende invisibile la barra della vita dopo la morte
+        // lifeBar.SetActive(false);
     }
 
+    // Annulla il power-up Multiplier
     private void ResetEffect()
     {
         Debug.Log("Tempo power-up scaduto");
         timeBetweenShots = 1;
-        //Destroy(gameObject);
     }
 }
