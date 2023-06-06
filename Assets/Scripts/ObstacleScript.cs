@@ -10,13 +10,15 @@ class ObstacleScript : MonoBehaviour
     public LogicScript logic;
     // Punteggio assegnato da ogni ostacolo superato
     public int scoreValue = 1;
-    public ShipControllerScript player;
+    //public ShipControllerScript player;
 
     // Tasso di ridimensionamento, inversamente proporzionale
     public float scaleRate = 350f;
 
     private void Start()
-    { logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>(); }
+    {
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+    }
     // Update is called once per frame
     void Update()
     {
