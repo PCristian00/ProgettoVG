@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7655612994091964207}
   - component: {fileID: 5911506374123739651}
   - component: {fileID: 1324006937702616653}
-  - component: {fileID: 678199513}
   - component: {fileID: 5687102632418945449}
   - component: {fileID: 2402899214981261019}
   m_Layer: 3
@@ -104,29 +103,7 @@ MonoBehaviour:
   deadZone: -6.5
   logic: {fileID: 0}
   scoreValue: 1
-  player: {fileID: 0}
   scaleRate: 350
---- !u!50 &678199513
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7420188353375557527}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!58 &5687102632418945449
 CircleCollider2D:
   m_ObjectHideFlags: 0
