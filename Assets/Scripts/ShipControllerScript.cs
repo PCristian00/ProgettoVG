@@ -214,6 +214,6 @@ public class ShipControllerScript : MonoBehaviour
         myBody.isKinematic = false;
         gameObject.GetComponent<Rigidbody2D>().AddForce(Random.insideUnitCircle.normalized * 500f);
         // Rende invisibile la barra della vita dopo la morta
-        lifeBar.SetActive(false);
+        //lifeBar.SetActive(false);
     }
 }
