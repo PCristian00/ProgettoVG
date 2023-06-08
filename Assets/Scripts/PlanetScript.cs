@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.Events;
-using System.Collections.Generic;
 
 public class PlanetScript : MonoBehaviour
 {
@@ -9,7 +7,7 @@ public class PlanetScript : MonoBehaviour
 	public Vector3 targetPos;
 
 	[Tooltip("Horizontal speed, in units/sec")]
-	public float speed = 10;
+	public float speed = 5;
 
 	[Tooltip("How high the arc should be, in units")]
 	public float arcHeight = 1;
@@ -32,6 +30,12 @@ public class PlanetScript : MonoBehaviour
 		float x1 = targetPos.x;
 		float dist = x1 - x0;
 		float nextX = Mathf.MoveTowards(transform.position.x, x1, speed * Time.deltaTime);
+
+		// Voglio che non cambi altezza
+		targetPos.y = startPos.y;
+		// Voglio che arrivi all'opposto della partenza
+		targetPos.x = -startPos.x;
+
 		float baseY = Mathf.Lerp(startPos.y, targetPos.y, (nextX - x0) / dist);
 		float arc = arcHeight * (nextX - x0) * (nextX - x1) / (-0.25f * dist * dist);
 		nextPos = new Vector3(nextX, baseY + arc, transform.position.z);

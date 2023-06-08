@@ -119,5 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5efd94e602285434cb20fbd5c5367ee5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.1
-  deadZone: -6.5
+  targetPos: {x: 0, y: 0, z: 0}
+  speed: 5
+  arcHeight: 1
