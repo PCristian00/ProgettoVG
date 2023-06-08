@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class PlanetSpawnerScript : MonoBehaviour
 {
+    // Contiene i pianeti
     public GameObject[] planets;
-    // public float spawnRate = 5;
-    // public int planetNumber;
 
     public LogicScript logic;
+
+    // Indice dell'array planets, usato per spawnarli in sequenza
+    private int planetIndex = 0;
 
     private float timer = 0;
     // Start is called before the first frame update
@@ -19,7 +21,7 @@ public class PlanetSpawnerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer < (logic.speed*2f))
+        if (timer < (logic.speed * 2f))
         {
             timer += Time.deltaTime;
         }
@@ -34,20 +36,19 @@ public class PlanetSpawnerScript : MonoBehaviour
     {
         int PositionY = Random.Range(-1, 3);
 
-        //if (PositionY <= 33)
-        //{
-        //    PositionY = 0;
-        //}
-        //else if (PositionY <= 66)
-        //{
-        //    PositionY = 2;
-        //}
-        //else
-        //{
-        //    PositionY = 4;
-        //}
+        // Spawn casuale dei pianeti
+        // Instantiate(planets[Random.Range(0, planets.Length)], new Vector3(transform.position.x, PositionY, 0), transform.rotation);
 
-        Instantiate(planets[Random.Range(0, planets.Length)], new Vector3(transform.position.x, PositionY, 0),
-                    transform.rotation);
+        // Spawn sequenziale dei pianeti
+        Instantiate(planets[planetIndex], new Vector3(transform.position.x, PositionY, 0), transform.rotation);
+
+        Debug.Log("Pianeta spawnato: " + planetIndex+ " / "+ (planets.Length-1));
+
+        if (planetIndex == (planets.Length - 1))
+        {
+            Debug.Log("Sequenza pianeti finita. Ricomincio.");
+            planetIndex = 0;
+        }
+        else planetIndex++;
     }
 }
