@@ -15,6 +15,8 @@ public class LogicScript : MonoBehaviour
     private float maxSpeed;
     private float minSpeed;
 
+    public int scoreMultiplier = 1;
+
     // Contatore di velocita' (TROVARE MODO DI RIMUOVERE)
     private int speedLevel = 0;
     // Casella di testo che mostra il punteggio attuale
@@ -56,7 +58,7 @@ public class LogicScript : MonoBehaviour
     {
         if (!gameOverScreen.activeSelf)
         {
-            playerScore += scoreToAdd;
+            playerScore += (scoreToAdd*scoreMultiplier);
             scoreText.text = playerScore.ToString();
             CheckDifficulty();
             // scoreEffect.Play();

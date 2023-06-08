@@ -233,6 +233,16 @@ public class ShipControllerScript : MonoBehaviour
             Invoke(nameof(SpeedResetEffect), 10);
             Destroy(collision.gameObject);
         }
+
+        // Se la collisione avviene con DoubleScorePowerUp
+        if (collision.gameObject.layer == 11)
+        {
+            Debug.Log("Punti doppi");
+            logic.scoreMultiplier *= 2;
+            // Il power-up dura 10 secondi
+            Invoke(nameof(ScoreResetEffect), 10);
+            Destroy(collision.gameObject);
+        }
     }
 
     // Sposta l'astronave al contatto con l'ostacolo in una direzione casuale
@@ -260,5 +270,11 @@ public class ShipControllerScript : MonoBehaviour
     {
         Debug.Log("Tempo power-up Speed scaduto");
         speed -= 10;
+    }
+
+    private void ScoreResetEffect()
+    {
+        Debug.Log("Tempo power-up DoubleScore scaduto");
+        logic.scoreMultiplier /= 2;
     }
 }
