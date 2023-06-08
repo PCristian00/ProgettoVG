@@ -1692,6 +1692,7 @@ MonoBehaviour:
   maxSpawnRate: 5
   timer: 0
   countSpawn: 0
+  bossIsAlive: 0
 --- !u!4 &957245572
 Transform:
   m_ObjectHideFlags: 0

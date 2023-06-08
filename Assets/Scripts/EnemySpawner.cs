@@ -15,6 +15,8 @@ public class EnemySpawner : MonoBehaviour
     public float timer = 0;
     public float countSpawn = 0;
     public System.Action<EnemySpawner> killed;
+
+    public bool bossIsAlive;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (countSpawn < 3f)
+        if (countSpawn < 3f && !bossIsAlive)
         {
             if (timer < maxSpawnRate)
             {
