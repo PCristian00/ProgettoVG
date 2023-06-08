@@ -81,7 +81,7 @@ public class ShipControllerScript : MonoBehaviour
             {
                 // Spara un proiettile che colpisce il layer 6, ovvero i nemici
                 // Bozza
-                Shoot(6);
+                Shoot(7);
             }
 
             // Sparo (Arma 2)
@@ -89,7 +89,7 @@ public class ShipControllerScript : MonoBehaviour
             {
                 // Colpisce su layer 2, NON UCCIDE NEMICI PER ORA
 
-                Shoot(2);
+                Shoot(12);
             }
 
             // Sparo (Arma 3)
@@ -97,7 +97,7 @@ public class ShipControllerScript : MonoBehaviour
             {
                 // Colpisce su layer 3, NON UCCIDE NEMICI PER ORA
 
-                Shoot(3);
+                Shoot(13);
             }
 
             // Astronave immortale. TOGLIERE DA PRODOTTO FINALE
@@ -170,6 +170,8 @@ public class ShipControllerScript : MonoBehaviour
             // Il proiettile ha lo stesso layer specificato dall'input
             bullet.layer = type;
 
+            Debug.Log("Assegnato tipo "+bullet.layer);
+
             // Il Bullet parte dalla posizione di Ship modificata di +1 in verticale
             Vector2 shootPos = new(transform.position.x, transform.position.y + 1);
             bullet.transform.position = shootPos;
@@ -178,8 +180,8 @@ public class ShipControllerScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Se la collisione avviene con Obstacle o Enemy e il NoClip disattivato (Immortalita')
-        if ((collision.gameObject.layer == 3 || collision.gameObject.layer == 7) && !NoClip)
+        // Se la collisione avviene con Obstacle o Bullet e il NoClip disattivato (Immortalita')
+        if ((collision.gameObject.layer == 3 || collision.gameObject.layer == 6) && !NoClip)
         {
             life--;
             // Riduce la velocita' del gioco con la collisione, se non è gia' al minimo

@@ -1048,6 +1048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerScore: 0
   speed: 0
+  scoreMultiplier: 1
   scoreText: {fileID: 1344122451}
   highScoreText: {fileID: 1754790768}
   gameOverScreen: {fileID: 1980666060}
@@ -1688,8 +1689,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df6699c40b275741a3816f867e843f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy_1: {fileID: 2862883385369808615, guid: 83844528e040c354b86bd5c898bb423e, type: 3}
-  Enemy_2: {fileID: 7352713272412537379, guid: 2cdfc11be270445418ce760a01d52cc6, type: 3}
+  enemies:
+  - {fileID: 2862883385369808615, guid: 83844528e040c354b86bd5c898bb423e, type: 3}
+  - {fileID: 7352713272412537379, guid: d6cc672354478644794a8fca6690e911, type: 3}
+  - {fileID: 7352713272412537379, guid: 2cdfc11be270445418ce760a01d52cc6, type: 3}
   maxSpawnRate: 5
   timer: 0
   countSpawn: 0

@@ -1,27 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject Enemy_1;
-    public GameObject Enemy_2;
-
-
+    public GameObject [] enemies;
 
     public float maxSpawnRate = 5f; // tempo di spawn
     public float timer = 0;
     public float countSpawn = 0;
     public System.Action<EnemySpawner> killed;
 
+    // Ancora non implementata
     public bool bossIsAlive;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
 
 
@@ -51,8 +42,8 @@ public class EnemySpawner : MonoBehaviour
         max.x = 6f;
         min.x = -6f;
         max.y -= 3f;
-        GameObject[] enemies = { Enemy_1, Enemy_2 };
-        GameObject enemy = Instantiate(enemies[Random.Range(0, 2)]);
+        //GameObject[] enemies = { Enemy_1, Enemy_2 };
+        GameObject enemy = Instantiate(enemies[Random.Range(0, enemies.Length)]);
         enemy.transform.position = new Vector2(Random.Range(min.x, max.x), Random.Range(1, max.y));
         ScheduleNextEnemySpawn();
     }
@@ -71,6 +62,8 @@ public class EnemySpawner : MonoBehaviour
             spawnInNSeconds = 1f;
         }
     }
+
+    // FORSE INUTILIZZATA
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Bullet"))
