@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlanetSpawnerScript : MonoBehaviour
 {
-    public GameObject planet;
-    //public float spawnRate = 5;
+    public GameObject[] planets;
+    // public float spawnRate = 5;
+    // public int planetNumber;
 
     public LogicScript logic;
 
@@ -20,7 +19,7 @@ public class PlanetSpawnerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer < (logic.speed*1.5f))
+        if (timer < (logic.speed*2f))
         {
             timer += Time.deltaTime;
         }
@@ -48,7 +47,7 @@ public class PlanetSpawnerScript : MonoBehaviour
         //    PositionY = 4;
         //}
 
-        Instantiate(planet, new Vector3(transform.position.x, PositionY, 0),
+        Instantiate(planets[Random.Range(0, planets.Length)], new Vector3(transform.position.x, PositionY, 0),
                     transform.rotation);
     }
 }

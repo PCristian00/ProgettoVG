@@ -1821,7 +1821,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cff394576fbc1141ac0bfda3a94d9ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planet: {fileID: 6971683417520051241, guid: d38148cb87345e941a83b00cc89e6116, type: 3}
+  planets:
+  - {fileID: 6971683417520051241, guid: d38148cb87345e941a83b00cc89e6116, type: 3}
+  - {fileID: 6410288732398149777, guid: ae149bf988ef1984ab60f08a67fab549, type: 3}
+  - {fileID: 6669791936240146534, guid: cad34f224525d16459d6bfb62369faee, type: 3}
+  - {fileID: 5058845800345266876, guid: 0306c1edd1a249c43a92eab19b3daf2d, type: 3}
   logic: {fileID: 0}
 --- !u!4 &986438721
 Transform:
@@ -2648,7 +2652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4803162757409877372, guid: 9e42f942e742aee4097766cad228dd88, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.08
+      value: 2.68
       objectReference: {fileID: 0}
     - target: {fileID: 4803162757409877372, guid: 9e42f942e742aee4097766cad228dd88, type: 3}
       propertyPath: m_LocalPosition.z
