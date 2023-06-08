@@ -613,14 +613,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.17181383, g: 0.9339623, b: 0.22262369, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4fd9de11aed6b8f4f9bce584681e3c58, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3ce5c2351a9dac84db9dc3bd9fa4c646, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -655,7 +655,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 175}
+  m_AnchoredPosition: {x: 10, y: 175}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &519420028
@@ -1061,12 +1061,12 @@ MonoBehaviour:
   - {fileID: 946896258}
   speedBar: {fileID: 405889254}
   speedSprites:
-  - {fileID: 21300000, guid: 4fd9de11aed6b8f4f9bce584681e3c58, type: 3}
-  - {fileID: 21300000, guid: 4d12e81610e747547b8d162c0adf1ae4, type: 3}
-  - {fileID: 21300000, guid: a41f1f859c0e64c49a5d5930a0cbf4fe, type: 3}
-  - {fileID: 21300000, guid: 09b377ff67cc7ef4e9668b6503639b5c, type: 3}
-  - {fileID: 21300000, guid: dfdd7d90f92ad6e43b5e8954d1c67762, type: 3}
-  - {fileID: 21300000, guid: d0885dfcb3b45ac47a2a1179ddb9823f, type: 3}
+  - {fileID: 21300000, guid: 3ce5c2351a9dac84db9dc3bd9fa4c646, type: 3}
+  - {fileID: 21300000, guid: c7831bf1ef88f4e4280aad26c318908e, type: 3}
+  - {fileID: 21300000, guid: 856b855ef2cbcea4f999345abaa932b7, type: 3}
+  - {fileID: 21300000, guid: 1db1bdd604003c444a76527f53132e08, type: 3}
+  - {fileID: 21300000, guid: 0ade9b549f50f6c43a362a554a23e893, type: 3}
+  - {fileID: 21300000, guid: eec1bd4d35881c149b7b9f619678ce66, type: 3}
   message: {fileID: 1374430175}
 --- !u!4 &946896252
 Transform:
