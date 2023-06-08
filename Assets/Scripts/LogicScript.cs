@@ -15,6 +15,8 @@ public class LogicScript : MonoBehaviour
     private float maxSpeed;
     private float minSpeed;
 
+    public int scoreMultiplier = 1;
+
     // Contatore di velocita' (TROVARE MODO DI RIMUOVERE)
     private int speedLevel = 0;
     // Casella di testo che mostra il punteggio attuale
@@ -36,6 +38,9 @@ public class LogicScript : MonoBehaviour
     //Riferimento a Image della barra della velocita'
     private Image speedImage;
 
+    // Messaggio di testo
+    public TextMeshProUGUI message;
+
     private void Start()
     {
         playerScore = 0;
@@ -53,7 +58,7 @@ public class LogicScript : MonoBehaviour
     {
         if (!gameOverScreen.activeSelf)
         {
-            playerScore += scoreToAdd;
+            playerScore += (scoreToAdd*scoreMultiplier);
             scoreText.text = playerScore.ToString();
             CheckDifficulty();
             // scoreEffect.Play();
@@ -130,10 +135,17 @@ public class LogicScript : MonoBehaviour
             // Aumento velocita' minima
             if (minSpeed > maxSpeed)
             {
+                message.gameObject.SetActive(true);
+                Invoke(nameof(ToggleMessage), 1);
                 minSpeed--;
                 Debug.Log("NUOVA VELOCITA' MINIMA: " + (7 - minSpeed));
             }
         }
+    }
+
+    private void ToggleMessage()
+    {
+        message.gameObject.SetActive(false);
     }
 
     // Svuota il DebugLog
