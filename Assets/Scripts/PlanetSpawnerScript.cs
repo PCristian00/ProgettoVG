@@ -20,7 +20,7 @@ public class PlanetSpawnerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer < (logic.speed*2))
+        if (timer < (logic.speed*1.5f))
         {
             timer += Time.deltaTime;
         }
@@ -33,24 +33,22 @@ public class PlanetSpawnerScript : MonoBehaviour
 
     void SpawnPlanet()
     {
-        // Il range (-6,6) indica l'area delle corsie
+        int PositionY = Random.Range(-1, 3);
 
-        int PositionY = Random.Range(1, 100);
+        //if (PositionY <= 33)
+        //{
+        //    PositionY = 0;
+        //}
+        //else if (PositionY <= 66)
+        //{
+        //    PositionY = 2;
+        //}
+        //else
+        //{
+        //    PositionY = 4;
+        //}
 
-        if (PositionY <= 33)
-        {
-            PositionY = -6;
-        }
-        else if (PositionY <= 66)
-        {
-            PositionY = 0;
-        }
-        else
-        {
-            PositionY = 6;
-        }
-
-        Instantiate(planet, new Vector3(transform.position.x, transform.position.y, 0),
+        Instantiate(planet, new Vector3(transform.position.x, PositionY, 0),
                     transform.rotation);
     }
 }
