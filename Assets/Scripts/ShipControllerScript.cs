@@ -218,7 +218,17 @@ public class ShipControllerScript : MonoBehaviour
             Debug.Log("Sparo veloce");
             timeBetweenShots = 0.5f;
             // Il power-up dura 10 secondi
-            Invoke(nameof(ResetEffect), 10);
+            Invoke(nameof(MultiplierResetEffect), 10);
+            Destroy(collision.gameObject);
+        }
+
+        // Se la collisione avviene con SpeedPowerUp
+        if (collision.gameObject.layer == 10)
+        {
+            Debug.Log("Spostamento veloce");
+            speed += 10;
+            // Il power-up dura 10 secondi
+            Invoke(nameof(SpeedResetEffect), 10);
             Destroy(collision.gameObject);
         }
     }
@@ -238,9 +248,15 @@ public class ShipControllerScript : MonoBehaviour
     }
 
     // Annulla il power-up Multiplier
-    private void ResetEffect()
+    private void MultiplierResetEffect()
     {
-        Debug.Log("Tempo power-up scaduto");
+        Debug.Log("Tempo power-up Multiplier scaduto");
         timeBetweenShots = 1;
+    }
+
+    private void SpeedResetEffect()
+    {
+        Debug.Log("Tempo power-up Speed scaduto");
+        speed -= 10;
     }
 }
