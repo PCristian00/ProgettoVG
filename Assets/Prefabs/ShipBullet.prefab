@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 8
   deadZone: 5.5
+  spriteRenderer: {fileID: 3130855139022741245}
 --- !u!61 &1235711997689493433
 BoxCollider2D:
   m_ObjectHideFlags: 0

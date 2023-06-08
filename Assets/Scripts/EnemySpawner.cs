@@ -5,9 +5,6 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject [] enemies;
-    //public GameObject Enemy_2;
-
-
 
     public float maxSpawnRate = 5f; // tempo di spawn
     public float timer = 0;
@@ -65,6 +62,8 @@ public class EnemySpawner : MonoBehaviour
             spawnInNSeconds = 1f;
         }
     }
+
+    // FORSE INUTILIZZATA
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Bullet"))
