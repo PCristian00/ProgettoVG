@@ -2,21 +2,19 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    // public GameObject spawner;
     public EnemySpawner spawner;
     private LogicScript logic;
 
     // Start is called before the first frame update
     void Start()
     {
-        //spawner = gameObject.GetComponent<EnemySpawner>();
         spawner = GameObject.FindGameObjectWithTag("Respawn").GetComponent<EnemySpawner>();
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        // Se entra in collisione con uno ShipBullet
+        // Se entra in collisione con uno ShipBullet dello stesso colore (layer) di questo Enemy
         if (other.gameObject.layer == this.gameObject.layer)
         {
             // Distrugge se stesso e ShipBullet
