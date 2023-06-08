@@ -182,6 +182,8 @@ public class ShipControllerScript : MonoBehaviour
         if ((collision.gameObject.layer == 3 || collision.gameObject.layer == 7) && !NoClip)
         {
             life--;
+            // Riduce la velocita' del gioco con la collisione, se non è gia' al minimo
+            logic.ChangeSpeed(-1);
             lifeImage.sprite = lifeSprites[life];
 
             // Distruzione dell'ostacolo / proiettile all'impatto
