@@ -121,4 +121,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetPos: {x: 0, y: 0, z: 0}
   speed: 5
-  arcHeight: 1
+  arcHeight: 3
