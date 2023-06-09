@@ -123,7 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcda6c2a92da8a64bb1222cf5389f19b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 893378567151498894, guid: ce4db71eaee18ee4fbceb821cc2ad153, type: 3}
 --- !u!50 &649945150117488830
 Rigidbody2D:
   serializedVersion: 4
@@ -185,6 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawner: {fileID: 0}
   deathSound: {fileID: -1353977687690316430}
+  Bullet: {fileID: 893378567151498894, guid: ce4db71eaee18ee4fbceb821cc2ad153, type: 3}
 --- !u!82 &-1353977687690316430
 AudioSource:
   m_ObjectHideFlags: 0
