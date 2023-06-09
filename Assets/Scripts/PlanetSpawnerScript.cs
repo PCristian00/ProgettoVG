@@ -34,7 +34,7 @@ public class PlanetSpawnerScript : MonoBehaviour
 
     void SpawnPlanet()
     {
-        int PositionY = Random.Range(-1, 3);
+        int PositionY = Random.Range(-4, 4);
 
         // Spawn casuale dei pianeti
         // Instantiate(planets[Random.Range(0, planets.Length)], new Vector3(transform.position.x, PositionY, 0), transform.rotation);

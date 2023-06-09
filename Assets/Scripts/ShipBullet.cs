@@ -14,9 +14,11 @@ public class ShipBullet : MonoBehaviour
     {
 
         ColorSprite();
-        Vector2 pos = transform.position;
-        pos.y += bulletSpeed * Time.deltaTime;
-        transform.position = pos;
+        //Vector2 pos = transform.position;
+        //pos.y += bulletSpeed * Time.deltaTime;
+        //transform.position = pos;
+
+        transform.position += bulletSpeed * Time.deltaTime * Vector3.up;
 
         // Despawn del proiettile
         if (transform.position.y > deadZone)

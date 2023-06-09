@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1007390684214721105}
   - component: {fileID: 6644321051580706164}
   - component: {fileID: 5727741697461127286}
-  - component: {fileID: -7318916560799546070}
   - component: {fileID: 649945150117488830}
   - component: {fileID: -216309087212894822}
   - component: {fileID: -7471453087352084695}
@@ -111,19 +110,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-7318916560799546070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7352713272412537379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcda6c2a92da8a64bb1222cf5389f19b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Bullet: {fileID: 893378567151498894, guid: ce4db71eaee18ee4fbceb821cc2ad153, type: 3}
 --- !u!50 &649945150117488830
 Rigidbody2D:
   serializedVersion: 4
@@ -185,6 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawner: {fileID: 0}
   deathSound: {fileID: -1353977687690316430}
+  Bullet: {fileID: 893378567151498894, guid: ce4db71eaee18ee4fbceb821cc2ad153, type: 3}
 --- !u!82 &-1353977687690316430
 AudioSource:
   m_ObjectHideFlags: 0
