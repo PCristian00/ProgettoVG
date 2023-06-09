@@ -60,6 +60,8 @@ public class PlanetScript : MonoBehaviour
 	/// 
 	/// forward direction
 	/// Quaternion that rotates +X to align with forward
+	/// INUTILIZZATA, SERVE PER ROTAZIONE DELLO SPRITE
+
 	static Quaternion LookAt2D(Vector2 forward)
 	{
 		return Quaternion.Euler(0, 0, Mathf.Atan2(forward.y, forward.x) * Mathf.Rad2Deg);
