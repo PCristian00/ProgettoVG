@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MenuButton : MonoBehaviour
 {
+
+    public SpriteRenderer spriteRenderer;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,7 @@ public class MenuButton : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Selezione");
+        spriteRenderer.color = new Color(100,0,0);
         Destroy(collision.gameObject);
     }
 }
