@@ -47,6 +47,12 @@ public class ShipControllerScript : MonoBehaviour
     public Sprite[] lifeSprites;
     // La vita dell'astronave
     public int life;
+
+    public AudioSource shootSound;
+    public AudioSource powerUpSound;
+    public AudioSource deathSound;
+
+
     private void Start()
     {
         myBody = gameObject.GetComponent<Rigidbody2D>();
@@ -82,6 +88,7 @@ public class ShipControllerScript : MonoBehaviour
                 // Spara un proiettile che colpisce il layer 6, ovvero i nemici
                 // Bozza
                 Shoot(7);
+                
             }
 
             // Sparo (Arma 2)
@@ -168,6 +175,9 @@ public class ShipControllerScript : MonoBehaviour
             // Il movimento del Bullet viene gestito in un altro script
             GameObject bullet = Instantiate(Bullet);
             // Il proiettile ha lo stesso layer specificato dall'input
+
+            shootSound.Play();
+
             bullet.layer = type;
 
             Debug.Log("Assegnato tipo "+bullet.layer);
@@ -188,6 +198,7 @@ public class ShipControllerScript : MonoBehaviour
             logic.ChangeSpeed(-1);
             lifeImage.sprite = lifeSprites[life];
 
+            deathSound.Play();
             // Distruzione dell'ostacolo / proiettile all'impatto
             Destroy(collision.gameObject);
             Debug.Log("Ti rimane " + life + "/5 salute");
@@ -205,13 +216,13 @@ public class ShipControllerScript : MonoBehaviour
         // Se la collisione avviene con HealthPowerUp
         if (collision.gameObject.layer == 8)
         {
-            Debug.Log("TOCCATO");
+            powerUpSound.Play();
             if (life < 5)
             {
-                Debug.Log("La vita non e' al massimo");
+                // Debug.Log("La vita non e' al massimo");
                 life++;
                 lifeImage.sprite = lifeSprites[life];
-                Debug.Log("SPRITE INCREMENTATO; VITA AUMENTATA");
+                Debug.Log("Recupero salute");
             }
             Destroy(collision.gameObject);
         }
@@ -219,6 +230,7 @@ public class ShipControllerScript : MonoBehaviour
         // Se la collisione avviene con MultiplierPowerUp
         if (collision.gameObject.layer == 9)
         {
+            powerUpSound.Play();
             Debug.Log("Sparo veloce");
             timeBetweenShots = 0.5f;
             // Il power-up dura 10 secondi
@@ -229,6 +241,7 @@ public class ShipControllerScript : MonoBehaviour
         // Se la collisione avviene con SpeedPowerUp
         if (collision.gameObject.layer == 10)
         {
+            powerUpSound.Play();
             Debug.Log("Spostamento veloce");
             speed += 10;
             // Il power-up dura 10 secondi
@@ -239,6 +252,7 @@ public class ShipControllerScript : MonoBehaviour
         // Se la collisione avviene con DoubleScorePowerUp
         if (collision.gameObject.layer == 11)
         {
+            powerUpSound.Play();
             Debug.Log("Punti doppi");
             logic.scoreMultiplier *= 2;
             // Il power-up dura 10 secondi
