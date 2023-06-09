@@ -24,4 +24,6 @@ public class MenuButton : MonoBehaviour
         spriteRenderer.color = new Color(100,0,0);
         Destroy(collision.gameObject);
     }
+
+
 }
