@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuButton : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class MenuButton : MonoBehaviour
     public SpriteRenderer spriteRenderer;
 
     public TextMeshProUGUI text;
+
+    public int sceneToLoad;
     
     // Start is called before the first frame update
     void Start()
@@ -43,6 +46,11 @@ public class MenuButton : MonoBehaviour
             text.text = "Blu";
         }
         Debug.Log("Selezione");
+
+        if (sceneToLoad != -1)
+            SceneManager.LoadScene(sceneToLoad);
+        else
+            Application.Quit();
         
         Destroy(collision.gameObject);
     }
