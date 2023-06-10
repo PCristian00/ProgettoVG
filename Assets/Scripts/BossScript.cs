@@ -45,8 +45,9 @@ public class BossScript : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
         // Se entra in collisione con uno ShipBullet dello stesso colore (layer) di questo Enemy
-        if (other.gameObject.layer == this.gameObject.layer)
+        if (other.gameObject.layer == 7 || other.gameObject.layer==12 || other.gameObject.layer==13)
         {
+            Debug.Log("Colpito");
             Destroy(gameObject);
             Destroy(other.gameObject);
             isAlive = false;
