@@ -54,15 +54,14 @@ public class LogicScript : MonoBehaviour
         speedImage = speedBar.GetComponent<Image>();
     }
 
-    // PROMEMORIA
-    // Il boss aggiunge 10 punti di colpo e potrebbe non attivare CheckDifficulty
+    
     public void AddScore(int scoreToAdd)
     {
         if (!gameOverScreen.activeSelf)
         {
             playerScore += (scoreToAdd*scoreMultiplier);
             scoreText.text = playerScore.ToString();
-            CheckDifficulty();
+            CheckDifficulty(false);
             // scoreEffect.Play();
         }
     }
@@ -132,13 +131,13 @@ public class LogicScript : MonoBehaviour
     // Controlla il punteggio e regola la difficolta' (velocita') di conseguenza
 
     // PROMEMORIA
-    // Capire come far funzionare anche con il boss
     // Il boss aggiunge 10 punti di colpo, quindi supera una fascia di difficolta' ma non la aumenta (Es. 12 non divisible per 10)
-    // Trovare una soluzione (Forse passare parametro a CheckDifficulty che lo aumenta senza check?)
-    public void CheckDifficulty()
+    // All'uccisione del boss viene passato true e viene ignorato il controllo sui multipli di 10.
+    // Forse va trovata una soluzione migliore (funzione specifica per l'uccisione del boss (addScore personalizzato?) 
+    public void CheckDifficulty(bool BossKilled)
     {
         // Se il punteggio e' multiplo di 10
-        if (playerScore % 10 == 0)
+        if (playerScore % 10 == 0 || BossKilled)
         {
             // Aumento velocita'
             ChangeSpeed(1);

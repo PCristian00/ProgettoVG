@@ -42,7 +42,7 @@ public class BossScript : MonoBehaviour
                 spawner.countEnemyKill = 0;
                 spawner.bossIsAlive = false;
                 logic.AddScore(10);
-                
+                logic.CheckDifficulty(true);
                 Destroy(gameObject);
             }
 
