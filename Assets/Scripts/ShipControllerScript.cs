@@ -204,12 +204,14 @@ public class ShipControllerScript : MonoBehaviour
             Debug.Log("Ti rimane " + life + "/5 salute");
             if (life == 0)
             {
+                DeathAnimation();
                 // Debug.Log("SEI MORTO");
-                logic.GameOver();
+                Invoke(nameof(LoadGameOver), 2);
+                // Debug.Log("INVOKE ...");
                 // Disattiva il trigger dell'ostacolo / proiettile per evitare di morire piu' volte
                 // contro lo stesso ostacolo
                 collision.isTrigger = false;
-                DeathAnimation();
+                
             }
         }
 
@@ -269,13 +271,13 @@ public class ShipControllerScript : MonoBehaviour
     // Non e' necessario per il funzionamento del gioco, solo effetto estetico
     // della collisione
 
-    // Forse non si vede piu' con la scena Game Over, valutare di ritardare la scena o rimuovere animazione
     public void DeathAnimation()
     {
         isAlive = false;
         colliderComponent.isTrigger = false;
         myBody.isKinematic = false;
         gameObject.GetComponent<Rigidbody2D>().AddForce(Random.insideUnitCircle.normalized * 500f);
+        
 
         // Rende invisibile la barra della vita dopo la morte
         // lifeBar.SetActive(false);
@@ -301,5 +303,11 @@ public class ShipControllerScript : MonoBehaviour
         // Debug.Log("Tempo power-up DoubleScore scaduto");
         logic.ShowMessage("FINE PUNTI DOPPI", 1);
         logic.scoreMultiplier /= 2;
+    }
+
+    // Richiama il GameOver di LogicScript per risolvere il problema di Invoke
+    private void LoadGameOver()
+    {
+        logic.GameOver();
     }
 }
