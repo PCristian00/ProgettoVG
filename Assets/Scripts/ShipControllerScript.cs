@@ -206,6 +206,7 @@ public class ShipControllerScript : MonoBehaviour
             {
                 DeathAnimation();
                 // Debug.Log("SEI MORTO");
+                logic.gameIsOver = true;
                 Invoke(nameof(LoadGameOver), 2);
                 // Debug.Log("INVOKE ...");
                 // Disattiva il trigger dell'ostacolo / proiettile per evitare di morire piu' volte

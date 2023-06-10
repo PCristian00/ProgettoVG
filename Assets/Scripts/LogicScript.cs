@@ -43,7 +43,8 @@ public class LogicScript : MonoBehaviour
     // Messaggio di testo
     public TextMeshProUGUI message;
 
-    private bool gameIsOver=false;
+    // Controlla se il gioco e' finito
+    public bool gameIsOver = false;
 
     private void Start()
     {
@@ -61,7 +62,7 @@ public class LogicScript : MonoBehaviour
     
     public void AddScore(int scoreToAdd)
     {
-        // Presenta ancora problemi a causa del ritardo di Invoke in ShipControllerScript
+        
         if (!gameIsOver)
         {
             playerScore += (scoreToAdd*scoreMultiplier);
@@ -89,7 +90,7 @@ public class LogicScript : MonoBehaviour
 
         //gameOverScreen.SetActive(true);
 
-        gameIsOver = true;
+        // gameIsOver = true;
 
 
         // Debug.Log("Partita finita con un punteggio di " + playerScore);
