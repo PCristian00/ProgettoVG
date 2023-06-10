@@ -24,7 +24,7 @@ public class LogicScript : MonoBehaviour
     // Casella di testo che mostra il punteggio migliore di sempre
     public TextMeshProUGUI highScoreText;
 
-    // Schermata da caricare quando le vite finiscono
+    // Schermata da caricare quando le vite finiscono (INUTILE CON SCENA GAMEOVER)
     public GameObject gameOverScreen;
     // Suono da attivare per ogni punto ottenuto
     public AudioSource scoreEffect;
@@ -76,18 +76,21 @@ public class LogicScript : MonoBehaviour
 
     public void GameOver()
     {
-        speedBar.SetActive(false);
-        
-        gameOverScreen.SetActive(true);
+        // Le parti ora commentate servivano PRIMA dell'introduzione della scena.
+        // Rimuovere quando la scena del Game Over e' completa al 100%.
 
-        Debug.Log("Partita finita con un punteggio di " + playerScore);
+        // speedBar.SetActive(false);        
+        // gameOverScreen.SetActive(true);
+
+        // Debug.Log("Partita finita con un punteggio di " + playerScore);
         if (playerScore > highScore)
         {
-            Debug.Log("NUOVO RECORD");
-            highScore = playerScore;
-            highScoreText.text = playerScore.ToString();
+            // Debug.Log("NUOVO RECORD");
+
+            // highScore = playerScore;
+           //  highScoreText.text = playerScore.ToString();
             PlayerPrefs.SetInt("highscore", highScore);
-            Debug.Log(highScore);
+            // Debug.Log(highScore);
         }
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -144,6 +147,9 @@ public class LogicScript : MonoBehaviour
             // Aumento velocita' minima
             if (minSpeed > maxSpeed)
             {
+                // Mostra per 1 secondo il messaggio a schermo (sotto le barre)
+                // Forse da sostituire con una soluzione migliore
+
                 message.gameObject.SetActive(true);
                 Invoke(nameof(ToggleMessage), 1);
                 minSpeed--;
@@ -152,6 +158,7 @@ public class LogicScript : MonoBehaviour
         }
     }
 
+    // Rende nuovamente invisibile il messaggio
     private void ToggleMessage()
     {
         message.gameObject.SetActive(false);
