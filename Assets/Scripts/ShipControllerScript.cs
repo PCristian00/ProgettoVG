@@ -112,9 +112,9 @@ public class ShipControllerScript : MonoBehaviour
             {
                 NoClip = !NoClip;
                 if (NoClip)
-                    Debug.Log("NO CLIP ATTIVATO");
+                    logic.ShowMessage("NO CLIP ATTIVATO", 0);
                 else
-                    Debug.Log("NO CLIP DISATTIVATO");
+                    logic.ToggleMessage();
             }
         }
         // Se il giocatore e' morto, il pulsante Restart riavvia la partita
@@ -204,12 +204,14 @@ public class ShipControllerScript : MonoBehaviour
             Debug.Log("Ti rimane " + life + "/5 salute");
             if (life == 0)
             {
-                Debug.Log("SEI MORTO");
-                logic.GameOver();
+                DeathAnimation();
+                // Debug.Log("SEI MORTO");
+                Invoke(nameof(LoadGameOver), 2);
+                // Debug.Log("INVOKE ...");
                 // Disattiva il trigger dell'ostacolo / proiettile per evitare di morire piu' volte
                 // contro lo stesso ostacolo
                 collision.isTrigger = false;
-                DeathAnimation();
+                
             }
         }
 
@@ -222,7 +224,8 @@ public class ShipControllerScript : MonoBehaviour
                 // Debug.Log("La vita non e' al massimo");
                 life++;
                 lifeImage.sprite = lifeSprites[life];
-                Debug.Log("Recupero salute");
+               // Debug.Log("Recupero salute");
+                logic.ShowMessage("SALUTE +1", 1);
             }
             Destroy(collision.gameObject);
         }
@@ -231,7 +234,8 @@ public class ShipControllerScript : MonoBehaviour
         if (collision.gameObject.layer == 9)
         {
             powerUpSound.Play();
-            Debug.Log("Sparo veloce");
+            // Debug.Log("Fuoco rapido");
+            logic.ShowMessage("FUOCO RAPIDO", 10);
             timeBetweenShots = 0.5f;
             // Il power-up dura 10 secondi
             Invoke(nameof(MultiplierResetEffect), 10);
@@ -242,7 +246,8 @@ public class ShipControllerScript : MonoBehaviour
         if (collision.gameObject.layer == 10)
         {
             powerUpSound.Play();
-            Debug.Log("Spostamento veloce");
+            // Debug.Log("Spostamento veloce");
+            logic.ShowMessage("SPOSTAMENTO VELOCE", 10);
             speed += 10;
             // Il power-up dura 10 secondi
             Invoke(nameof(SpeedResetEffect), 10);
@@ -253,7 +258,8 @@ public class ShipControllerScript : MonoBehaviour
         if (collision.gameObject.layer == 11)
         {
             powerUpSound.Play();
-            Debug.Log("Punti doppi");
+            // Debug.Log("Punti doppi");
+            logic.ShowMessage("PUNTI DOPPI", 10);
             logic.scoreMultiplier *= 2;
             // Il power-up dura 10 secondi
             Invoke(nameof(ScoreResetEffect), 10);
@@ -264,12 +270,14 @@ public class ShipControllerScript : MonoBehaviour
     // Sposta l'astronave al contatto con l'ostacolo in una direzione casuale
     // Non e' necessario per il funzionamento del gioco, solo effetto estetico
     // della collisione
+
     public void DeathAnimation()
     {
         isAlive = false;
         colliderComponent.isTrigger = false;
         myBody.isKinematic = false;
         gameObject.GetComponent<Rigidbody2D>().AddForce(Random.insideUnitCircle.normalized * 500f);
+        
 
         // Rende invisibile la barra della vita dopo la morte
         // lifeBar.SetActive(false);
@@ -278,19 +286,28 @@ public class ShipControllerScript : MonoBehaviour
     // Annulla il power-up Multiplier
     private void MultiplierResetEffect()
     {
-        Debug.Log("Tempo power-up Multiplier scaduto");
+        // Debug.Log("Tempo power-up Multiplier scaduto");
+        logic.ShowMessage("FINE FUOCO RAPIDO", 1);
         timeBetweenShots = 1;
     }
 
     private void SpeedResetEffect()
     {
-        Debug.Log("Tempo power-up Speed scaduto");
+        // Debug.Log("Tempo power-up Speed scaduto");
+        logic.ShowMessage("FINE SPOSTAMENTO RAPIDO", 1);
         speed -= 10;
     }
 
     private void ScoreResetEffect()
     {
-        Debug.Log("Tempo power-up DoubleScore scaduto");
+        // Debug.Log("Tempo power-up DoubleScore scaduto");
+        logic.ShowMessage("FINE PUNTI DOPPI", 1);
         logic.scoreMultiplier /= 2;
+    }
+
+    // Richiama il GameOver di LogicScript per risolvere il problema di Invoke
+    private void LoadGameOver()
+    {
+        logic.GameOver();
     }
 }

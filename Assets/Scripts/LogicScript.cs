@@ -1,4 +1,6 @@
+// Reflection serve solo per ClearLog, rimuovere da versione finale
 using System.Reflection;
+
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -24,7 +26,7 @@ public class LogicScript : MonoBehaviour
     // Casella di testo che mostra il punteggio migliore di sempre
     public TextMeshProUGUI highScoreText;
 
-    // Schermata da caricare quando le vite finiscono
+    // Schermata da caricare quando le vite finiscono (INUTILE CON SCENA GAMEOVER)
     public GameObject gameOverScreen;
     // Suono da attivare per ogni punto ottenuto
     public AudioSource scoreEffect;
@@ -54,15 +56,14 @@ public class LogicScript : MonoBehaviour
         speedImage = speedBar.GetComponent<Image>();
     }
 
-    // PROMEMORIA
-    // Il boss aggiunge 10 punti di colpo e potrebbe non attivare CheckDifficulty
+    
     public void AddScore(int scoreToAdd)
     {
         if (!gameOverScreen.activeSelf)
         {
             playerScore += (scoreToAdd*scoreMultiplier);
             scoreText.text = playerScore.ToString();
-            CheckDifficulty();
+            CheckDifficulty(false);
             // scoreEffect.Play();
         }
     }
@@ -72,23 +73,27 @@ public class LogicScript : MonoBehaviour
         // Svuota il DebugLog prima di riavviare la scena
         // Forse inutile in gioco finale
         // ClearLog();
-        SceneManager.LoadScene(0);
+        
+        SceneManager.LoadScene(1);
     }
 
     public void GameOver()
     {
-        speedBar.SetActive(false);
-        
-        gameOverScreen.SetActive(true);
+        // Le parti ora commentate servivano PRIMA dell'introduzione della scena.
+        // Rimuovere quando la scena del Game Over e' completa al 100%.
 
-        Debug.Log("Partita finita con un punteggio di " + playerScore);
+        // speedBar.SetActive(false);        
+        // gameOverScreen.SetActive(true);
+
+        // Debug.Log("Partita finita con un punteggio di " + playerScore);
         if (playerScore > highScore)
         {
-            Debug.Log("NUOVO RECORD");
-            highScore = playerScore;
-            highScoreText.text = playerScore.ToString();
+            // Debug.Log("NUOVO RECORD");
+
+            // highScore = playerScore;
+           //  highScoreText.text = playerScore.ToString();
             PlayerPrefs.SetInt("highscore", highScore);
-            Debug.Log(highScore);
+            // Debug.Log(highScore);
         }
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -99,32 +104,41 @@ public class LogicScript : MonoBehaviour
         // Debug.Log("Changing speed");
 
         // Aumento di velocita'
-        if (input == 1f && speed > maxSpeed)
+        if (input == 1f)
         {
-            Debug.Log("Velocita' in aumento");
-            speed--;
-            speedLevel++;
-            Debug.Log("Nuova traccia musicale");
-            // Attiva il layer attuale
-            musicLayers[speedLevel].mute = false;
-            // Diminuisce il volume del layer inferiore
-            musicLayers[speedLevel - 1].volume -= 0.2f;
+            if (speed > maxSpeed)
+            {
+                Debug.Log("Velocita' in aumento");
+                speed--;
+                speedLevel++;
+                // Debug.Log("Nuova traccia musicale");
 
-        }
+                // Attiva il layer attuale
+                musicLayers[speedLevel].mute = false;
+                // Diminuisce il volume del layer inferiore
+                musicLayers[speedLevel - 1].volume -= 0.2f;
+            }
+            else ShowMessage("MAX SPEED", 1);
+         }
         // Diminuzione di velocita'
-        else if (input == -1f && speed < minSpeed)
+        else if (input == -1f)
         {
-            Debug.Log("Velocita' in diminuzione");
-            speed++;
-            Debug.Log("Traccia musicale rimossa");
-            // Spegne il layer attuale
-            musicLayers[speedLevel].mute = true;
-            // Aumenta il volume del layer inferiore
-            musicLayers[speedLevel - 1].volume += 0.2f;
-            speedLevel--;
+            if (speed < minSpeed)
+            {
+                Debug.Log("Velocita' in diminuzione");
+                speed++;
+                // Debug.Log("Traccia musicale rimossa");
+
+                // Spegne il layer attuale
+                musicLayers[speedLevel].mute = true;
+                // Aumenta il volume del layer inferiore
+                musicLayers[speedLevel - 1].volume += 0.2f;
+                speedLevel--;
+            }
+            else ShowMessage("MIN SPEED", 1);
         }
 
-        Debug.Log("VELOCITA': " + speedLevel + " / 5");
+        // Debug.Log("VELOCITA': " + speedLevel + " / 5");
 
         speedImage.sprite = speedSprites[speedLevel];
     }
@@ -132,28 +146,43 @@ public class LogicScript : MonoBehaviour
     // Controlla il punteggio e regola la difficolta' (velocita') di conseguenza
 
     // PROMEMORIA
-    // Capire come far funzionare anche con il boss
     // Il boss aggiunge 10 punti di colpo, quindi supera una fascia di difficolta' ma non la aumenta (Es. 12 non divisible per 10)
-    // Trovare una soluzione (Forse passare parametro a CheckDifficulty che lo aumenta senza check?)
-    public void CheckDifficulty()
+    // All'uccisione del boss viene passato true e viene ignorato il controllo sui multipli di 10.
+    // Forse va trovata una soluzione migliore (funzione specifica per l'uccisione del boss (addScore personalizzato?) 
+    public void CheckDifficulty(bool BossKilled)
     {
         // Se il punteggio e' multiplo di 10
-        if (playerScore % 10 == 0)
+        if (playerScore % 10 == 0 || BossKilled)
         {
             // Aumento velocita'
             ChangeSpeed(1);
             // Aumento velocita' minima
             if (minSpeed > maxSpeed)
             {
-                message.gameObject.SetActive(true);
-                Invoke(nameof(ToggleMessage), 1);
+                // Mostra per 1 secondo il messaggio a schermo (sotto le barre)
+                // Forse da sostituire con una soluzione migliore
+
+                ShowMessage("SPEED UP!!!", 1);
+
                 minSpeed--;
                 Debug.Log("NUOVA VELOCITA' MINIMA: " + (7 - minSpeed));
             }
         }
     }
 
-    private void ToggleMessage()
+    // Mostra il testo scelto per il tempo scelto.
+    // Se il tempo viene impostato a 0 la disattivazione automatica non viene impostata.
+    // Il messaggio viene mostrato a schermo sotto la barra della velocita'.
+    public void ShowMessage(string messageText, int time)
+    {
+        message.text = messageText;
+        message.gameObject.SetActive(true);
+        if(time!=0)
+        Invoke(nameof(ToggleMessage), time);
+    }
+
+    // Rende nuovamente invisibile il messaggio
+    public void ToggleMessage()
     {
         message.gameObject.SetActive(false);
     }

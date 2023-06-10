@@ -15,6 +15,7 @@ public class BossScript : MonoBehaviour
         boss_life = 3;
         spawner = GameObject.FindGameObjectWithTag("Respawn").GetComponent<EnemySpawner>();
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+        logic.ShowMessage("ATTENZIONE!!!", 1);
     }
 
     // Update is called once per frame
@@ -27,7 +28,7 @@ public class BossScript : MonoBehaviour
     {
         if (other.gameObject.layer == 7 || other.gameObject.layer == 12 || other.gameObject.layer == 13)
         {
-            Debug.Log("Colpito!!!");
+            // Debug.Log("Colpito!!!");
             Debug.Log("Vita rimanente: " + boss_life + " / 3");
             boss_life--;
             Destroy(other.gameObject);
@@ -35,14 +36,14 @@ public class BossScript : MonoBehaviour
             if (boss_life == 0)
             {
                 
-                Debug.Log(" BOSS MORTO");
+                // Debug.Log(" BOSS MORTO");
                 
                 Destroy(other.gameObject);
                 //isAlive = false;
                 spawner.countEnemyKill = 0;
                 spawner.bossIsAlive = false;
                 logic.AddScore(10);
-                
+                logic.CheckDifficulty(true);
                 Destroy(gameObject);
             }
 

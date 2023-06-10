@@ -12,7 +12,6 @@ public class EnemySpawner : MonoBehaviour
     public float countEnemyKill = 0;
     public System.Action<EnemySpawner> killed;
 
-    // Ancora non implementata
     public bool bossIsAlive;
 
 
@@ -45,7 +44,7 @@ public class EnemySpawner : MonoBehaviour
     void SpawnEnemy()
     {
         countSpawn++;
-        Debug.Log(countSpawn);
+        // Debug.Log(countSpawn);
         //prelevo i bordi della camera
         Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
         Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));

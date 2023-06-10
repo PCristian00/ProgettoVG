@@ -57,7 +57,7 @@ public class EnemyScript : MonoBehaviour
             // NON SUONA, forse perché l'oggetto viene distrutto subito dopo
             deathSound.Play();
 
-            Debug.Log("Suono suonato");
+            // Debug.Log("Suono suonato");
             // Distrugge se stesso e ShipBullet
             Destroy(gameObject);
             Destroy(other.gameObject);
@@ -68,7 +68,7 @@ public class EnemyScript : MonoBehaviour
            if (spawner.countSpawn > 0)
             {
                 spawner.countSpawn--;
-                Debug.Log("Nemici in gioco: " + spawner.countSpawn);
+               // Debug.Log("Nemici in gioco: " + spawner.countSpawn);
             }            
         }
     }
