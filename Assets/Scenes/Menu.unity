@@ -347,6 +347,18 @@ PrefabInstance:
       propertyPath: m_text
       value: Esci
       objectReference: {fileID: 0}
+    - target: {fileID: 1931087709142744065, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
+      propertyPath: m_fontSize
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931087709142744065, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931087709142744065, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 4096
+      objectReference: {fileID: 0}
     - target: {fileID: 1931087709977629379, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
       propertyPath: m_Name
       value: ExitButton
@@ -654,7 +666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1931087709142744065, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
       propertyPath: m_VerticalAlignment
-      value: 512
+      value: 4096
       objectReference: {fileID: 0}
     - target: {fileID: 1931087709977629379, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
       propertyPath: m_Name
@@ -760,6 +772,18 @@ PrefabInstance:
     - target: {fileID: 1931087709142744065, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
       propertyPath: m_text
       value: Gioca
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931087709142744065, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
+      propertyPath: m_fontSize
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931087709142744065, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931087709142744065, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 4096
       objectReference: {fileID: 0}
     - target: {fileID: 1931087709977629379, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
       propertyPath: m_Name

@@ -347,9 +347,21 @@ PrefabInstance:
       propertyPath: m_text
       value: Indietro
       objectReference: {fileID: 0}
+    - target: {fileID: 1931087709142744065, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
+      propertyPath: m_fontSize
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931087709142744065, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931087709142744065, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 4096
+      objectReference: {fileID: 0}
     - target: {fileID: 1931087709977629379, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
       propertyPath: m_Name
-      value: MenuButton (1)
+      value: BackButton
       objectReference: {fileID: 0}
     - target: {fileID: 1931087709977629404, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
       propertyPath: m_Pivot.x
@@ -641,10 +653,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1931087709142744065, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
-      propertyPath: m_text
-      value: Impostazioni
-      objectReference: {fileID: 0}
-    - target: {fileID: 1931087709142744065, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
       propertyPath: m_fontSize
       value: 0.3
       objectReference: {fileID: 0}
@@ -653,12 +661,16 @@ PrefabInstance:
       value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1931087709142744065, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931087709142744065, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
       propertyPath: m_VerticalAlignment
-      value: 512
+      value: 4096
       objectReference: {fileID: 0}
     - target: {fileID: 1931087709977629379, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
       propertyPath: m_Name
-      value: MenuButton (2)
+      value: TutorialButton
       objectReference: {fileID: 0}
     - target: {fileID: 1931087709977629404, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
       propertyPath: m_Pivot.x
@@ -744,10 +756,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1931087709977629407, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
-      propertyPath: sceneToLoad
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
 --- !u!1001 &1931087709128280079
@@ -761,9 +769,25 @@ PrefabInstance:
       propertyPath: m_text
       value: Volume
       objectReference: {fileID: 0}
+    - target: {fileID: 1931087709142744065, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
+      propertyPath: m_fontSize
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931087709142744065, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931087709142744065, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931087709142744065, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 4096
+      objectReference: {fileID: 0}
     - target: {fileID: 1931087709977629379, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
       propertyPath: m_Name
-      value: MenuButton
+      value: VolumeButton
       objectReference: {fileID: 0}
     - target: {fileID: 1931087709977629404, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
       propertyPath: m_Pivot.x

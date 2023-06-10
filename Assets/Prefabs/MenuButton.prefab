@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Prova
+  m_text: Impostazioni
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d92e4ee1d357b6c469206a2e90cafcf8, type: 2}
   m_sharedMaterial: {fileID: 8925165947000026234, guid: d92e4ee1d357b6c469206a2e90cafcf8, type: 2}
@@ -93,15 +93,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.6
-  m_fontSizeBase: 0.6
+  m_fontSize: 0.3
+  m_fontSizeBase: 0.3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -269,6 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1931087709977629405}
   text: {fileID: 1931087709142744065}
+  sceneToLoad: 4
 --- !u!50 &1931087709977629376
 Rigidbody2D:
   serializedVersion: 4
