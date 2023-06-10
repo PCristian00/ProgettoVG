@@ -76,7 +76,7 @@ public class LogicScript : MonoBehaviour
     public void GameOver()
     {
         speedBar.SetActive(false);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        
         gameOverScreen.SetActive(true);
 
         Debug.Log("Partita finita con un punteggio di " + playerScore);
@@ -88,6 +88,8 @@ public class LogicScript : MonoBehaviour
             PlayerPrefs.SetInt("highscore", highScore);
             Debug.Log(highScore);
         }
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void ChangeSpeed(float input)
