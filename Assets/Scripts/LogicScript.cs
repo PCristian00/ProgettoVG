@@ -26,10 +26,6 @@ public class LogicScript : MonoBehaviour
     // Casella di testo che mostra il punteggio migliore di sempre
     public TextMeshProUGUI highScoreText;
 
-    // Schermata da caricare quando le vite finiscono (INUTILE CON SCENA GAMEOVER)
-    // public GameObject gameOverScreen;
-    // Suono da attivare per ogni punto ottenuto
-    public AudioSource scoreEffect;
     // Strati musicali, regolati da velocita'
     public AudioSource[] musicLayers;
 
@@ -68,7 +64,6 @@ public class LogicScript : MonoBehaviour
             playerScore += (scoreToAdd*scoreMultiplier);
             scoreText.text = playerScore.ToString();
             CheckDifficulty(false);
-            // scoreEffect.Play();
         }
     }
 
@@ -83,16 +78,6 @@ public class LogicScript : MonoBehaviour
 
     public void GameOver()
     {
-        // Le parti ora commentate servivano PRIMA dell'introduzione della scena.
-        // Rimuovere quando la scena del Game Over e' completa al 100%.
-
-        // speedBar.SetActive(false);        
-
-        //gameOverScreen.SetActive(true);
-
-        // gameIsOver = true;
-
-
         // Debug.Log("Partita finita con un punteggio di " + playerScore);
         if (playerScore > highScore)
         {
