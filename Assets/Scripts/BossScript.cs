@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class BossScript : MonoBehaviour
 {
-    public EnemySpawner count;
+    public EnemySpawner spawner;
     public int boss_life = 3;
-    public bool isAlive = true;
+    // public bool isAlive = true;
     public LogicScript logic;
 
     // Start is called before the first frame update
     void Start()
     {
         boss_life = 3;
+        spawner = GameObject.FindGameObjectWithTag("Respawn").GetComponent<EnemySpawner>();
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }
 
@@ -35,12 +36,14 @@ public class BossScript : MonoBehaviour
             {
                 
                 Debug.Log(" BOSS MORTO");
-                Destroy(gameObject);
+                
                 Destroy(other.gameObject);
-                isAlive = false;
-                count.countEnemyKill = 0;
+                //isAlive = false;
+                spawner.countEnemyKill = 0;
+                spawner.bossIsAlive = false;
                 logic.AddScore(10);
-
+                
+                Destroy(gameObject);
             }
 
 
