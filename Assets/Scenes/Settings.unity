@@ -345,11 +345,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1931087709142744065, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
       propertyPath: m_text
-      value: Esci
+      value: Indietro
       objectReference: {fileID: 0}
     - target: {fileID: 1931087709977629379, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
       propertyPath: m_Name
-      value: ExitButton
+      value: MenuButton (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1931087709977629404, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
       propertyPath: m_Pivot.x
@@ -437,7 +437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1931087709977629407, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
       propertyPath: sceneToLoad
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
@@ -658,7 +658,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1931087709977629379, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
       propertyPath: m_Name
-      value: SettingsButton
+      value: MenuButton (2)
       objectReference: {fileID: 0}
     - target: {fileID: 1931087709977629404, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
       propertyPath: m_Pivot.x
@@ -759,11 +759,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1931087709142744065, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
       propertyPath: m_text
-      value: Gioca
+      value: Volume
       objectReference: {fileID: 0}
     - target: {fileID: 1931087709977629379, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
       propertyPath: m_Name
-      value: StartButton
+      value: MenuButton
       objectReference: {fileID: 0}
     - target: {fileID: 1931087709977629404, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
       propertyPath: m_Pivot.x
