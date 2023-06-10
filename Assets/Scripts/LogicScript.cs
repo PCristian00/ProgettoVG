@@ -74,7 +74,7 @@ public class LogicScript : MonoBehaviour
         // Forse inutile in gioco finale
         // ClearLog();
         
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void GameOver()
@@ -96,7 +96,7 @@ public class LogicScript : MonoBehaviour
             // Debug.Log(highScore);
         }
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(4);
     }
 
     public void ChangeSpeed(float input)
