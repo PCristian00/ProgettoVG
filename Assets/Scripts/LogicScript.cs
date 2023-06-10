@@ -27,7 +27,7 @@ public class LogicScript : MonoBehaviour
     public TextMeshProUGUI highScoreText;
 
     // Schermata da caricare quando le vite finiscono (INUTILE CON SCENA GAMEOVER)
-    public GameObject gameOverScreen;
+    // public GameObject gameOverScreen;
     // Suono da attivare per ogni punto ottenuto
     public AudioSource scoreEffect;
     // Strati musicali, regolati da velocita'
@@ -42,6 +42,8 @@ public class LogicScript : MonoBehaviour
 
     // Messaggio di testo
     public TextMeshProUGUI message;
+
+    private bool gameIsOver=false;
 
     private void Start()
     {
@@ -59,7 +61,8 @@ public class LogicScript : MonoBehaviour
     
     public void AddScore(int scoreToAdd)
     {
-        if (!gameOverScreen.activeSelf)
+        // Presenta ancora problemi a causa del ritardo di Invoke in ShipControllerScript
+        if (!gameIsOver)
         {
             playerScore += (scoreToAdd*scoreMultiplier);
             scoreText.text = playerScore.ToString();
@@ -83,8 +86,11 @@ public class LogicScript : MonoBehaviour
         // Rimuovere quando la scena del Game Over e' completa al 100%.
 
         // speedBar.SetActive(false);        
-        
+
         //gameOverScreen.SetActive(true);
+
+        gameIsOver = true;
+
 
         // Debug.Log("Partita finita con un punteggio di " + playerScore);
         if (playerScore > highScore)
