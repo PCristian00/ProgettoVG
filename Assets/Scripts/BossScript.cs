@@ -15,6 +15,7 @@ public class BossScript : MonoBehaviour
         boss_life = 3;
         spawner = GameObject.FindGameObjectWithTag("Respawn").GetComponent<EnemySpawner>();
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+        logic.ShowMessage("ATTENZIONE!!!", 1);
     }
 
     // Update is called once per frame

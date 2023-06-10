@@ -1,4 +1,6 @@
+// Reflection serve solo per ClearLog, rimuovere da versione finale
 using System.Reflection;
+
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -71,7 +73,8 @@ public class LogicScript : MonoBehaviour
         // Svuota il DebugLog prima di riavviare la scena
         // Forse inutile in gioco finale
         // ClearLog();
-        SceneManager.LoadScene(0);
+        
+        SceneManager.LoadScene(1);
     }
 
     public void GameOver()
@@ -101,32 +104,41 @@ public class LogicScript : MonoBehaviour
         // Debug.Log("Changing speed");
 
         // Aumento di velocita'
-        if (input == 1f && speed > maxSpeed)
+        if (input == 1f)
         {
-            Debug.Log("Velocita' in aumento");
-            speed--;
-            speedLevel++;
-            Debug.Log("Nuova traccia musicale");
-            // Attiva il layer attuale
-            musicLayers[speedLevel].mute = false;
-            // Diminuisce il volume del layer inferiore
-            musicLayers[speedLevel - 1].volume -= 0.2f;
+            if (speed > maxSpeed)
+            {
+                Debug.Log("Velocita' in aumento");
+                speed--;
+                speedLevel++;
+                // Debug.Log("Nuova traccia musicale");
 
-        }
+                // Attiva il layer attuale
+                musicLayers[speedLevel].mute = false;
+                // Diminuisce il volume del layer inferiore
+                musicLayers[speedLevel - 1].volume -= 0.2f;
+            }
+            else ShowMessage("MAX SPEED", 1);
+         }
         // Diminuzione di velocita'
-        else if (input == -1f && speed < minSpeed)
+        else if (input == -1f)
         {
-            Debug.Log("Velocita' in diminuzione");
-            speed++;
-            Debug.Log("Traccia musicale rimossa");
-            // Spegne il layer attuale
-            musicLayers[speedLevel].mute = true;
-            // Aumenta il volume del layer inferiore
-            musicLayers[speedLevel - 1].volume += 0.2f;
-            speedLevel--;
+            if (speed < minSpeed)
+            {
+                Debug.Log("Velocita' in diminuzione");
+                speed++;
+                // Debug.Log("Traccia musicale rimossa");
+
+                // Spegne il layer attuale
+                musicLayers[speedLevel].mute = true;
+                // Aumenta il volume del layer inferiore
+                musicLayers[speedLevel - 1].volume += 0.2f;
+                speedLevel--;
+            }
+            else ShowMessage("MIN SPEED", 1);
         }
 
-        Debug.Log("VELOCITA': " + speedLevel + " / 5");
+        // Debug.Log("VELOCITA': " + speedLevel + " / 5");
 
         speedImage.sprite = speedSprites[speedLevel];
     }
@@ -159,16 +171,18 @@ public class LogicScript : MonoBehaviour
     }
 
     // Mostra il testo scelto per il tempo scelto.
+    // Se il tempo viene impostato a 0 la disattivazione automatica non viene impostata.
     // Il messaggio viene mostrato a schermo sotto la barra della velocita'.
-    private void ShowMessage(string messageText, int time)
+    public void ShowMessage(string messageText, int time)
     {
         message.text = messageText;
         message.gameObject.SetActive(true);
+        if(time!=0)
         Invoke(nameof(ToggleMessage), time);
     }
 
     // Rende nuovamente invisibile il messaggio
-    private void ToggleMessage()
+    public void ToggleMessage()
     {
         message.gameObject.SetActive(false);
     }
