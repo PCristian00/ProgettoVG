@@ -83,15 +83,16 @@ public class LogicScript : MonoBehaviour
         // Rimuovere quando la scena del Game Over e' completa al 100%.
 
         // speedBar.SetActive(false);        
-        // gameOverScreen.SetActive(true);
+        
+        //gameOverScreen.SetActive(true);
 
         // Debug.Log("Partita finita con un punteggio di " + playerScore);
         if (playerScore > highScore)
         {
             // Debug.Log("NUOVO RECORD");
 
-            // highScore = playerScore;
-           //  highScoreText.text = playerScore.ToString();
+            highScore = playerScore;
+            highScoreText.text = playerScore.ToString();
             PlayerPrefs.SetInt("highscore", highScore);
             // Debug.Log(highScore);
         }
