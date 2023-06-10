@@ -169,7 +169,7 @@ public class ShipControllerScript : MonoBehaviour
         {
             nextFireTime = Time.time + timeBetweenShots;
 
-            Debug.Log("Proiettile di tipo " + type);
+            // Debug.Log("Proiettile di tipo " + type);
 
             // Crea un oggetto di tipo Bullet
             // Il movimento del Bullet viene gestito in un altro script
@@ -180,7 +180,7 @@ public class ShipControllerScript : MonoBehaviour
 
             bullet.layer = type;
 
-            Debug.Log("Assegnato tipo "+bullet.layer);
+            // Debug.Log("Assegnato tipo "+bullet.layer);
 
             // Il Bullet parte dalla posizione di Ship modificata di +1 in verticale
             Vector2 shootPos = new(transform.position.x, transform.position.y + 1);
