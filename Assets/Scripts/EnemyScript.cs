@@ -53,6 +53,7 @@ public class EnemyScript : MonoBehaviour
         // Se entra in collisione con uno ShipBullet dello stesso colore (layer) di questo Enemy
         if (other.gameObject.layer == this.gameObject.layer)
         {
+            spawner.countEnemyKill++;
             // NON SUONA, forse perché l'oggetto viene distrutto subito dopo
             deathSound.Play();
 

@@ -54,6 +54,8 @@ public class LogicScript : MonoBehaviour
         speedImage = speedBar.GetComponent<Image>();
     }
 
+    // PROMEMORIA
+    // Il boss aggiunge 10 punti di colpo e potrebbe non attivare CheckDifficulty
     public void AddScore(int scoreToAdd)
     {
         if (!gameOverScreen.activeSelf)
@@ -70,12 +72,13 @@ public class LogicScript : MonoBehaviour
         // Svuota il DebugLog prima di riavviare la scena
         // Forse inutile in gioco finale
         // ClearLog();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(0);
     }
 
     public void GameOver()
     {
         speedBar.SetActive(false);
+        
         gameOverScreen.SetActive(true);
 
         Debug.Log("Partita finita con un punteggio di " + playerScore);
@@ -87,6 +90,8 @@ public class LogicScript : MonoBehaviour
             PlayerPrefs.SetInt("highscore", highScore);
             Debug.Log(highScore);
         }
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void ChangeSpeed(float input)
@@ -125,6 +130,11 @@ public class LogicScript : MonoBehaviour
     }
 
     // Controlla il punteggio e regola la difficolta' (velocita') di conseguenza
+
+    // PROMEMORIA
+    // Capire come far funzionare anche con il boss
+    // Il boss aggiunge 10 punti di colpo, quindi supera una fascia di difficolta' ma non la aumenta (Es. 12 non divisible per 10)
+    // Trovare una soluzione (Forse passare parametro a CheckDifficulty che lo aumenta senza check?)
     public void CheckDifficulty()
     {
         // Se il punteggio e' multiplo di 10

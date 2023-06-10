@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -4697954078246822884}
   - component: {fileID: 3809736932559513320}
   - component: {fileID: 6924489500486277352}
+  - component: {fileID: -9114453355821787945}
   m_Layer: 12
   m_Name: boss
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7190593352676595622}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.1510048, y: 1.2603858, z: 0}
+  m_LocalPosition: {x: 4.7595077, y: 1.8696009, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -118,7 +119,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7190593352676595622}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcda6c2a92da8a64bb1222cf5389f19b, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ebc15906f28edf4dbbfb4bafe5024ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 893378567151498894, guid: ce4db71eaee18ee4fbceb821cc2ad153, type: 3}
@@ -134,9 +135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe60dcb9986d1654a8538ef4b7a8c7fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  count: {fileID: 0}
+  spawner: {fileID: 0}
   boss_life: 0
-  isAlive: 1
   logic: {fileID: 0}
 --- !u!61 &6924489500486277352
 BoxCollider2D:
@@ -164,3 +164,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.6050105, y: 2.72}
   m_EdgeRadius: 0
+--- !u!50 &-9114453355821787945
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7190593352676595622}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
