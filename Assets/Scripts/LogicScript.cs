@@ -70,12 +70,13 @@ public class LogicScript : MonoBehaviour
         // Svuota il DebugLog prima di riavviare la scena
         // Forse inutile in gioco finale
         // ClearLog();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(0);
     }
 
     public void GameOver()
     {
         speedBar.SetActive(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         gameOverScreen.SetActive(true);
 
         Debug.Log("Partita finita con un punteggio di " + playerScore);
