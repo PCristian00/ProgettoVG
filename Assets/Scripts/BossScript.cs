@@ -26,17 +26,29 @@ public class BossScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        // ATTENZIONE!!!
+        // Il boss viene distrutto istantaneamente se a contatto con un nemico verde (Enemy2) o due nemici di qualsiasi colore
+        // Distrugge istantaneamente i singoli blu (Enemy3) e rossi (Enemy2), ma perde una vita
+        // Il verde fa perdere una vita ma lo fa scomparire comunque come se ne togliesse 3
+
+        // Studiare una soluzione (Forse tag per ShipBullet???)
+        // Il tag pare non bastare
+        // Testare mettendo il boss in scena e posizionare sopra di esso i 3 nemici a turno
+
+        // Probabile soluzione: far comparire il Boss solo quando i nemici sono tutti morti (capire come)
+
         if (other.gameObject.layer == 7 || other.gameObject.layer == 12 || other.gameObject.layer == 13)
         {
-            // Debug.Log("Colpito!!!");
-            Debug.Log("Vita rimanente: " + boss_life + " / 3");
+            Debug.Log("Colpito!!!");
             boss_life--;
+            Debug.Log("Vita rimanente: " + boss_life + " / 3");
+            
             Destroy(other.gameObject);
             // Distrugge se stesso e ShipBullet
             if (boss_life == 0)
-            {
-                
-                // Debug.Log(" BOSS MORTO");
+            {                
+                // NON ARRIVA A QUESTA STAMPA SE HA VERDE SOPRA MA MUORE COMUNQUE???
+                Debug.Log("BOSS MORTO");
                 
                 Destroy(other.gameObject);
                 //isAlive = false;
