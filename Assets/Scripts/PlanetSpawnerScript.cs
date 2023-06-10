@@ -42,11 +42,11 @@ public class PlanetSpawnerScript : MonoBehaviour
         // Spawn sequenziale dei pianeti
         Instantiate(planets[planetIndex], new Vector3(transform.position.x, PositionY, 0), transform.rotation);
 
-        Debug.Log("Pianeta spawnato: " + planetIndex+ " / "+ (planets.Length-1));
+        // Debug.Log("Pianeta spawnato: " + planetIndex+ " / "+ (planets.Length-1));
 
         if (planetIndex == (planets.Length - 1))
         {
-            Debug.Log("Sequenza pianeti finita. Ricomincio.");
+            // Debug.Log("Sequenza pianeti finita. Ricomincio.");
             planetIndex = 0;
         }
         else planetIndex++;

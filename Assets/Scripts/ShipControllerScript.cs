@@ -204,7 +204,7 @@ public class ShipControllerScript : MonoBehaviour
             Debug.Log("Ti rimane " + life + "/5 salute");
             if (life == 0)
             {
-                Debug.Log("SEI MORTO");
+                // Debug.Log("SEI MORTO");
                 logic.GameOver();
                 // Disattiva il trigger dell'ostacolo / proiettile per evitare di morire piu' volte
                 // contro lo stesso ostacolo
@@ -222,7 +222,7 @@ public class ShipControllerScript : MonoBehaviour
                 // Debug.Log("La vita non e' al massimo");
                 life++;
                 lifeImage.sprite = lifeSprites[life];
-                Debug.Log("Recupero salute");
+               // Debug.Log("Recupero salute");
                 logic.ShowMessage("SALUTE +1", 1);
             }
             Destroy(collision.gameObject);

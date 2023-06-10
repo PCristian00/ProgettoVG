@@ -12,7 +12,6 @@ public class EnemySpawner : MonoBehaviour
     public float countEnemyKill = 0;
     public System.Action<EnemySpawner> killed;
 
-    // Ancora non implementata
     public bool bossIsAlive;
 
 

@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MenuButton : MonoBehaviour
@@ -31,21 +28,21 @@ public class MenuButton : MonoBehaviour
         if (collision.gameObject.layer == 7)
         {
             spriteRenderer.color = new Color(100, 0, 0);
-            text.text = "Rosso";
+            // text.text = "Rosso";
         }
 
         if (collision.gameObject.layer == 12)
         {
             spriteRenderer.color = new Color(0, 100, 0);
-            text.text = "Verde";
+            // text.text = "Verde";
         }
 
         if (collision.gameObject.layer == 13)
         {
             spriteRenderer.color = new Color(0, 0, 100);
-            text.text = "Blu";
+            // text.text = "Blu";
         }
-        Debug.Log("Selezione");
+        // Debug.Log("Selezione");
 
         if (sceneToLoad != -1)
             SceneManager.LoadScene(sceneToLoad);
