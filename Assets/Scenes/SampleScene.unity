@@ -1279,7 +1279,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SPEED UP!!!
+  m_text: NON DOVRESTI VEDERE QUESTO
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d92e4ee1d357b6c469206a2e90cafcf8, type: 2}
   m_sharedMaterial: {fileID: 8925165947000026234, guid: d92e4ee1d357b6c469206a2e90cafcf8, type: 2}

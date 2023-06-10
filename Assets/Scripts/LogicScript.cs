@@ -150,12 +150,21 @@ public class LogicScript : MonoBehaviour
                 // Mostra per 1 secondo il messaggio a schermo (sotto le barre)
                 // Forse da sostituire con una soluzione migliore
 
-                message.gameObject.SetActive(true);
-                Invoke(nameof(ToggleMessage), 1);
+                ShowMessage("SPEED UP!!!", 1);
+
                 minSpeed--;
                 Debug.Log("NUOVA VELOCITA' MINIMA: " + (7 - minSpeed));
             }
         }
+    }
+
+    // Mostra il testo scelto per il tempo scelto.
+    // Il messaggio viene mostrato a schermo sotto la barra della velocita'.
+    private void ShowMessage(string messageText, int time)
+    {
+        message.text = messageText;
+        message.gameObject.SetActive(true);
+        Invoke(nameof(ToggleMessage), time);
     }
 
     // Rende nuovamente invisibile il messaggio
