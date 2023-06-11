@@ -4,13 +4,17 @@ public class BossScript : MonoBehaviour
 {
     public EnemySpawner spawner;
     public int boss_life = 3;
-    public LogicScript logic;
+    private LogicScript logic;
     public GameObject[] powerups;
-    
-    private Vector2 endPos;
-    public int direction;
 
-    
+    public GameObject Bullet;
+
+    private Vector2 endPos;
+    private int direction;
+
+    private float timer = 0;
+    private float spawnRate = 2;
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,11 +32,23 @@ public class BossScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Cambio direzione
         if (transform.position.x == 6 || transform.position.x == -6)
         {
             direction *= -1;
         }
+
         Move(direction);
+
+        if (timer < spawnRate)
+        {
+            timer += Time.deltaTime;
+        }
+        else
+        {
+            timer = 0;
+            FireBullet();
+        }
     }
 
     private void Move(float moveRate)
@@ -61,6 +77,21 @@ public class BossScript : MonoBehaviour
             // Debug.Log("Sto fermo");
             // spriteRenderer.sprite = sprites[0];
             transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+    }
+
+    void FireBullet()
+    {
+        // preleviamo la posizione del player
+        GameObject playerShip = GameObject.Find("Ship");
+        if (playerShip != null)
+        {
+            GameObject bullet = Instantiate(Bullet);
+            bullet.transform.position = transform.position; // gli assegnamo la posizione dell'enemy
+                                                            // calcoliamo la direzione verso il player
+            Vector2 direction = playerShip.transform.position - bullet.transform.position;
+            // impostiamo la direzione del proiettile
+            bullet.GetComponent<EnemyBullet>().SetDirection(direction);
         }
     }
 

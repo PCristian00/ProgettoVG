@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7190593352676595619}
   - component: {fileID: 7190593352676595620}
   - component: {fileID: 7190593352676595621}
-  - component: {fileID: -4697954078246822884}
   - component: {fileID: 3809736932559513320}
   - component: {fileID: 6924489500486277352}
   - component: {fileID: -9114453355821787945}
@@ -30,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7190593352676595622}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -5.8116665, y: 1.6213148, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -110,19 +109,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-4697954078246822884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7190593352676595622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ebc15906f28edf4dbbfb4bafe5024ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Bullet: {fileID: 893378567151498894, guid: ce4db71eaee18ee4fbceb821cc2ad153, type: 3}
 --- !u!114 &3809736932559513320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,12 +123,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawner: {fileID: 0}
   boss_life: 0
-  logic: {fileID: 0}
   powerups:
   - {fileID: 6636638421958929776, guid: c1657756631806c4fba88b819b93ff72, type: 3}
   - {fileID: 236987288196601400, guid: c2b81556b79fadc4e9f832d09d625574, type: 3}
   - {fileID: 4803162757409877370, guid: 9e42f942e742aee4097766cad228dd88, type: 3}
   - {fileID: 618094963217292138, guid: 1c6993bd7ad90e9479d3a7f57c3726f6, type: 3}
+  Bullet: {fileID: 893378567151498894, guid: ce4db71eaee18ee4fbceb821cc2ad153, type: 3}
 --- !u!61 &6924489500486277352
 BoxCollider2D:
   m_ObjectHideFlags: 0
