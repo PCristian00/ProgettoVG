@@ -5,6 +5,7 @@ public class BossScript : MonoBehaviour
     public EnemySpawner spawner;
     public int boss_life = 3;
     public LogicScript logic;
+    public GameObject[] powerups;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +48,9 @@ public class BossScript : MonoBehaviour
 
                     spawner.countEnemyKill = 0;
                     spawner.bossIsAlive = false;
+
+                    // Il boss rilascia un power-up casuale alla morte
+                    Instantiate(powerups[Random.Range(0, powerups.Length)], new Vector3(transform.position.x, transform.position.y, 0), transform.rotation);
 
                     logic.AddScore(10);
                     logic.CheckDifficulty(true);

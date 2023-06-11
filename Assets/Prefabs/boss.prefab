@@ -138,6 +138,11 @@ MonoBehaviour:
   spawner: {fileID: 0}
   boss_life: 0
   logic: {fileID: 0}
+  powerups:
+  - {fileID: 6636638421958929776, guid: c1657756631806c4fba88b819b93ff72, type: 3}
+  - {fileID: 236987288196601400, guid: c2b81556b79fadc4e9f832d09d625574, type: 3}
+  - {fileID: 4803162757409877370, guid: 9e42f942e742aee4097766cad228dd88, type: 3}
+  - {fileID: 618094963217292138, guid: 1c6993bd7ad90e9479d3a7f57c3726f6, type: 3}
 --- !u!61 &6924489500486277352
 BoxCollider2D:
   m_ObjectHideFlags: 0
