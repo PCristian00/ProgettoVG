@@ -88,7 +88,7 @@ public class ShipControllerScript : MonoBehaviour
                 // Spara un proiettile che colpisce il layer 6, ovvero i nemici
                 // Bozza
                 Shoot(7);
-                
+
             }
 
             // Sparo (Arma 2)
@@ -206,64 +206,72 @@ public class ShipControllerScript : MonoBehaviour
             {
                 DeathAnimation();
                 // Debug.Log("SEI MORTO");
+                logic.gameIsOver = true;
                 Invoke(nameof(LoadGameOver), 2);
                 // Debug.Log("INVOKE ...");
                 // Disattiva il trigger dell'ostacolo / proiettile per evitare di morire piu' volte
                 // contro lo stesso ostacolo
                 collision.isTrigger = false;
-                
+
             }
         }
 
-        // Se la collisione avviene con HealthPowerUp
-        if (collision.gameObject.layer == 8)
+        // Collisioni con PowerUp
+        if (collision.gameObject.CompareTag("PowerUp"))
         {
             powerUpSound.Play();
-            if (life < 5)
+            // Debug.Log("PowerUp preso: "+ collision.name);
+
+            // Se la collisione avviene con HealthPowerUp
+            if (collision.gameObject.layer == 8)
             {
-                // Debug.Log("La vita non e' al massimo");
-                life++;
-                lifeImage.sprite = lifeSprites[life];
-               // Debug.Log("Recupero salute");
-                logic.ShowMessage("SALUTE +1", 1);
+                if (life < 5)
+                {
+                    // Debug.Log("La vita non e' al massimo");
+                    life++;
+                    lifeImage.sprite = lifeSprites[life];
+                    // Debug.Log("Recupero salute");
+                    logic.ShowMessage("SALUTE +1", 1);
+                }
+                Destroy(collision.gameObject);
             }
-            Destroy(collision.gameObject);
-        }
 
-        // Se la collisione avviene con MultiplierPowerUp
-        if (collision.gameObject.layer == 9)
-        {
-            powerUpSound.Play();
-            // Debug.Log("Fuoco rapido");
-            logic.ShowMessage("FUOCO RAPIDO", 10);
-            timeBetweenShots = 0.5f;
-            // Il power-up dura 10 secondi
-            Invoke(nameof(MultiplierResetEffect), 10);
-            Destroy(collision.gameObject);
-        }
+            // Se la collisione avviene con MultiplierPowerUp
+            if (collision.gameObject.layer == 9)
+            {
+                // powerUpSound.Play();
+                // Debug.Log("Fuoco rapido");
+                logic.ShowMessage("FUOCO RAPIDO", 10);
+                timeBetweenShots = 0.5f;
+                // Il power-up dura 10 secondi
+                Invoke(nameof(MultiplierResetEffect), 10);
+                Destroy(collision.gameObject);
+            }
 
-        // Se la collisione avviene con SpeedPowerUp
-        if (collision.gameObject.layer == 10)
-        {
-            powerUpSound.Play();
-            // Debug.Log("Spostamento veloce");
-            logic.ShowMessage("SPOSTAMENTO VELOCE", 10);
-            speed += 10;
-            // Il power-up dura 10 secondi
-            Invoke(nameof(SpeedResetEffect), 10);
-            Destroy(collision.gameObject);
-        }
+            // Se la collisione avviene con SpeedPowerUp
+            if (collision.gameObject.layer == 10)
+            {
+                // powerUpSound.Play();
+                // Debug.Log("Spostamento veloce");
+                logic.ShowMessage("SPOSTAMENTO VELOCE", 10);
+                speed += 10;
+                // Il power-up dura 10 secondi
+                Invoke(nameof(SpeedResetEffect), 10);
+                Destroy(collision.gameObject);
+            }
 
-        // Se la collisione avviene con DoubleScorePowerUp
-        if (collision.gameObject.layer == 11)
-        {
-            powerUpSound.Play();
-            // Debug.Log("Punti doppi");
-            logic.ShowMessage("PUNTI DOPPI", 10);
-            logic.scoreMultiplier *= 2;
-            // Il power-up dura 10 secondi
-            Invoke(nameof(ScoreResetEffect), 10);
-            Destroy(collision.gameObject);
+            // Se la collisione avviene con DoubleScorePowerUp
+
+            if (collision.gameObject.layer == 11)
+            {
+                // powerUpSound.Play();
+                // Debug.Log("Punti doppi");
+                logic.ShowMessage("PUNTI DOPPI", 10);
+                logic.scoreMultiplier *= 2;
+                // Il power-up dura 10 secondi
+                Invoke(nameof(ScoreResetEffect), 10);
+                Destroy(collision.gameObject);
+            }
         }
     }
 
@@ -277,7 +285,7 @@ public class ShipControllerScript : MonoBehaviour
         colliderComponent.isTrigger = false;
         myBody.isKinematic = false;
         gameObject.GetComponent<Rigidbody2D>().AddForce(Random.insideUnitCircle.normalized * 500f);
-        
+
 
         // Rende invisibile la barra della vita dopo la morte
         // lifeBar.SetActive(false);
