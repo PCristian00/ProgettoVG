@@ -6,7 +6,7 @@ public class BossBullet : MonoBehaviour
     // Indica l'inclinazione diagonale (Positiva se verso sinistra, negativa verso destra)
     public float direction = 0;
 
-    public float deadZone = -6.5f;
+    // public float deadZone = -6.5f;
 
     public void Update()
     {

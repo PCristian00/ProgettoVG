@@ -7,7 +7,7 @@ public class BossScript : MonoBehaviour
     private LogicScript logic;
     public GameObject[] powerups;
 
-    public GameObject Bullet;
+    public GameObject[] bullets;
 
     private Vector2 endPos;
     private int direction;
@@ -83,16 +83,22 @@ public class BossScript : MonoBehaviour
     void FireBullet()
     {
         // preleviamo la posizione del player
-        GameObject playerShip = GameObject.Find("Ship");
-        if (playerShip != null)
-        {
-            GameObject bullet = Instantiate(Bullet);
-            bullet.transform.position = transform.position; // gli assegnamo la posizione dell'enemy
-                                                            // calcoliamo la direzione verso il player
-            Vector2 direction = playerShip.transform.position - bullet.transform.position;
-            // impostiamo la direzione del proiettile
-            bullet.GetComponent<EnemyBullet>().SetDirection(direction);
-        }
+        // GameObject playerShip = GameObject.Find("Ship");
+        //if (playerShip != null)
+        //{
+            Instantiate(bullets[0]);
+            bullets[0].transform.position = transform.position;
+
+        Instantiate(bullets[1]);
+        bullets[1].transform.position = transform.position;
+
+        Instantiate(bullets[2]);
+        bullets[2].transform.position = transform.position;
+
+        // Vector2 direction = playerShip.transform.position - bullet.transform.position;
+        // impostiamo la direzione del proiettile
+        //bullet.GetComponent<EnemyBullet>().SetDirection(direction);
+        //}
     }
 
     private void OnTriggerEnter2D(Collider2D other)
