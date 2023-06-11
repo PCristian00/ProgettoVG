@@ -220,7 +220,7 @@ public class ShipControllerScript : MonoBehaviour
         if (collision.gameObject.CompareTag("PowerUp"))
         {
             powerUpSound.Play();
-            Debug.Log("PowerUp preso");
+            // Debug.Log("PowerUp preso: "+ collision.name);
 
             // Se la collisione avviene con HealthPowerUp
             if (collision.gameObject.layer == 8)
@@ -261,6 +261,7 @@ public class ShipControllerScript : MonoBehaviour
             }
 
             // Se la collisione avviene con DoubleScorePowerUp
+
             if (collision.gameObject.layer == 11)
             {
                 // powerUpSound.Play();
