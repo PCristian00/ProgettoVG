@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Logic
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -13,14 +14,14 @@ TagManager:
   - Water
   - UI
   - Bullet
-  - Enemy
+  - Red
   - Health
   - Multiplier
   - Speed
   - DoubleScore
-  - Enemy2
-  - Enemy3
-  - 
+  - Green
+  - Blue
+  - Boss
   - 
   - 
   - 

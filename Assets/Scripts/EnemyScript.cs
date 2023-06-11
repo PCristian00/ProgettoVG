@@ -17,6 +17,7 @@ public class EnemyScript : MonoBehaviour
     {
         spawner = GameObject.FindGameObjectWithTag("Respawn").GetComponent<EnemySpawner>();
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+        Debug.Log("Comparsa di " + this.tag);
     }
 
     void Update()
