@@ -92,7 +92,8 @@ public class BossScript : MonoBehaviour
                     spawner.bossIsAlive = false;
 
                     // Il boss rilascia un power-up casuale alla morte
-                    Instantiate(powerups[Random.Range(0, powerups.Length)], new Vector3(transform.position.x, transform.position.y, 0), transform.rotation);
+                    // Euler nella rotazione serve per riportare il power-up alla rotazione nulla invece di quella del boss
+                    Instantiate(powerups[Random.Range(0, powerups.Length)], new Vector3(transform.position.x, transform.position.y, 0), Quaternion.Euler(0, 0, 0));
 
                     logic.AddScore(10);
                     logic.CheckDifficulty(true);
