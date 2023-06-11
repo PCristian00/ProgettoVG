@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7433916891124754980}
   m_Layer: 8
   m_Name: HealthPowerUp
-  m_TagString: Untagged
+  m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,9 +100,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   deadZone: -6.5
-  logic: {fileID: 0}
-  type: 0
-  player: {fileID: 0}
 --- !u!61 &7433916891124754980
 BoxCollider2D:
   m_ObjectHideFlags: 0
