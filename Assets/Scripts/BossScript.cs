@@ -37,7 +37,6 @@ public class BossScript : MonoBehaviour
         {
             direction *= -1;
         }
-
         Move(direction);
 
         if (timer < spawnRate)
@@ -82,18 +81,24 @@ public class BossScript : MonoBehaviour
 
     void FireBullet()
     {
-        // preleviamo la posizione del player
-        // GameObject playerShip = GameObject.Find("Ship");
-        //if (playerShip != null)
-        //{
-            Instantiate(bullets[0]);
-            bullets[0].transform.position = transform.position;
+        GameObject[] bTest=new GameObject[bullets.Length];
 
-        Instantiate(bullets[1]);
-        bullets[1].transform.position = transform.position;
+        for(int i=0; i<bullets.Length; i++)
+        {
+            bTest[i] = Instantiate(bullets[i]);
+            bTest[i].transform.position = transform.position;
+        }
+        
 
-        Instantiate(bullets[2]);
-        bullets[2].transform.position = transform.position;
+        //Instantiate(bullets[0]);
+        //bullets[0].transform.position = transform.position;
+        //Debug.Log("CAMBIO POS di " + bullets[0].name + " ora è " + bullets[0].transform.position);
+
+        //Instantiate(bullets[1]);
+        //bullets[1].transform.position = transform.position;
+
+        //Instantiate(bullets[2]);
+        //bullets[2].transform.position = transform.position;
 
         // Vector2 direction = playerShip.transform.position - bullet.transform.position;
         // impostiamo la direzione del proiettile
