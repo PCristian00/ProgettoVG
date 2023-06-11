@@ -2,18 +2,26 @@ using UnityEngine;
 
 public class BossScript : MonoBehaviour
 {
+    // Spawner dei nemici, utilizzato per resettare il contatore di Spawn
     public EnemySpawner spawner;
+    // Vita del Boss
     public int boss_life = 3;
+    // Riferimento al LogicManager
     private LogicScript logic;
+    // Array contenente tutti i power-up che il boss puo' rilasciare alla morte
     public GameObject[] powerups;
-
+    // Array contenente tutti i tipi di proiettili che il boss spara contemporaneamente
     public GameObject[] bullets;
 
+    // Posizione finale del movimento
     private Vector2 endPos;
+    //Direzione del movimento
     private int direction;
 
+    // Timer usato per le pause tra uno sparo e l'altro
     private float timer = 0;
-    private float spawnRate = 2;
+    // Frequenza di fuoco in secondi
+    private float fireRate = 2;
 
 
     // Start is called before the first frame update
@@ -26,20 +34,22 @@ public class BossScript : MonoBehaviour
 
         endPos = new Vector2(transform.position.x, transform.position.y);
 
+        // Direzione in cui il Boss si avvia alla partenza
         direction = -1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Cambio direzione
+        // Cambio direzione se arrivato al limite orizzontale
         if (transform.position.x == 6 || transform.position.x == -6)
         {
             direction *= -1;
         }
+
         Move(direction);
 
-        if (timer < spawnRate)
+        if (timer < fireRate)
         {
             timer += Time.deltaTime;
         }
@@ -73,6 +83,9 @@ public class BossScript : MonoBehaviour
         }
         else
         {
+            // IL BOSS PER ADESSO NON SI FERMA MAI
+            // QUESTO ELSE POTREBBE NON ESSERE MAI RAGGIUNTO
+
             // Debug.Log("Sto fermo");
             // spriteRenderer.sprite = sprites[0];
             transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -81,29 +94,16 @@ public class BossScript : MonoBehaviour
 
     void FireBullet()
     {
-        GameObject[] bTest=new GameObject[bullets.Length];
+        // Array necessario per instanziare i proiettili correttamente
+        GameObject[] objects = new GameObject[bullets.Length];
 
-        for(int i=0; i<bullets.Length; i++)
+        // Per ogni proiettile caricato in BossScript
+        for (int i = 0; i < bullets.Length; i++)
         {
-            bTest[i] = Instantiate(bullets[i]);
-            bTest[i].transform.position = transform.position;
+            // Instanzia il proiettile nella posizione attuale del Boss
+            objects[i] = Instantiate(bullets[i]);
+            objects[i].transform.position = transform.position;
         }
-        
-
-        //Instantiate(bullets[0]);
-        //bullets[0].transform.position = transform.position;
-        //Debug.Log("CAMBIO POS di " + bullets[0].name + " ora è " + bullets[0].transform.position);
-
-        //Instantiate(bullets[1]);
-        //bullets[1].transform.position = transform.position;
-
-        //Instantiate(bullets[2]);
-        //bullets[2].transform.position = transform.position;
-
-        // Vector2 direction = playerShip.transform.position - bullet.transform.position;
-        // impostiamo la direzione del proiettile
-        //bullet.GetComponent<EnemyBullet>().SetDirection(direction);
-        //}
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -142,7 +142,7 @@ public class BossScript : MonoBehaviour
 
                     Destroy(gameObject);
                 }
-            }    
+            }
         }
     }
 }

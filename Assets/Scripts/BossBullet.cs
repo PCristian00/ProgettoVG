@@ -21,8 +21,5 @@ public class BossBullet : MonoBehaviour
             // Debug.Log("Bullet boss distrutto");
             Destroy(gameObject);
         }
-
-
-
     }
 }
