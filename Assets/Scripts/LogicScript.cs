@@ -67,12 +67,16 @@ public class LogicScript : MonoBehaviour
         }
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+    public void Menu()
+    {
+        SceneManager.LoadScene(1);
+    }
     public void RestartGame()
     {
-        // Svuota il DebugLog prima di riavviare la scena
-        // Forse inutile in gioco finale
-        // ClearLog();
-        
         SceneManager.LoadScene(2);
     }
 
