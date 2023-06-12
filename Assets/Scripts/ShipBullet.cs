@@ -9,11 +9,15 @@ public class ShipBullet : MonoBehaviour
 
     public SpriteRenderer spriteRenderer;
 
+    public Sprite redBullet;
+    public Sprite greenBullet;
+    public Sprite yellowBullet;
+
     // Update is called once per frame
     void Update()
     {
 
-        ColorSprite();
+        LoadSprite();
         //Vector2 pos = transform.position;
         //pos.y += bulletSpeed * Time.deltaTime;
         //transform.position = pos;
@@ -27,13 +31,13 @@ public class ShipBullet : MonoBehaviour
 
     // SOLO PER PROVA
     // Sostituire sprite invece di colorare e basta per un effetto migliore
-    void ColorSprite()
+    void LoadSprite()
     {
         // colora di rosso
-        if (gameObject.layer == 7) spriteRenderer.color = new Color(100, 0, 0);
+        if (gameObject.layer == 7) spriteRenderer.sprite = redBullet;
         // colora di verde
-        else if (gameObject.layer == 12) spriteRenderer.color = new Color(0, 100, 0);
-        // colora di blu
-        else spriteRenderer.color = new Color(0, 0, 100);
+        else if (gameObject.layer == 12) spriteRenderer.sprite = greenBullet;
+        // colora di giallo
+        else spriteRenderer.sprite = yellowBullet;
     }
 }

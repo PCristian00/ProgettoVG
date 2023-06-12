@@ -101,6 +101,9 @@ MonoBehaviour:
   bulletSpeed: 8
   deadZone: 5.5
   spriteRenderer: {fileID: 3130855139022741245}
+  redBullet: {fileID: 21300000, guid: cdd9330caa3b00b42b039224ff77169f, type: 3}
+  greenBullet: {fileID: 21300000, guid: a4e8cc5f46935a44e9adb5fa0c479aa6, type: 3}
+  yellowBullet: {fileID: 21300000, guid: e0a3c95598c7a8243a73af2a3572d78c, type: 3}
 --- !u!61 &1235711997689493433
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -39,8 +39,8 @@ public class MenuButton : MonoBehaviour
 
         if (collision.gameObject.layer == 13)
         {
-            spriteRenderer.color = new Color(0, 0, 100);
-            // text.text = "Blu";
+            spriteRenderer.color = new Color(100, 100, 0);
+            // text.text = "Giallo";
         }
         // Debug.Log("Selezione");
 
