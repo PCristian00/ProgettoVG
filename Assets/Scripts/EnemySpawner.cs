@@ -35,7 +35,7 @@ public class EnemySpawner : MonoBehaviour
                 }
             }
         }
-        else if (!bossIsAlive)
+        else if (!bossIsAlive && countSpawn==0)
         {
             SpawnBoss();
         }
