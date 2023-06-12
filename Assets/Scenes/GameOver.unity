@@ -1822,7 +1822,20 @@ PrefabInstance:
       propertyPath: highScoreText
       value: 
       objectReference: {fileID: 1485380288}
-    m_RemovedComponents: []
+    - target: {fileID: 3284777306563882911, guid: 64b3246f42f7e8c46a80d2dd7312a9dd, type: 3}
+      propertyPath: musicLayers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3284777306563882911, guid: 64b3246f42f7e8c46a80d2dd7312a9dd, type: 3}
+      propertyPath: speedSprites.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3284777306563882853, guid: 64b3246f42f7e8c46a80d2dd7312a9dd, type: 3}
+    - {fileID: 3284777306563882852, guid: 64b3246f42f7e8c46a80d2dd7312a9dd, type: 3}
+    - {fileID: 3284777306563882907, guid: 64b3246f42f7e8c46a80d2dd7312a9dd, type: 3}
+    - {fileID: 3284777306563882906, guid: 64b3246f42f7e8c46a80d2dd7312a9dd, type: 3}
+    - {fileID: 3284777306563882854, guid: 64b3246f42f7e8c46a80d2dd7312a9dd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 64b3246f42f7e8c46a80d2dd7312a9dd, type: 3}
 --- !u!114 &1920749308 stripped
 MonoBehaviour:
