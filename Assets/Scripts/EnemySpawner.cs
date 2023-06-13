@@ -14,6 +14,8 @@ public class EnemySpawner : MonoBehaviour
 
     public bool bossIsAlive;
 
+    public LogicScript logic;
+
 
 
     // Update is called once per frame
@@ -21,8 +23,11 @@ public class EnemySpawner : MonoBehaviour
     {
         if (countEnemyKill < 3f) 
         {
-            if (countSpawn < 3f)
+            // Possono comparire max (n*speed) nemici
+            // velocita' 5 = max 5 nemici
+            if (countSpawn <= (7-logic.speed))
             {
+                Debug.Log("Numero massimo di nemici a questa velocita' : " + (8 - logic.speed));
                 if (timer < maxSpawnRate)
                 {
                     timer += Time.deltaTime;
