@@ -45,8 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planets:
-  - {fileID: 6971683417520051241, guid: d38148cb87345e941a83b00cc89e6116, type: 3}
-  - {fileID: 6410288732398149777, guid: ae149bf988ef1984ab60f08a67fab549, type: 3}
-  - {fileID: 6669791936240146534, guid: cad34f224525d16459d6bfb62369faee, type: 3}
-  - {fileID: 5058845800345266876, guid: 0306c1edd1a249c43a92eab19b3daf2d, type: 3}
+  - {fileID: 3820140989917885259, guid: cad34f224525d16459d6bfb62369faee, type: 3}
+  - {fileID: 7516627930540100223, guid: 1cd45b70850f71547b95ba646fdfdee4, type: 3}
+  - {fileID: 4149144002673463661, guid: e344ab6116aa3a244bbbf479e29363c4, type: 3}
+  - {fileID: 6755955040384399039, guid: ae149bf988ef1984ab60f08a67fab549, type: 3}
+  - {fileID: 785960818442385727, guid: abcab5d97d5d44d4b84df2f775df7c30, type: 3}
+  - {fileID: 8874312273623561145, guid: 1541b01b6e2ec3544a3455b7118ee055, type: 3}
+  - {fileID: 750127040812901283, guid: 9bafa50901851f04eaee9eaf10e06133, type: 3}
+  - {fileID: 1769243943077372185, guid: afb1b1fc348f3eb41b8017aca5be06cf, type: 3}
   logic: {fileID: 0}

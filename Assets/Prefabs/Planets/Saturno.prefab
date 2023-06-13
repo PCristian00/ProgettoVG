@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &5538559206278058883
+--- !u!1001 &4400934436111571205
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,10 +10,10 @@ PrefabInstance:
     - target: {fileID: 2216041248521514299, guid: 0306c1edd1a249c43a92eab19b3daf2d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4354b5f67329ef147bd830925d21f682, type: 3}
+      objectReference: {fileID: 21300000, guid: bfec3117b6a30ed419f6d104a27f148a, type: 3}
     - target: {fileID: 5058845800345266876, guid: 0306c1edd1a249c43a92eab19b3daf2d, type: 3}
       propertyPath: m_Name
-      value: Giove
+      value: Planet Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7654405617303971995, guid: 0306c1edd1a249c43a92eab19b3daf2d, type: 3}
       propertyPath: m_RootOrder
