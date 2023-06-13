@@ -40,6 +40,9 @@ public class PlanetSpawnerScript : MonoBehaviour
         // Instantiate(planets[Random.Range(0, planets.Length)], new Vector3(transform.position.x, PositionY, 0), transform.rotation);
 
         // Spawn sequenziale dei pianeti
+        // NOTA: Sono ordinati in ordine di distanza dal Sole nello spawner
+        // Mercurio, Venere, Terra, Marte, Giove, Saturno, Urano, Nettuno
+
         Instantiate(planets[planetIndex], new Vector3(transform.position.x, PositionY, 0), transform.rotation);
 
         // Debug.Log("Pianeta spawnato: " + planetIndex+ " / "+ (planets.Length-1));
