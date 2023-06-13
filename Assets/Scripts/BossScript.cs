@@ -13,6 +13,9 @@ public class BossScript : MonoBehaviour
     // Array contenente tutti i tipi di proiettili che il boss spara contemporaneamente
     public GameObject[] bullets;
 
+    // Suono emesso se colpito
+    public AudioSource deathSound;
+
     // Posizione finale del movimento
     private Vector2 endPos;
     //Direzione del movimento
@@ -123,6 +126,8 @@ public class BossScript : MonoBehaviour
                 // Debug.Log("Colpito!!!");
                 boss_life--;
                 Debug.Log("Vita BOSS: " + boss_life + " / 3");
+
+                deathSound.Play();
 
                 Destroy(other.gameObject);
                 if (boss_life == 0)
