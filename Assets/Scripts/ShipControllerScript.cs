@@ -111,8 +111,8 @@ public class ShipControllerScript : MonoBehaviour
             if (Input.GetButtonDown("No Clip"))
             {
                 Shield();
-                
-                
+                if (NoClip) logic.ShowMessage("NO CLIP ATTIVATO", 0);
+                else logic.ToggleMessage();              
             }
         }
         // Se il giocatore e' morto, il pulsante Restart riavvia la partita
@@ -193,18 +193,11 @@ public class ShipControllerScript : MonoBehaviour
         if ((collision.gameObject.layer == 3 || collision.gameObject.layer == 6) && !NoClip)
         {
             life--;
-            // Riduce la velocita' del gioco con la collisione, se non è gia' al minimo
-            logic.ChangeSpeed(-1);
-            
-            Shield();
-            Invoke(nameof(Shield), 1);
-
             lifeImage.sprite = lifeSprites[life];
-
             deathSound.Play();
             // Distruzione dell'ostacolo / proiettile all'impatto
             Destroy(collision.gameObject);
-            Debug.Log("Ti rimane " + life + "/5 salute");
+
             if (life == 0)
             {
                 DeathAnimation();
@@ -216,6 +209,14 @@ public class ShipControllerScript : MonoBehaviour
                 // contro lo stesso ostacolo
                 collision.isTrigger = false;
 
+            }
+            else
+            {
+                // Riduce la velocita' del gioco con la collisione, se non è gia' al minimo
+                logic.ChangeSpeed(-1);
+                // Invulnerabile per 1 secondo
+                Shield();
+                Invoke(nameof(Shield), 1);
             }
         }
 
@@ -316,27 +317,17 @@ public class ShipControllerScript : MonoBehaviour
         logic.scoreMultiplier /= 2;
     }
 
+    // Attiva / disattiva NoClip (Invulnerabilita') e attiva un effetto di trasparenza
     private void Shield()
     {
         NoClip = !NoClip;
         if (NoClip)
-        {
-            logic.ShowMessage("NO CLIP ATTIVATO", 1);
-            spriteRenderer.color = new Color(1, 1, 1,.5f);
 
-        }
+            spriteRenderer.color = new Color(1, 1, 1, .5f);
 
         else
-        {
-            logic.ShowMessage("NO CLIP DISATTIVATO", 1);
             spriteRenderer.color = new Color(1, 1, 1, 1);
-        }
-            
-
-        
     }
-
-
 
     // Richiama il GameOver di LogicScript per risolvere il problema di Invoke
     private void LoadGameOver()
