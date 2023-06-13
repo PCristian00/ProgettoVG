@@ -14,18 +14,28 @@ public class EnemySpawner : MonoBehaviour
 
     public bool bossIsAlive;
 
+    public LogicScript logic;
+
 
 
     // Update is called once per frame
     void Update()
     {
-        // Abbassato da 3 a 10 per test
-        if (countEnemyKill < 3f) 
+        if (countEnemyKill < 10) 
         {
-            if (countSpawn < 3f)
+            // Possono comparire max (n*speed) nemici
+            // velocita' 5 = max 5 nemici
+            if (countSpawn <= (7-logic.speed))
             {
-                if (timer < maxSpawnRate)
+                Debug.Log("Numero massimo di nemici a questa velocita' : " + (8 - logic.speed));
+                // Tempo di spawn tra un nemico e l'altro variabile in base a velocita' + 1 secondo
+                // logic.speed varia da 7 a 2 (inversamente proporzionale)
+                // Vecchio spawnRate era 5
+                // a velocita' 5 spawn ogni 3 secondi
+                if (timer < (logic.speed+1))
                 {
+                    
+                    Debug.Log("Prossimo nemico tra " + (int)((logic.speed + 1) - timer) + " secondi.");
                     timer += Time.deltaTime;
                 }
                 else
@@ -35,9 +45,12 @@ public class EnemySpawner : MonoBehaviour
                 }
             }
         }
+        // Il boss compare se non e' presente nessun boss o nemico e sono stati uccisi 10 nemici
         else if (!bossIsAlive && countSpawn==0)
         {
-            SpawnBoss();
+            // Attesa di 1 secondo per lo spawn
+            bossIsAlive = true;
+            Invoke(nameof(SpawnBoss),1);
         }
         
     }
@@ -58,7 +71,8 @@ public class EnemySpawner : MonoBehaviour
     }
     void SpawnBoss()
     {
-        bossIsAlive = true;
+        // De-commentare sotto se rimosso invoke di SpawnBoss in Update
+        // bossIsAlive = true;
         Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
         Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
         max.x = 6f;

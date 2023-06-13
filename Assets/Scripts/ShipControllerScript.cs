@@ -110,18 +110,17 @@ public class ShipControllerScript : MonoBehaviour
             // Astronave immortale. TOGLIERE DA PRODOTTO FINALE
             if (Input.GetButtonDown("No Clip"))
             {
-                NoClip = !NoClip;
-                if (NoClip)
-                    logic.ShowMessage("NO CLIP ATTIVATO", 0);
-                else
-                    logic.ToggleMessage();
+                Shield();
+                if (NoClip) logic.ShowMessage("NO CLIP ATTIVATO", 0);
+                else logic.ToggleMessage();              
             }
         }
         // Se il giocatore e' morto, il pulsante Restart riavvia la partita
-        else if (Input.GetButtonDown("Restart"))
-        {
-            logic.RestartGame();
-        }
+        // CAMBIATO FUNZIONAMENTO DI GAMEOVER: RIMUOVERE
+        //else if (Input.GetButtonDown("Restart"))
+        //{
+        //    logic.RestartGame();
+        //}
     }
 
     // Movimento libero fluido
@@ -194,14 +193,11 @@ public class ShipControllerScript : MonoBehaviour
         if ((collision.gameObject.layer == 3 || collision.gameObject.layer == 6) && !NoClip)
         {
             life--;
-            // Riduce la velocita' del gioco con la collisione, se non è gia' al minimo
-            logic.ChangeSpeed(-1);
             lifeImage.sprite = lifeSprites[life];
-
             deathSound.Play();
             // Distruzione dell'ostacolo / proiettile all'impatto
             Destroy(collision.gameObject);
-            Debug.Log("Ti rimane " + life + "/5 salute");
+
             if (life == 0)
             {
                 DeathAnimation();
@@ -213,6 +209,14 @@ public class ShipControllerScript : MonoBehaviour
                 // contro lo stesso ostacolo
                 collision.isTrigger = false;
 
+            }
+            else
+            {
+                // Riduce la velocita' del gioco con la collisione, se non è gia' al minimo
+                logic.ChangeSpeed(-1);
+                // Invulnerabile per 1 secondo
+                Shield();
+                Invoke(nameof(Shield), 1);
             }
         }
 
@@ -311,6 +315,18 @@ public class ShipControllerScript : MonoBehaviour
         // Debug.Log("Tempo power-up DoubleScore scaduto");
         logic.ShowMessage("FINE PUNTI DOPPI", 1);
         logic.scoreMultiplier /= 2;
+    }
+
+    // Attiva / disattiva NoClip (Invulnerabilita') e attiva un effetto di trasparenza
+    private void Shield()
+    {
+        NoClip = !NoClip;
+        if (NoClip)
+
+            spriteRenderer.color = new Color(1, 1, 1, .5f);
+
+        else
+            spriteRenderer.color = new Color(1, 1, 1, 1);
     }
 
     // Richiama il GameOver di LogicScript per risolvere il problema di Invoke
