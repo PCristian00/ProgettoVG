@@ -110,18 +110,17 @@ public class ShipControllerScript : MonoBehaviour
             // Astronave immortale. TOGLIERE DA PRODOTTO FINALE
             if (Input.GetButtonDown("No Clip"))
             {
-                NoClip = !NoClip;
-                if (NoClip)
-                    logic.ShowMessage("NO CLIP ATTIVATO", 0);
-                else
-                    logic.ToggleMessage();
+                Shield();
+                
+                
             }
         }
         // Se il giocatore e' morto, il pulsante Restart riavvia la partita
-        else if (Input.GetButtonDown("Restart"))
-        {
-            logic.RestartGame();
-        }
+        // CAMBIATO FUNZIONAMENTO DI GAMEOVER: RIMUOVERE
+        //else if (Input.GetButtonDown("Restart"))
+        //{
+        //    logic.RestartGame();
+        //}
     }
 
     // Movimento libero fluido
@@ -196,6 +195,10 @@ public class ShipControllerScript : MonoBehaviour
             life--;
             // Riduce la velocita' del gioco con la collisione, se non è gia' al minimo
             logic.ChangeSpeed(-1);
+            
+            Shield();
+            Invoke(nameof(Shield), 1);
+
             lifeImage.sprite = lifeSprites[life];
 
             deathSound.Play();
@@ -312,6 +315,28 @@ public class ShipControllerScript : MonoBehaviour
         logic.ShowMessage("FINE PUNTI DOPPI", 1);
         logic.scoreMultiplier /= 2;
     }
+
+    private void Shield()
+    {
+        NoClip = !NoClip;
+        if (NoClip)
+        {
+            logic.ShowMessage("NO CLIP ATTIVATO", 1);
+            spriteRenderer.color = new Color(50, 0, 0);
+
+        }
+
+        else
+        {
+            logic.ShowMessage("NO CLIP DISATTIVATO", 1);
+            spriteRenderer.color = new Color(255, 255, 255);
+        }
+            
+
+        
+    }
+
+
 
     // Richiama il GameOver di LogicScript per risolvere il problema di Invoke
     private void LoadGameOver()
