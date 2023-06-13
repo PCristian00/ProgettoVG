@@ -21,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (countEnemyKill < 3f) 
+        if (countEnemyKill < 10) 
         {
             // Possono comparire max (n*speed) nemici
             // velocita' 5 = max 5 nemici

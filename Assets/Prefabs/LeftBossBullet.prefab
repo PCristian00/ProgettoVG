@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7005527170248233635, guid: 45eaee30822e5fc4093f43d9a1f5ea4e, type: 3}
       propertyPath: direction
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7005527170248233637, guid: 45eaee30822e5fc4093f43d9a1f5ea4e, type: 3}
       propertyPath: m_Name
