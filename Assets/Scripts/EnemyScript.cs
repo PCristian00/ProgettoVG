@@ -5,8 +5,6 @@ public class EnemyScript : MonoBehaviour
     public EnemySpawner spawner;
     private LogicScript logic;
 
-    public AudioSource deathSound;
-
     public GameObject Bullet;
     private float timer = 0;
     private float spawnRate = 2;
@@ -55,9 +53,7 @@ public class EnemyScript : MonoBehaviour
         if (other.gameObject.layer == this.gameObject.layer)
         {
             spawner.countEnemyKill++;
-            // NON SUONA, forse perché l'oggetto viene distrutto subito dopo
-            deathSound.Play();
-
+            
             // Debug.Log("Suono suonato");
             // Distrugge se stesso e ShipBullet
             Destroy(gameObject);

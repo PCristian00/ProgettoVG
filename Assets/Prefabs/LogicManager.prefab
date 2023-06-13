@@ -19,7 +19,7 @@ GameObject:
   m_Layer: 0
   m_Name: LogicManager
   m_TagString: Logic
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -55,8 +55,6 @@ MonoBehaviour:
   scoreMultiplier: 1
   scoreText: {fileID: 0}
   highScoreText: {fileID: 0}
-  gameOverScreen: {fileID: 0}
-  scoreEffect: {fileID: 0}
   musicLayers:
   - {fileID: 3284777306563882905}
   - {fileID: 3284777306563882853}
@@ -73,6 +71,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0ade9b549f50f6c43a362a554a23e893, type: 3}
   - {fileID: 21300000, guid: eec1bd4d35881c149b7b9f619678ce66, type: 3}
   message: {fileID: 0}
+  gameIsOver: 0
 --- !u!82 &3284777306563882905
 AudioSource:
   m_ObjectHideFlags: 0
