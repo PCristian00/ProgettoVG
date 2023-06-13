@@ -322,14 +322,14 @@ public class ShipControllerScript : MonoBehaviour
         if (NoClip)
         {
             logic.ShowMessage("NO CLIP ATTIVATO", 1);
-            spriteRenderer.color = new Color(50, 0, 0);
+            spriteRenderer.color = new Color(1, 1, 1,.5f);
 
         }
 
         else
         {
             logic.ShowMessage("NO CLIP DISATTIVATO", 1);
-            spriteRenderer.color = new Color(255, 255, 255);
+            spriteRenderer.color = new Color(1, 1, 1, 1);
         }
             
 
