@@ -28,8 +28,14 @@ public class EnemySpawner : MonoBehaviour
             if (countSpawn <= (7-logic.speed))
             {
                 Debug.Log("Numero massimo di nemici a questa velocita' : " + (8 - logic.speed));
-                if (timer < maxSpawnRate)
+                // Tempo di spawn tra un nemico e l'altro variabile in base a velocita' + 1 secondo
+                // logic.speed varia da 7 a 2 (inversamente proporzionale)
+                // Vecchio spawnRate era 5
+                // a velocita' 5 spawn ogni 3 secondi
+                if (timer < (logic.speed+1))
                 {
+                    
+                    Debug.Log("Prossimo nemico tra " + (int)((logic.speed + 1) - timer) + " secondi.");
                     timer += Time.deltaTime;
                 }
                 else

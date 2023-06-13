@@ -288,6 +288,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 176047405}
   m_CullTransparentMesh: 1
+--- !u!114 &210873974 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3284777306563882911, guid: 64b3246f42f7e8c46a80d2dd7312a9dd, type: 3}
+  m_PrefabInstance: {fileID: 3284777307242320612}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d3feb0ea0da0d4fae778b7560b09a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &405889254
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,6 +498,7 @@ MonoBehaviour:
   countSpawn: 0
   countEnemyKill: 0
   bossIsAlive: 0
+  logic: {fileID: 210873974}
 --- !u!4 &957245572
 Transform:
   m_ObjectHideFlags: 0
