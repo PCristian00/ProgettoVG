@@ -19,7 +19,6 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Abbassato da 3 a 10 per test
         if (countEnemyKill < 3f) 
         {
             if (countSpawn < 3f)
@@ -35,9 +34,12 @@ public class EnemySpawner : MonoBehaviour
                 }
             }
         }
+        // Il boss compare se non e' presente nessun boss o nemico e sono stati uccisi 10 nemici
         else if (!bossIsAlive && countSpawn==0)
         {
-            SpawnBoss();
+            // Attesa di 1 secondo per lo spawn
+            bossIsAlive = true;
+            Invoke(nameof(SpawnBoss),1);
         }
         
     }
@@ -58,7 +60,8 @@ public class EnemySpawner : MonoBehaviour
     }
     void SpawnBoss()
     {
-        bossIsAlive = true;
+        // De-commentare sotto se rimosso invoke di SpawnBoss in Update
+        // bossIsAlive = true;
         Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
         Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
         max.x = 6f;
