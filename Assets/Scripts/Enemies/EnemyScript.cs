@@ -48,9 +48,10 @@ public class EnemyScript : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        
-        // Se entra in collisione con uno ShipBullet dello stesso colore (layer) di questo Enemy
-        if (other.gameObject.layer == this.gameObject.layer)
+
+        if (!other.gameObject.CompareTag("Enemy"))
+            // Se entra in collisione con uno ShipBullet dello stesso colore (layer) di questo Enemy
+            if (other.gameObject.layer == this.gameObject.layer)
         {
             spawner.countEnemyKill++;
             
