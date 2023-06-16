@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 893378567151498894, guid: ce4db71eaee18ee4fbceb821cc2ad153, type: 3}
+  bulletSound: {fileID: -2478009574701408706}
 --- !u!82 &-2478009574701408706
 AudioSource:
   m_ObjectHideFlags: 0
@@ -180,7 +181,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ed2a3e953b109bf43aea3865d89fd597, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

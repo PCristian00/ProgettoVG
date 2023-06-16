@@ -7,6 +7,7 @@ public class EnemyScript : MonoBehaviour
     public GameObject Bullet;
     private float timer = 0;
     private float fireRate = 2;
+    public AudioSource bulletSound;
 
 
 
@@ -33,6 +34,7 @@ public class EnemyScript : MonoBehaviour
     {
         // preleviamo la posizione del player
         GameObject playerShip = GameObject.Find("Ship");
+        bulletSound.Play();
         if (playerShip != null)
         {
             GameObject bullet = Instantiate(Bullet);
