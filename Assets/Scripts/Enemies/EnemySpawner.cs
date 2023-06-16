@@ -16,6 +16,7 @@ public class EnemySpawner : MonoBehaviour
 
     public LogicScript logic;
 
+    public AudioSource deathSound;
 
 
     // Update is called once per frame
@@ -94,6 +95,11 @@ public class EnemySpawner : MonoBehaviour
         {
             spawnInNSeconds = 1f;
         }
+    }
+
+    public  void PlaySound()
+    {
+        deathSound.Play();
     }
 
     // FORSE INUTILIZZATA

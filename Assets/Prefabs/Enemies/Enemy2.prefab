@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 649945150117488830}
   - component: {fileID: -216309087212894822}
   - component: {fileID: -7471453087352084695}
-  - component: {fileID: -1353977687690316430}
+  - component: {fileID: -2478009574701408706}
   m_Layer: 12
   m_Name: Enemy2
   m_TagString: Enemy
@@ -169,10 +169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68cb6fb3193afd94088a095a49927117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawner: {fileID: 0}
-  deathSound: {fileID: -1353977687690316430}
   Bullet: {fileID: 893378567151498894, guid: ce4db71eaee18ee4fbceb821cc2ad153, type: 3}
---- !u!82 &-1353977687690316430
+--- !u!82 &-2478009574701408706
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,7 +180,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 56724d566fe8c76439f50d84471d14dd, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

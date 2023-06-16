@@ -2,12 +2,18 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    public EnemySpawner spawner;
+    private EnemySpawner spawner;
     private LogicScript logic;
 
     public GameObject Bullet;
     private float timer = 0;
     private float spawnRate = 2;
+
+    //private EnemySound audioManager;
+    //public AudioSource deathSound;
+
+    //public AudioClip deathSound;
+
 
 
     // Start is called before the first frame update
@@ -15,6 +21,7 @@ public class EnemyScript : MonoBehaviour
     {
         spawner = GameObject.FindGameObjectWithTag("Respawn").GetComponent<EnemySpawner>();
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+        //audioManager = GameObject.FindGameObjectsWithTag("Audio")
         // Debug.Log("Comparsa di " + this.tag);
     }
 
@@ -54,7 +61,9 @@ public class EnemyScript : MonoBehaviour
             if (other.gameObject.layer == this.gameObject.layer)
         {
             spawner.countEnemyKill++;
-            
+            spawner.PlaySound();
+
+             //AudioSource.PlayClipAtPoint(deathSound, transform.position);
             // Debug.Log("Suono suonato");
             // Distrugge se stesso e ShipBullet
             Destroy(gameObject);
