@@ -16,6 +16,7 @@ public class EnemySpawner : MonoBehaviour
 
     public LogicScript logic;
 
+    public AudioSource deathSound;
 
 
     // Update is called once per frame
@@ -94,6 +95,28 @@ public class EnemySpawner : MonoBehaviour
         {
             spawnInNSeconds = 1f;
         }
+    }
+
+    public void EnemyKilled()
+    {
+        countEnemyKill++;
+        deathSound.Play();
+        logic.AddScore(1);
+
+        if (countSpawn > 0)
+        {
+            countSpawn--;
+            // Debug.Log("Nemici in gioco: " + spawner.countSpawn);
+        }
+    }
+
+    public void BossKilled()
+    {
+        deathSound.Play();
+        countEnemyKill = 0;
+        bossIsAlive = false;
+        logic.AddScore(10);
+        logic.CheckDifficulty(true);
     }
 
     // FORSE INUTILIZZATA

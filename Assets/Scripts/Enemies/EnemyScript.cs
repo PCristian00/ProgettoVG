@@ -2,25 +2,24 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    public EnemySpawner spawner;
-    private LogicScript logic;
+    private EnemySpawner spawner;
 
     public GameObject Bullet;
     private float timer = 0;
-    private float spawnRate = 2;
+    private float fireRate = 2;
+    public AudioSource bulletSound;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
         spawner = GameObject.FindGameObjectWithTag("Respawn").GetComponent<EnemySpawner>();
-        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
-        // Debug.Log("Comparsa di " + this.tag);
     }
 
     void Update()
     {
-        if (timer < spawnRate)
+        if (timer < fireRate)
         {
             timer += Time.deltaTime;
         }
@@ -35,11 +34,13 @@ public class EnemyScript : MonoBehaviour
     {
         // preleviamo la posizione del player
         GameObject playerShip = GameObject.Find("Ship");
+        bulletSound.Play();
         if (playerShip != null)
         {
             GameObject bullet = Instantiate(Bullet);
-            bullet.transform.position = transform.position; // gli assegnamo la posizione dell'enemy
-                                                            // calcoliamo la direzione verso il player
+            // gli assegnamo la posizione dell'enemy
+            bullet.transform.position = transform.position;
+            // calcoliamo la direzione verso il player
             Vector2 direction = playerShip.transform.position - bullet.transform.position;
             // impostiamo la direzione del proiettile
             bullet.GetComponent<EnemyBullet>().SetDirection(direction);
@@ -52,22 +53,13 @@ public class EnemyScript : MonoBehaviour
         if (!other.gameObject.CompareTag("Enemy"))
             // Se entra in collisione con uno ShipBullet dello stesso colore (layer) di questo Enemy
             if (other.gameObject.layer == this.gameObject.layer)
-        {
-            spawner.countEnemyKill++;
-            
-            // Debug.Log("Suono suonato");
-            // Distrugge se stesso e ShipBullet
-            Destroy(gameObject);
-            Destroy(other.gameObject);
-
-            
-
-            logic.AddScore(1);
-           if (spawner.countSpawn > 0)
             {
-                spawner.countSpawn--;
-               // Debug.Log("Nemici in gioco: " + spawner.countSpawn);
-            }            
-        }
+                spawner.EnemyKilled();
+                // Distrugge se stesso e ShipBullet
+                Destroy(gameObject);
+                Destroy(other.gameObject);
+
+                //logic.AddScore(1);
+            }
     }
 }

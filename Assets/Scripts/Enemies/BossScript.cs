@@ -14,7 +14,10 @@ public class BossScript : MonoBehaviour
     public GameObject[] bullets;
 
     // Suono emesso se colpito
-    public AudioSource deathSound;
+    public AudioSource hitSound;
+
+    //Suono allo sparo
+    public AudioSource bulletSound;
 
     // Posizione finale del movimento
     private Vector2 endPos;
@@ -100,6 +103,8 @@ public class BossScript : MonoBehaviour
         // Array necessario per instanziare i proiettili correttamente
         GameObject[] objects = new GameObject[bullets.Length];
 
+        bulletSound.Play();
+
         // Per ogni proiettile caricato in BossScript
         for (int i = 0; i < bullets.Length; i++)
         {
@@ -127,7 +132,7 @@ public class BossScript : MonoBehaviour
                 boss_life--;
                 Debug.Log("Vita BOSS: " + boss_life + " / 3");
 
-                deathSound.Play();
+                hitSound.Play();
 
                 Destroy(other.gameObject);
                 if (boss_life == 0)
@@ -135,15 +140,17 @@ public class BossScript : MonoBehaviour
                     Debug.Log("BOSS MORTO");
                     Destroy(other.gameObject);
 
-                    spawner.countEnemyKill = 0;
-                    spawner.bossIsAlive = false;
+                    spawner.BossKilled();
+                    //spawner.countEnemyKill = 0;
+                    //spawner.bossIsAlive = false;
+                    //logic.AddScore(10);
+                    //logic.CheckDifficulty(true);
 
                     // Il boss rilascia un power-up casuale alla morte
                     // Euler nella rotazione serve per riportare il power-up alla rotazione nulla invece di quella del boss
                     Instantiate(powerups[Random.Range(0, powerups.Length)], new Vector3(transform.position.x, transform.position.y, 0), Quaternion.Euler(0, 0, 0));
 
-                    logic.AddScore(10);
-                    logic.CheckDifficulty(true);
+                    
 
                     Destroy(gameObject);
                 }
