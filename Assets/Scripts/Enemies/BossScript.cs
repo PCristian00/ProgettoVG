@@ -14,7 +14,10 @@ public class BossScript : MonoBehaviour
     public GameObject[] bullets;
 
     // Suono emesso se colpito
-    public AudioSource deathSound;
+    public AudioSource hitSound;
+
+    //Suono allo sparo
+    public AudioSource bulletSound;
 
     // Posizione finale del movimento
     private Vector2 endPos;
@@ -100,6 +103,8 @@ public class BossScript : MonoBehaviour
         // Array necessario per instanziare i proiettili correttamente
         GameObject[] objects = new GameObject[bullets.Length];
 
+        bulletSound.Play();
+
         // Per ogni proiettile caricato in BossScript
         for (int i = 0; i < bullets.Length; i++)
         {
@@ -127,7 +132,7 @@ public class BossScript : MonoBehaviour
                 boss_life--;
                 Debug.Log("Vita BOSS: " + boss_life + " / 3");
 
-                deathSound.Play();
+                hitSound.Play();
 
                 Destroy(other.gameObject);
                 if (boss_life == 0)
