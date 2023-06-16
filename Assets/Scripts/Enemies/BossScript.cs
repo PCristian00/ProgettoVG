@@ -135,15 +135,17 @@ public class BossScript : MonoBehaviour
                     Debug.Log("BOSS MORTO");
                     Destroy(other.gameObject);
 
-                    spawner.countEnemyKill = 0;
-                    spawner.bossIsAlive = false;
+                    spawner.BossKilled();
+                    //spawner.countEnemyKill = 0;
+                    //spawner.bossIsAlive = false;
+                    //logic.AddScore(10);
+                    //logic.CheckDifficulty(true);
 
                     // Il boss rilascia un power-up casuale alla morte
                     // Euler nella rotazione serve per riportare il power-up alla rotazione nulla invece di quella del boss
                     Instantiate(powerups[Random.Range(0, powerups.Length)], new Vector3(transform.position.x, transform.position.y, 0), Quaternion.Euler(0, 0, 0));
 
-                    logic.AddScore(10);
-                    logic.CheckDifficulty(true);
+                    
 
                     Destroy(gameObject);
                 }

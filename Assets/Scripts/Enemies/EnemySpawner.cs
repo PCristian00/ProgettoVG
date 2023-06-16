@@ -97,7 +97,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    public  void EnemyKilled()
+    public void EnemyKilled()
     {
         countEnemyKill++;
         deathSound.Play();
@@ -108,6 +108,15 @@ public class EnemySpawner : MonoBehaviour
             countSpawn--;
             // Debug.Log("Nemici in gioco: " + spawner.countSpawn);
         }
+    }
+
+    public void BossKilled()
+    {
+        deathSound.Play();
+        countEnemyKill = 0;
+        bossIsAlive = false;
+        logic.AddScore(10);
+        logic.CheckDifficulty(true);
     }
 
     // FORSE INUTILIZZATA
