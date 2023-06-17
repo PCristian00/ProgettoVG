@@ -13,7 +13,8 @@ class ObstacleScript : MonoBehaviour
     //public ShipControllerScript player;
 
     // Tasso di ridimensionamento, inversamente proporzionale
-    public float scaleRate = 350f;
+    // Vecchia impostazione editor 350
+    public float scaleRate;
 
     private void Start()
     {
