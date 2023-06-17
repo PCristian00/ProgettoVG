@@ -83,7 +83,7 @@ public class ShipControllerScript : MonoBehaviour
                 logic.ChangeSpeed(-1);
 
             // Sparo (Arma 1)
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("FireRed"))
             {
                 // Spara un proiettile che colpisce il layer 6, ovvero i nemici
                 // Bozza
@@ -92,7 +92,7 @@ public class ShipControllerScript : MonoBehaviour
             }
 
             // Sparo (Arma 2)
-            if (Input.GetButtonDown("Fire2"))
+            if (Input.GetButtonDown("FireGreen"))
             {
                 // Colpisce su layer 2, NON UCCIDE NEMICI PER ORA
 
@@ -100,7 +100,7 @@ public class ShipControllerScript : MonoBehaviour
             }
 
             // Sparo (Arma 3)
-            if (Input.GetButtonDown("Fire3"))
+            if (Input.GetButtonDown("FireYellow"))
             {
                 // Colpisce su layer 3, NON UCCIDE NEMICI PER ORA
 
