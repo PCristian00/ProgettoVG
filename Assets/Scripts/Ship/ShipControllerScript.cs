@@ -30,7 +30,7 @@ public class ShipControllerScript : MonoBehaviour
     public GameObject Bullet;
 
     // Array degli sprite
-    public Sprite[] sprites;
+    // public Sprite[] sprites;
     // Riferimento allo SpriteRenderer
     public SpriteRenderer spriteRenderer;
 
@@ -135,20 +135,20 @@ public class ShipControllerScript : MonoBehaviour
             if (Mathf.Sign(moveRate) == -1)
             {
                 // Debug.Log("VERSO SINISTRA");
-                spriteRenderer.sprite = sprites[1];
+                // spriteRenderer.sprite = sprites[1];
                 transform.rotation = Quaternion.Euler(0, 0, 10);
             }
             else if (Mathf.Sign(moveRate) == 1)
             {
                 // Debug.Log("VERSO DESTRA");
-                spriteRenderer.sprite = sprites[2];
+                // spriteRenderer.sprite = sprites[2];
                 transform.rotation = Quaternion.Euler(0, 0, -10);
             }
         }
         else
         {
             // Debug.Log("Sto fermo");
-            spriteRenderer.sprite = sprites[0];
+            // spriteRenderer.sprite = sprites[0];
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }

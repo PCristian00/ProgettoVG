@@ -6,7 +6,7 @@ public class EnemyScript : MonoBehaviour
 
     public GameObject Bullet;
     private float timer = 0;
-    private float fireRate = 2;
+    private float fireRate = 1;
     public AudioSource bulletSound;
 
 
