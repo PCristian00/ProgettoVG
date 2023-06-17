@@ -1513,42 +1513,6 @@ PrefabInstance:
       propertyPath: lifeBar
       value: 
       objectReference: {fileID: 176047405}
-    - target: {fileID: 326238789634209678, guid: 70861451301642d4198f92f28c2c26d3, type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 326238789634209678, guid: 70861451301642d4198f92f28c2c26d3, type: 3}
-      propertyPath: m_FlipY
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 326238789634209678, guid: 70861451301642d4198f92f28c2c26d3, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 326238789634209678, guid: 70861451301642d4198f92f28c2c26d3, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 326238789634209678, guid: 70861451301642d4198f92f28c2c26d3, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 326238789634209678, guid: 70861451301642d4198f92f28c2c26d3, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 326238789634209678, guid: 70861451301642d4198f92f28c2c26d3, type: 3}
-      propertyPath: m_DrawMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 326238789634209678, guid: 70861451301642d4198f92f28c2c26d3, type: 3}
-      propertyPath: m_SpriteSortPoint
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 326238789634209678, guid: 70861451301642d4198f92f28c2c26d3, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 326238789634209679, guid: 70861451301642d4198f92f28c2c26d3, type: 3}
       propertyPath: m_RootOrder
       value: 1
