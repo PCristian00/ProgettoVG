@@ -13,8 +13,10 @@ public class HomeScript : MonoBehaviour
     {
         if (avvia)
         Move();
+
+        if (Input.GetButtonDown("FireGreen") || Input.GetButtonDown("FireRed") || Input.GetButtonDown("FireYellow")) ButtonClick();
     }
-    public void buttonclick()
+    public void ButtonClick()
     {
         avvia = true;
     }
@@ -22,10 +24,6 @@ public class HomeScript : MonoBehaviour
     public void Move()
    {
         transform.position += speed * Time.deltaTime * Vector3.left;
-        /* movimento.x += -0.2f;
-         transform.position = movimento * timer;*/
-
-
     }
     public void OnTriggerEnter2D(Collider2D collision)
 	{
