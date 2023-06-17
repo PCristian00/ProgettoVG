@@ -24,6 +24,9 @@ class ObstacleScript : MonoBehaviour
     {
         transform.position += moveSpeed * Time.deltaTime * Vector3.down;
         // Calcola e applica la dimensione che l'oggetto ha durante il tragitto
+
+        // ATTENZIONE: in versione di build gli ostacoli non aumentano di dimensione
+        // CAPIRE PERCHé
         float newScale = -transform.position.y / scaleRate;
         transform.localScale += new Vector3(newScale, newScale, 0);
 
