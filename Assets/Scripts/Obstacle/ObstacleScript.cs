@@ -13,7 +13,8 @@ class ObstacleScript : MonoBehaviour
     //public ShipControllerScript player;
 
     // Tasso di ridimensionamento, inversamente proporzionale
-    public float scaleRate = 350f;
+    // Vecchia impostazione editor 350
+    public float scaleRate;
 
     private void Start()
     {
@@ -24,6 +25,8 @@ class ObstacleScript : MonoBehaviour
     {
         transform.position += moveSpeed * Time.deltaTime * Vector3.down;
         // Calcola e applica la dimensione che l'oggetto ha durante il tragitto
+
+        // In caso di elevato ridimensionamento, attivare V-Sync in modalita' Game nell'Editor
         float newScale = -transform.position.y / scaleRate;
         transform.localScale += new Vector3(newScale, newScale, 0);
 
