@@ -63,7 +63,6 @@ public class LogicScript : MonoBehaviour
         {
             playerScore += (scoreToAdd*scoreMultiplier);
             scoreText.text = playerScore.ToString();
-            CheckDifficulty(false);
         }
     }
 
@@ -145,19 +144,13 @@ public class LogicScript : MonoBehaviour
         speedImage.sprite = speedSprites[speedLevel];
     }
 
-    // Controlla il punteggio e regola la difficolta' (velocita') di conseguenza
-
-    // PROMEMORIA
-    // Il boss aggiunge 10 punti di colpo, quindi supera una fascia di difficolta' ma non la aumenta (Es. 12 non divisible per 10)
-    // All'uccisione del boss viene passato true e viene ignorato il controllo sui multipli di 10.
-    // Forse va trovata una soluzione migliore (funzione specifica per l'uccisione del boss (addScore personalizzato?) 
-    public void CheckDifficulty(bool BossKilled)
+    // Aumenta la velocita' minima raggiungibile in gioco.    
+    public void IncreaseDifficulty()
     {
-        // Se il punteggio e' multiplo di 10
-        if (playerScore % 10 == 0 || BossKilled)
-        {
-            // Aumento velocita'
+        // Se il giocatore e' attualmente alla velocita' minima, la sua velocita' viene aumentata
+        if (speed==minSpeed)
             ChangeSpeed(1);
+
             // Aumento velocita' minima
             if (minSpeed > maxSpeed)
             {
@@ -169,7 +162,6 @@ public class LogicScript : MonoBehaviour
                 minSpeed--;
                 Debug.Log("NUOVA VELOCITA' MINIMA: " + (7 - minSpeed));
             }
-        }
     }
 
     // Mostra il testo scelto per il tempo scelto.

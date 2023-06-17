@@ -116,7 +116,7 @@ public class EnemySpawner : MonoBehaviour
         countEnemyKill = 0;
         bossIsAlive = false;
         logic.AddScore(10);
-        logic.CheckDifficulty(true);
+        logic.IncreaseDifficulty();
     }
 
     // FORSE INUTILIZZATA
