@@ -5,7 +5,7 @@ public class BossScript : MonoBehaviour
     // Spawner dei nemici, utilizzato per resettare il contatore di Spawn
     public EnemySpawner spawner;
     // Vita del Boss
-    public int boss_life = 3;
+    public int life = 3;
     // Riferimento al LogicManager
     private LogicScript logic;
     // Array contenente tutti i power-up che il boss puo' rilasciare alla morte
@@ -37,10 +37,9 @@ public class BossScript : MonoBehaviour
     private Rigidbody2D myBody;
 
 
-    // Start is called before the first frame update
     void Start()
     {
-        boss_life = 3;
+        life = 3;
         spawner = GameObject.FindGameObjectWithTag("Respawn").GetComponent<EnemySpawner>();
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
         logic.ShowMessage("ATTENZIONE!!!", 1);
@@ -56,23 +55,18 @@ public class BossScript : MonoBehaviour
         colliderComponent.isTrigger = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
         // Cambio direzione se arrivato al limite orizzontale
         if (transform.position.x == 6 || transform.position.x == -6)
-        {
             direction *= -1;
-        }
+
 
         if (isMoving)
             Move(direction);
-        
+
         if (timer < fireRate)
-        {
             timer += Time.deltaTime;
-        }
         else
         {
             timer = 0;
@@ -128,22 +122,20 @@ public class BossScript : MonoBehaviour
         {
             if (other.gameObject.layer == 7 || other.gameObject.layer == 12 || other.gameObject.layer == 13)
             {
-                // Debug.Log("Colpito!!!");
-                boss_life--;
-                Debug.Log("Vita BOSS: " + boss_life + " / 3");
+                life--;
+                // Debug.Log("Vita BOSS: " + life + " / 3");
 
                 hitSound.Play();
 
                 Destroy(other.gameObject);
-                if (boss_life == 0)
-                {
+                if (life == 0)
                     DeathAnimation();
-                    Destroy(other.gameObject);
-                }
+
             }
         }
     }
 
+    // Lancia il Boss verso l'alto con una direzione diagonale casuale, segnala allo spawner la morte e infine distrugge se stesso.
     private void DeathAnimation()
     {
         isMoving = false;
@@ -151,13 +143,12 @@ public class BossScript : MonoBehaviour
         colliderComponent.isTrigger = false;
         myBody.isKinematic = false;
         gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(0, 250), 500));
-        
+
         // Il boss rilascia un power-up casuale alla morte
         // Euler nella rotazione serve per riportare il power-up alla rotazione nulla invece di quella del boss
         Instantiate(powerups[Random.Range(0, powerups.Length)], new Vector3(transform.position.x, transform.position.y, 0), Quaternion.Euler(0, 0, 0));
 
         Invoke(nameof(Kill), 0.5f);
-        
     }
 
     private void Kill()

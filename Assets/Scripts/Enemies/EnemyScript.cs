@@ -5,19 +5,19 @@ public class EnemyScript : MonoBehaviour
     private EnemySpawner spawner;
 
     public GameObject Bullet;
+
     private float timer = 0;
+
+    // Frequenza di sparo
     private float fireRate = 1;
+    // Suono del proiettile
     public AudioSource bulletSound;
 
     // Riferimento al collider
     private Collider2D colliderComponent;
-
     // Riferimento al rigidBody
     private Rigidbody2D myBody;
 
-
-
-    // Start is called before the first frame update
     void Start()
     {
         spawner = GameObject.FindGameObjectWithTag("Respawn").GetComponent<EnemySpawner>();
@@ -31,9 +31,7 @@ public class EnemyScript : MonoBehaviour
     void Update()
     {
         if (timer < fireRate)
-        {
             timer += Time.deltaTime;
-        }
         else
         {
             timer = 0;
@@ -75,6 +73,7 @@ public class EnemyScript : MonoBehaviour
         Destroy(gameObject);
     }
 
+    // Lancia Enemy verso l'alto con una direzione diagonale casuale, segnala allo spawner la morte e infine distrugge se stesso.
     private void DeathAnimation()
     {
         spawner.EnemyKilled();
