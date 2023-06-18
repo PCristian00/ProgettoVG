@@ -5,27 +5,38 @@ public class EnemyScript : MonoBehaviour
     private EnemySpawner spawner;
 
     public GameObject Bullet;
+
     private float timer = 0;
+
+    // Frequenza di sparo
     private float fireRate = 1;
+    // Suono del proiettile
     public AudioSource bulletSound;
+    private bool canFire = true;
 
+    // Riferimento al collider
+    private Collider2D colliderComponent;
+    // Riferimento al rigidBody
+    private Rigidbody2D myBody;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         spawner = GameObject.FindGameObjectWithTag("Respawn").GetComponent<EnemySpawner>();
+
+        myBody = gameObject.GetComponent<Rigidbody2D>();
+        myBody.isKinematic = true;
+        colliderComponent = gameObject.GetComponent<Collider2D>();
+        colliderComponent.isTrigger = true;
     }
 
     void Update()
     {
         if (timer < fireRate)
-        {
             timer += Time.deltaTime;
-        }
         else
         {
             timer = 0;
+            if(canFire)
             FireBullet();
         }
     }
@@ -54,12 +65,24 @@ public class EnemyScript : MonoBehaviour
             // Se entra in collisione con uno ShipBullet dello stesso colore (layer) di questo Enemy
             if (other.gameObject.layer == this.gameObject.layer)
             {
-                spawner.EnemyKilled();
-                // Distrugge se stesso e ShipBullet
-                Destroy(gameObject);
+                DeathAnimation();
                 Destroy(other.gameObject);
-
-                //logic.AddScore(1);
             }
+    }
+
+    private void Kill()
+    {
+        Destroy(gameObject);
+    }
+
+    // Lancia Enemy verso l'alto con una direzione diagonale casuale, segnala allo spawner la morte e infine distrugge se stesso.
+    private void DeathAnimation()
+    {
+        canFire = false;
+        spawner.EnemyKilled();
+        Invoke(nameof(Kill), 0.5f);
+        colliderComponent.isTrigger = false;
+        myBody.isKinematic = false;
+        gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(0, 250), 500));
     }
 }
