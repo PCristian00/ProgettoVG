@@ -9,12 +9,23 @@ public class EnemyScript : MonoBehaviour
     private float fireRate = 1;
     public AudioSource bulletSound;
 
+    // Riferimento al collider
+    private Collider2D colliderComponent;
+
+    // Riferimento al rigidBody
+    private Rigidbody2D myBody;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
         spawner = GameObject.FindGameObjectWithTag("Respawn").GetComponent<EnemySpawner>();
+        
+        myBody = gameObject.GetComponent<Rigidbody2D>();
+        myBody.isKinematic = true;
+        colliderComponent = gameObject.GetComponent<Collider2D>();
+        colliderComponent.isTrigger = true;
     }
 
     void Update()
@@ -55,11 +66,25 @@ public class EnemyScript : MonoBehaviour
             if (other.gameObject.layer == this.gameObject.layer)
             {
                 spawner.EnemyKilled();
+                //transform.localScale /= 2;
+
+                Invoke(nameof(Kill), 0.5f);
+                colliderComponent.isTrigger = false;
+                myBody.isKinematic = false;
+                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(0, 250), 500));
+
                 // Distrugge se stesso e ShipBullet
-                Destroy(gameObject);
+                //Destroy(gameObject);
+                
                 Destroy(other.gameObject);
 
                 //logic.AddScore(1);
             }
+    }
+
+    private void Kill()
+    {
+        Destroy(gameObject);
+        
     }
 }
