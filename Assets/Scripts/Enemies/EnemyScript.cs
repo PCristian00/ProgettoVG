@@ -21,7 +21,7 @@ public class EnemyScript : MonoBehaviour
     void Start()
     {
         spawner = GameObject.FindGameObjectWithTag("Respawn").GetComponent<EnemySpawner>();
-        
+
         myBody = gameObject.GetComponent<Rigidbody2D>();
         myBody.isKinematic = true;
         colliderComponent = gameObject.GetComponent<Collider2D>();
@@ -65,26 +65,23 @@ public class EnemyScript : MonoBehaviour
             // Se entra in collisione con uno ShipBullet dello stesso colore (layer) di questo Enemy
             if (other.gameObject.layer == this.gameObject.layer)
             {
-                spawner.EnemyKilled();
-                //transform.localScale /= 2;
-
-                Invoke(nameof(Kill), 0.5f);
-                colliderComponent.isTrigger = false;
-                myBody.isKinematic = false;
-                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(0, 250), 500));
-
-                // Distrugge se stesso e ShipBullet
-                //Destroy(gameObject);
-                
+                DeathAnimation();
                 Destroy(other.gameObject);
-
-                //logic.AddScore(1);
             }
     }
 
     private void Kill()
     {
         Destroy(gameObject);
-        
+
+    }
+
+    private void DeathAnimation()
+    {
+        spawner.EnemyKilled();
+        Invoke(nameof(Kill), 0.5f);
+        colliderComponent.isTrigger = false;
+        myBody.isKinematic = false;
+        gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(0, 250), 500));
     }
 }
