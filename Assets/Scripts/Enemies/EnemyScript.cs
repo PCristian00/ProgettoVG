@@ -73,7 +73,6 @@ public class EnemyScript : MonoBehaviour
     private void Kill()
     {
         Destroy(gameObject);
-
     }
 
     private void DeathAnimation()
