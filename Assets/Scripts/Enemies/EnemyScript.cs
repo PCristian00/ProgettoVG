@@ -12,6 +12,7 @@ public class EnemyScript : MonoBehaviour
     private float fireRate = 1;
     // Suono del proiettile
     public AudioSource bulletSound;
+    private bool canFire = true;
 
     // Riferimento al collider
     private Collider2D colliderComponent;
@@ -35,6 +36,7 @@ public class EnemyScript : MonoBehaviour
         else
         {
             timer = 0;
+            if(canFire)
             FireBullet();
         }
     }
@@ -76,6 +78,7 @@ public class EnemyScript : MonoBehaviour
     // Lancia Enemy verso l'alto con una direzione diagonale casuale, segnala allo spawner la morte e infine distrugge se stesso.
     private void DeathAnimation()
     {
+        canFire = false;
         spawner.EnemyKilled();
         Invoke(nameof(Kill), 0.5f);
         colliderComponent.isTrigger = false;

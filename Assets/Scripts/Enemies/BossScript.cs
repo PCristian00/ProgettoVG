@@ -18,6 +18,7 @@ public class BossScript : MonoBehaviour
 
     //Suono allo sparo
     public AudioSource bulletSound;
+    private bool canFire = true;
 
     // Posizione finale del movimento
     private Vector2 endPos;
@@ -70,6 +71,7 @@ public class BossScript : MonoBehaviour
         else
         {
             timer = 0;
+            if(canFire)
             FireBullet();
         }
     }
@@ -139,6 +141,7 @@ public class BossScript : MonoBehaviour
     private void DeathAnimation()
     {
         isMoving = false;
+        canFire = false;
         spawner.BossKilled();
         colliderComponent.isTrigger = false;
         myBody.isKinematic = false;
