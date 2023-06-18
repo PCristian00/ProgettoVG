@@ -65,23 +65,22 @@ public class LogicScript : MonoBehaviour
             scoreText.text = playerScore.ToString();
         }
     }
-
+    public void HowtoPlayExitButton()
+    {
+        SceneManager.LoadScene(0);
+    }
     public void QuitGame()
     {
         Application.Quit();
     }
     public void Menu()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
     public void RestartGame()
-    {
-        // Svuota il DebugLog prima di riavviare la scena
-        // Forse inutile in gioco finale
-        // ClearLog();
-        
-        SceneManager.LoadScene(2);
+    { 
+        SceneManager.LoadScene(1);
     }
 
     public void GameOver()
@@ -97,7 +96,7 @@ public class LogicScript : MonoBehaviour
             // Debug.Log(highScore);
         }
 
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(3);
     }
 
     public void ChangeSpeed(float input)
