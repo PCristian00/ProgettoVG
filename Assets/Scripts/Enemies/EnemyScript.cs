@@ -9,7 +9,7 @@ public class EnemyScript : MonoBehaviour
     private float timer = 0;
 
     // Frequenza di sparo
-    private float fireRate = 1;
+    private float fireRate = 2;
     // Suono del proiettile
     public AudioSource bulletSound;
     private bool canFire = true;
