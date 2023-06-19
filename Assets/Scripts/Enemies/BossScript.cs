@@ -57,7 +57,7 @@ public class BossScript : MonoBehaviour
     {
         if (!isMoving)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target, 2 * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, target, 2.5f * Time.deltaTime);
             if (transform.position.Equals(target))
             {
                 Debug.Log("ARRIVATO A DESTINAZIONE");

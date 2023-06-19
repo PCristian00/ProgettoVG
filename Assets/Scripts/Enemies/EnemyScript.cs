@@ -41,7 +41,7 @@ public class EnemyScript : MonoBehaviour
     {
         //Vector2 target = new Vector2(Random.Range(-6, 6), Random.Range(1, 3));
 
-        transform.position = Vector3.MoveTowards(transform.position, target, 2 * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, target, 2.5f * Time.deltaTime);
         if (transform.position.Equals(target)) canFire = true;
 
 
