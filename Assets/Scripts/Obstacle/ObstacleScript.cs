@@ -23,8 +23,6 @@ class ObstacleScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        
             transform.position += moveSpeed * Time.deltaTime * Vector3.down;
             // Calcola e applica la dimensione che l'oggetto ha durante il tragitto
 
@@ -38,8 +36,6 @@ class ObstacleScript : MonoBehaviour
             {
                 Destroy(gameObject);
                 logic.AddScore(scoreValue);
-            }
-        
-       
+            }              
     }
 }
