@@ -232,10 +232,10 @@ public class ShipControllerScript : MonoBehaviour
                 if (life < 5)
                 {
                     // Debug.Log("La vita non e' al massimo");
-                    life++;
+                    life = 5;
                     lifeImage.sprite = lifeSprites[life];
                     // Debug.Log("Recupero salute");
-                    logic.ShowMessage("SALUTE +1", 1);
+                    logic.ShowMessage("SALUTE", 1);
                 }
                 Destroy(collision.gameObject);
             }
