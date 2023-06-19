@@ -22,7 +22,7 @@ public class BossScript : MonoBehaviour
     private Vector2 endPos;
     //Direzione del movimento
     private int direction;
-    private bool isMoving = true;
+    private bool isMoving = false;
 
     // Timer usato per le pause tra uno sparo e l'altro
     private float timer = 0;
@@ -35,12 +35,12 @@ public class BossScript : MonoBehaviour
     // Riferimento al rigidBody
     private Rigidbody2D myBody;
 
+    private Vector2 target;
 
     void Start()
     {
         spawner = GameObject.FindGameObjectWithTag("Respawn").GetComponent<EnemySpawner>();        
-        endPos = transform.position;
-
+        
         // Direzione in cui il Boss si avvia alla partenza
         direction = -1;
 
@@ -48,10 +48,27 @@ public class BossScript : MonoBehaviour
         myBody.isKinematic = true;
         colliderComponent = gameObject.GetComponent<Collider2D>();
         colliderComponent.isTrigger = true;
+
+        target = new Vector2(0, 1.5f);
+        endPos = target;
     }
 
     void Update()
     {
+        if (!isMoving)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, target, 2 * Time.deltaTime);
+            if (transform.position.Equals(target))
+            {
+                Debug.Log("ARRIVATO A DESTINAZIONE");
+                Debug.Log("Posizione: " +transform.position+" Target: "+target);
+                isMoving = true;
+            }
+                        
+        }
+
+        Debug.Log("EEEE Posizione: " + transform.position + " Target: " + target);
+
         // Cambio direzione se arrivato al limite orizzontale
         if (transform.position.x == 6 || transform.position.x == -6)
             direction *= -1;
