@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawner: {fileID: 0}
-  boss_life: 0
+  life: 3
   powerups:
   - {fileID: 6636638421958929776, guid: c1657756631806c4fba88b819b93ff72, type: 3}
   - {fileID: 236987288196601400, guid: c2b81556b79fadc4e9f832d09d625574, type: 3}
