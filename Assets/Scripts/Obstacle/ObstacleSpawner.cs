@@ -11,8 +11,7 @@ public class ObstacleSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        logic =
-            GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }
 
     // Update is called once per frame
@@ -48,7 +47,6 @@ public class ObstacleSpawner : MonoBehaviour
             PositionX = 6;
         }
 
-        Instantiate(obstacle, new Vector3(PositionX, transform.position.y, 0),
-                    transform.rotation);
+        Instantiate(obstacle, new Vector3(PositionX, transform.position.y, 0), transform.rotation);
     }
 }

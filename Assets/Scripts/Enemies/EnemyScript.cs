@@ -12,7 +12,7 @@ public class EnemyScript : MonoBehaviour
     private float fireRate = 2;
     // Suono del proiettile
     public AudioSource bulletSound;
-    private bool canFire = true;
+    private bool canFire = false;
 
     // Array contenente tutti i power-up che il boss puo' rilasciare alla morte
     public GameObject[] powerups;
@@ -22,6 +22,8 @@ public class EnemyScript : MonoBehaviour
     // Riferimento al rigidBody
     private Rigidbody2D myBody;
 
+    private Vector2 target;
+
     void Start()
     {
         spawner = GameObject.FindGameObjectWithTag("Respawn").GetComponent<EnemySpawner>();
@@ -30,10 +32,19 @@ public class EnemyScript : MonoBehaviour
         myBody.isKinematic = true;
         colliderComponent = gameObject.GetComponent<Collider2D>();
         colliderComponent.isTrigger = true;
+        target = new Vector2((int)Random.Range(-6, 6), (int)Random.Range(1, 4));
+
+        //transform.position = Vector3.MoveTowards(new Vector3(0,0,0),transform.position,3);
     }
 
     void Update()
     {
+        //Vector2 target = new Vector2(Random.Range(-6, 6), Random.Range(1, 3));
+
+        transform.position = Vector3.MoveTowards(transform.position, target, 2.5f * Time.deltaTime);
+        if (transform.position.Equals(target)) canFire = true;
+
+
         if (timer < fireRate)
             timer += Time.deltaTime;
         else

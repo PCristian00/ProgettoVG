@@ -66,7 +66,8 @@ public class EnemySpawner : MonoBehaviour
         max.y -= 3f;
         //GameObject[] enemies = { Enemy_1, Enemy_2 };
         GameObject enemy = Instantiate(enemies[Random.Range(0, enemies.Length)]);
-        enemy.transform.position = new Vector2(Random.Range(min.x, max.x), Random.Range(1, max.y));
+
+        enemy.transform.position = transform.position;
     }
     void SpawnBoss()
     {
@@ -78,7 +79,7 @@ public class EnemySpawner : MonoBehaviour
         min.x = -6f;
         max.y -= 3f;
         Instantiate(Boss);
-        Boss.transform.position = new Vector2(Random.Range(min.x, max.x), Random.Range(2, max.y));
+        Boss.transform.position = transform.position;
     }
 
     public void EnemyKilled()
@@ -99,6 +100,4 @@ public class EnemySpawner : MonoBehaviour
         logic.AddScore(10);
         logic.IncreaseDifficulty();
     }
-
-
 }
