@@ -14,6 +14,9 @@ public class EnemyScript : MonoBehaviour
     public AudioSource bulletSound;
     private bool canFire = true;
 
+    // Array contenente tutti i power-up che il boss puo' rilasciare alla morte
+    public GameObject[] powerups;
+
     // Riferimento al collider
     private Collider2D colliderComponent;
     // Riferimento al rigidBody
@@ -80,9 +83,17 @@ public class EnemyScript : MonoBehaviour
     {
         canFire = false;
         spawner.EnemyKilled();
-        Invoke(nameof(Kill), 0.5f);
+
+        // Sorteggia un numero da 1 a 100.
+        // Se il numero e' inferiore a 20 (1 possiblita' su 5) viene rilasciato un power-up 
+        int number = (int)Random.Range(1, 100);
+        Debug.Log("Numero sorteggiato: " + number);
+        if (number<=20)
+        Instantiate(powerups[Random.Range(0, powerups.Length)], new Vector3(transform.position.x, transform.position.y, 0), transform.rotation);
+        
         colliderComponent.isTrigger = false;
         myBody.isKinematic = false;
         gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(0, 250), 500));
+        Invoke(nameof(Kill), 0.5f);
     }
 }
