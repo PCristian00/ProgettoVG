@@ -39,8 +39,8 @@ public class EnemyScript : MonoBehaviour
         else
         {
             timer = 0;
-            if(canFire)
-            FireBullet();
+            if (canFire)
+                FireBullet();
         }
     }
 
@@ -88,9 +88,9 @@ public class EnemyScript : MonoBehaviour
         // Se il numero e' inferiore a 20 (1 possiblita' su 5) viene rilasciato un power-up 
         int number = (int)Random.Range(1, 100);
         Debug.Log("Numero sorteggiato: " + number);
-        if (number<=20)
-        Instantiate(powerups[Random.Range(0, powerups.Length)], new Vector3(transform.position.x, transform.position.y, 0), transform.rotation);
-        
+        if (number <= 20)
+            Instantiate(powerups[Random.Range(0, powerups.Length)], transform.position, transform.rotation);
+
         colliderComponent.isTrigger = false;
         myBody.isKinematic = false;
         gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(0, 250), 500));

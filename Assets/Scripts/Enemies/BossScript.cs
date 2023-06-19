@@ -149,7 +149,7 @@ public class BossScript : MonoBehaviour
 
         // Il boss rilascia un power-up casuale alla morte
         // Euler nella rotazione serve per riportare il power-up alla rotazione nulla invece di quella del boss
-        Instantiate(powerups[Random.Range(0, powerups.Length)], new Vector3(transform.position.x, transform.position.y, 0), Quaternion.Euler(0, 0, 0));
+        Instantiate(powerups[Random.Range(0, powerups.Length)], transform.position, Quaternion.Euler(0, 0, 0));
 
         Invoke(nameof(Kill), 0.5f);
     }
