@@ -235,7 +235,7 @@ public class ShipControllerScript : MonoBehaviour
                     life = 5;
                     lifeImage.sprite = lifeSprites[life];
                     // Debug.Log("Recupero salute");
-                    logic.ShowMessage("SALUTE", 1);
+                    logic.ShowMessage("", 1);
                 }
                 Destroy(collision.gameObject);
             }
@@ -245,7 +245,7 @@ public class ShipControllerScript : MonoBehaviour
             {
                 // powerUpSound.Play();
                 // Debug.Log("Fuoco rapido");
-                logic.ShowMessage("FUOCO RAPIDO", 10);
+                logic.ShowMessage("SHOOT FASTER", 10);
                 timeBetweenShots = 0.5f;
                 // Il power-up dura 10 secondi
                 Invoke(nameof(MultiplierResetEffect), 10);
@@ -257,7 +257,7 @@ public class ShipControllerScript : MonoBehaviour
             {
                 // powerUpSound.Play();
                 // Debug.Log("Spostamento veloce");
-                logic.ShowMessage("SPOSTAMENTO VELOCE", 10);
+                logic.ShowMessage("INCREASE SPEED", 10);
                 speed += 10;
                 // Il power-up dura 10 secondi
                 Invoke(nameof(SpeedResetEffect), 10);
@@ -270,7 +270,7 @@ public class ShipControllerScript : MonoBehaviour
             {
                 // powerUpSound.Play();
                 // Debug.Log("Punti doppi");
-                logic.ShowMessage("PUNTI DOPPI", 10);
+                logic.ShowMessage("DOUBLE POINTS", 10);
                 logic.scoreMultiplier *= 2;
                 // Il power-up dura 10 secondi
                 Invoke(nameof(ScoreResetEffect), 10);
