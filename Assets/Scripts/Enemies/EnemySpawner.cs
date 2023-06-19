@@ -6,13 +6,11 @@ public class EnemySpawner : MonoBehaviour
 {
     public GameObject [] enemies;
     public GameObject Boss;
-    public float maxSpawnRate = 5f; // tempo di spawn
-    public float timer = 0;
-    public float countSpawn = 0;
-    public float countEnemyKill = 0;
-    public System.Action<EnemySpawner> killed;
+    float timer = 0;
+    float countSpawn = 0;
+    float countEnemyKill = 0;
 
-    public bool bossIsAlive;
+    bool bossIsAlive;
 
     public LogicScript logic;
 
@@ -68,7 +66,6 @@ public class EnemySpawner : MonoBehaviour
         //GameObject[] enemies = { Enemy_1, Enemy_2 };
         GameObject enemy = Instantiate(enemies[Random.Range(0, enemies.Length)]);
         enemy.transform.position = new Vector2(Random.Range(min.x, max.x), Random.Range(1, max.y));
-        ScheduleNextEnemySpawn();
     }
     void SpawnBoss()
     {
@@ -83,20 +80,6 @@ public class EnemySpawner : MonoBehaviour
         Boss.transform.position = new Vector2(Random.Range(min.x, max.x), Random.Range(2, max.y));
     }
 
-
-    void ScheduleNextEnemySpawn()
-    {
-        float spawnInNSeconds;
-        if (maxSpawnRate > 1f)
-        {
-            spawnInNSeconds = Random.Range(1f, maxSpawnRate);
-        }
-        else
-        {
-            spawnInNSeconds = 1f;
-        }
-    }
-
     public void EnemyKilled()
     {
         countEnemyKill++;
@@ -104,10 +87,7 @@ public class EnemySpawner : MonoBehaviour
         logic.AddScore(1);
 
         if (countSpawn > 0)
-        {
             countSpawn--;
-            // Debug.Log("Nemici in gioco: " + spawner.countSpawn);
-        }
     }
 
     public void BossKilled()
@@ -118,16 +98,6 @@ public class EnemySpawner : MonoBehaviour
         logic.AddScore(10);
         logic.IncreaseDifficulty();
     }
-
-    // FORSE INUTILIZZATA
-    public void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Bullet"))
-        {
-            killed?.Invoke(this);
-        }
-    }
-
 
 
 }
