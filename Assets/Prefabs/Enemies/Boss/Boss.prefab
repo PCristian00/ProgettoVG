@@ -124,12 +124,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawner: {fileID: 0}
-  boss_life: 0
+  life: 3
   powerups:
   - {fileID: 6636638421958929776, guid: c1657756631806c4fba88b819b93ff72, type: 3}
   - {fileID: 236987288196601400, guid: c2b81556b79fadc4e9f832d09d625574, type: 3}
   - {fileID: 4803162757409877370, guid: 9e42f942e742aee4097766cad228dd88, type: 3}
   - {fileID: 618094963217292138, guid: 1c6993bd7ad90e9479d3a7f57c3726f6, type: 3}
+  - {fileID: 6636638421958929776, guid: c1657756631806c4fba88b819b93ff72, type: 3}
+  - {fileID: 6636638421958929776, guid: c1657756631806c4fba88b819b93ff72, type: 3}
   bullets:
   - {fileID: 7005527170248233637, guid: 45eaee30822e5fc4093f43d9a1f5ea4e, type: 3}
   - {fileID: 6860794262043730761, guid: 5a3b321727220804eb6bf99c6fa05ec0, type: 3}

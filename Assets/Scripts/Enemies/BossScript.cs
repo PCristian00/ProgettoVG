@@ -3,11 +3,9 @@ using UnityEngine;
 public class BossScript : MonoBehaviour
 {
     // Spawner dei nemici, utilizzato per resettare il contatore di Spawn
-    public EnemySpawner spawner;
+    EnemySpawner spawner;
     // Vita del Boss
-    public int life = 3;
-    // Riferimento al LogicManager
-    private LogicScript logic;
+    int life = 3;
     // Array contenente tutti i power-up che il boss puo' rilasciare alla morte
     public GameObject[] powerups;
     // Array contenente tutti i tipi di proiettili che il boss spara contemporaneamente
@@ -40,12 +38,8 @@ public class BossScript : MonoBehaviour
 
     void Start()
     {
-        life = 3;
-        spawner = GameObject.FindGameObjectWithTag("Respawn").GetComponent<EnemySpawner>();
-        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
-        logic.ShowMessage("ATTENZIONE!!!", 1);
-
-        endPos = new Vector2(transform.position.x, transform.position.y);
+        spawner = GameObject.FindGameObjectWithTag("Respawn").GetComponent<EnemySpawner>();        
+        endPos = transform.position;
 
         // Direzione in cui il Boss si avvia alla partenza
         direction = -1;
@@ -149,7 +143,7 @@ public class BossScript : MonoBehaviour
 
         // Il boss rilascia un power-up casuale alla morte
         // Euler nella rotazione serve per riportare il power-up alla rotazione nulla invece di quella del boss
-        Instantiate(powerups[Random.Range(0, powerups.Length)], new Vector3(transform.position.x, transform.position.y, 0), Quaternion.Euler(0, 0, 0));
+        Instantiate(powerups[Random.Range(0, powerups.Length)], transform.position, Quaternion.Euler(0, 0, 0));
 
         Invoke(nameof(Kill), 0.5f);
     }
