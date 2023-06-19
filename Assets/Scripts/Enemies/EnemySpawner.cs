@@ -49,6 +49,7 @@ public class EnemySpawner : MonoBehaviour
         {
             // Attesa di 1 secondo per lo spawn
             bossIsAlive = true;
+            logic.ShowMessage("ATTENZIONE!!!", 1);
             Invoke(nameof(SpawnBoss),1);
         }
         
