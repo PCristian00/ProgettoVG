@@ -112,7 +112,7 @@ public class ShipControllerScript : MonoBehaviour
             {
                 Shield();
                 if (NoClip) logic.ShowMessage("NO CLIP ATTIVATO", 0);
-                else logic.ToggleMessage();              
+                else logic.ToggleMessage();
             }
         }
         // Se il giocatore e' morto, il pulsante Restart riavvia la partita
@@ -235,7 +235,7 @@ public class ShipControllerScript : MonoBehaviour
                     life = 5;
                     lifeImage.sprite = lifeSprites[life];
                     // Debug.Log("Recupero salute");
-                    logic.ShowMessage("", 1);
+                    logic.ShowMessage("HEALTH", 1);
                 }
                 Destroy(collision.gameObject);
             }
@@ -322,7 +322,6 @@ public class ShipControllerScript : MonoBehaviour
     {
         NoClip = !NoClip;
         if (NoClip)
-
             spriteRenderer.color = new Color(1, 1, 1, .5f);
 
         else
