@@ -52,6 +52,9 @@ public class ShipControllerScript : MonoBehaviour
     public AudioSource powerUpSound;
     public AudioSource deathSound;
 
+    //Icone dei power-up attivi
+    public GameObject[] icons;
+
 
     private void Start()
     {
@@ -195,8 +198,7 @@ public class ShipControllerScript : MonoBehaviour
             life--;
             lifeImage.sprite = lifeSprites[life];
             deathSound.Play();
-            // Distruzione dell'ostacolo / proiettile all'impatto
-            Destroy(collision.gameObject);
+
 
             if (life == 0)
             {
@@ -229,15 +231,13 @@ public class ShipControllerScript : MonoBehaviour
             // Se la collisione avviene con HealthPowerUp
             if (collision.gameObject.layer == 8)
             {
+                logic.ShowMessage("HEALTH", 1);
                 if (life < 5)
                 {
-                    // Debug.Log("La vita non e' al massimo");
                     life = 5;
                     lifeImage.sprite = lifeSprites[life];
-                    // Debug.Log("Recupero salute");
-                    logic.ShowMessage("HEALTH", 1);
                 }
-                Destroy(collision.gameObject);
+
             }
 
             // Se la collisione avviene con MultiplierPowerUp
@@ -246,10 +246,11 @@ public class ShipControllerScript : MonoBehaviour
                 // powerUpSound.Play();
                 // Debug.Log("Fuoco rapido");
                 logic.ShowMessage("SHOOT FASTER", 10);
+                icons[1].SetActive(true);
                 timeBetweenShots = 0.5f;
                 // Il power-up dura 10 secondi
                 Invoke(nameof(MultiplierResetEffect), 10);
-                Destroy(collision.gameObject);
+
             }
 
             // Se la collisione avviene con SpeedPowerUp
@@ -258,10 +259,11 @@ public class ShipControllerScript : MonoBehaviour
                 // powerUpSound.Play();
                 // Debug.Log("Spostamento veloce");
                 logic.ShowMessage("INCREASE SPEED", 10);
+                icons[0].SetActive(true);
                 speed += 10;
                 // Il power-up dura 10 secondi
                 Invoke(nameof(SpeedResetEffect), 10);
-                Destroy(collision.gameObject);
+
             }
 
             // Se la collisione avviene con DoubleScorePowerUp
@@ -271,12 +273,15 @@ public class ShipControllerScript : MonoBehaviour
                 // powerUpSound.Play();
                 // Debug.Log("Punti doppi");
                 logic.ShowMessage("DOUBLE POINTS", 10);
+                icons[2].SetActive(true);
                 logic.scoreMultiplier *= 2;
                 // Il power-up dura 10 secondi
                 Invoke(nameof(ScoreResetEffect), 10);
-                Destroy(collision.gameObject);
+
             }
         }
+
+        Destroy(collision.gameObject);
     }
 
     // Sposta l'astronave al contatto con l'ostacolo in una direzione casuale
@@ -299,21 +304,24 @@ public class ShipControllerScript : MonoBehaviour
     private void MultiplierResetEffect()
     {
         // Debug.Log("Tempo power-up Multiplier scaduto");
-        logic.ShowMessage("FINE FUOCO RAPIDO", 1);
+        //logic.ShowMessage("FINE FUOCO RAPIDO", 1);
+        icons[1].SetActive(false);
         timeBetweenShots = 1;
     }
 
     private void SpeedResetEffect()
     {
         // Debug.Log("Tempo power-up Speed scaduto");
-        logic.ShowMessage("FINE SPOSTAMENTO RAPIDO", 1);
+        //logic.ShowMessage("FINE SPOSTAMENTO RAPIDO", 1);
+        icons[0].SetActive(false);
         speed -= 10;
     }
 
     private void ScoreResetEffect()
     {
         // Debug.Log("Tempo power-up DoubleScore scaduto");
-        logic.ShowMessage("FINE PUNTI DOPPI", 1);
+        //logic.ShowMessage("FINE PUNTI DOPPI", 1);
+        icons[2].SetActive(false);
         logic.scoreMultiplier /= 2;
     }
 

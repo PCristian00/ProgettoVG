@@ -38,6 +38,8 @@ public class LogicScript : MonoBehaviour
 
     // Messaggio di testo
     public TextMeshProUGUI message;
+    
+    
 
     // Controlla se il gioco e' finito
     public bool gameIsOver = false;
