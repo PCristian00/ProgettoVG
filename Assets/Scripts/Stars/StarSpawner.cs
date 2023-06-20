@@ -25,8 +25,8 @@ public class StarSpawner : MonoBehaviour
         }
         else
         {
-            if(starCount<5)
-            SpawnStars();
+            if (starCount < 4)
+                SpawnStars();
 
             timer = 0;
         }
@@ -34,11 +34,7 @@ public class StarSpawner : MonoBehaviour
 
     void SpawnStars()
     {
-        // Il range (-6,6) indica l'area delle corsie
-
-
         Instantiate(star, transform.position, transform.rotation);
         starCount++;
-
     }
 }
