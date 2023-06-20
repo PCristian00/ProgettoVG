@@ -8,6 +8,8 @@ public class StarSpawner : MonoBehaviour
     public LogicScript logic;
 
     private float timer = 0;
+
+    public int starCount = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +25,9 @@ public class StarSpawner : MonoBehaviour
         }
         else
         {
+            if(starCount<5)
             SpawnStars();
+
             timer = 0;
         }
     }
@@ -48,5 +52,7 @@ public class StarSpawner : MonoBehaviour
         }
 
         Instantiate(star, new Vector3(PositionX, transform.position.y, 0), transform.rotation);
+        starCount++;
+
     }
 }

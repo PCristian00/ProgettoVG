@@ -7,6 +7,7 @@ TagManager:
   - Logic
   - Enemy
   - PowerUp
+  - StarSpawner
   layers:
   - Default
   - TransparentFX
