@@ -2040,7 +2040,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2140649935}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2986,7 +2986,7 @@ GameObject:
   - component: {fileID: 685345940}
   - component: {fileID: 685345939}
   m_Layer: 0
-  m_Name: Image
+  m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5161,7 +5161,7 @@ GameObject:
   - component: {fileID: 1388566082}
   - component: {fileID: 1388566081}
   m_Layer: 0
-  m_Name: DescDoubleScore
+  m_Name: DoubleScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5296,7 +5296,7 @@ GameObject:
   - component: {fileID: 1413837836}
   - component: {fileID: 1413837835}
   m_Layer: 0
-  m_Name: FireRateMultiplier
+  m_Name: FireRateIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5526,7 +5526,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2140649935}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6100,7 +6100,7 @@ GameObject:
   - component: {fileID: 1644110104}
   - component: {fileID: 1644110103}
   m_Layer: 0
-  m_Name: Image
+  m_Name: HealthIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7402,7 +7402,7 @@ GameObject:
   - component: {fileID: 1823112698}
   - component: {fileID: 1823112697}
   m_Layer: 0
-  m_Name: DoubleScore
+  m_Name: DoubleScoreIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7990,8 +7990,8 @@ Transform:
   - {fileID: 1413837834}
   - {fileID: 88337534}
   - {fileID: 145853946}
-  - {fileID: 1457329732}
   - {fileID: 456736394}
+  - {fileID: 1457329732}
   - {fileID: 1644110102}
   m_Father: {fileID: 1732626874}
   m_RootOrder: 6
