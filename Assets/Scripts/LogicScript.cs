@@ -71,8 +71,10 @@ public class LogicScript : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
     public void QuitGame()
     {
+        Debug.Log("CHIUSURA GIOCO");
         Application.Quit();
     }
     public void Menu()

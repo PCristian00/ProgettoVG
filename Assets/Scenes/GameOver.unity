@@ -350,8 +350,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -160}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0.000085711, y: -154.8221}
+  m_SizeDelta: {x: 164.6, y: 40.3558}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &276121212
 MonoBehaviour:
@@ -685,8 +685,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 100}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0.000026703, y: 89.7706}
+  m_SizeDelta: {x: 244, y: 70.4588}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &416171549
 MonoBehaviour:
@@ -708,7 +708,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "GAME OVER\n  you died"
+  m_text: 'GAME OVER
+
+    you died'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d92e4ee1d357b6c469206a2e90cafcf8, type: 2}
   m_sharedMaterial: {fileID: 8925165947000026234, guid: d92e4ee1d357b6c469206a2e90cafcf8, type: 2}
@@ -742,8 +744,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 32
+  m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -771,7 +773,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: 1.1366786}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -877,9 +879,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2010619346}
-  - {fileID: 416171548}
   - {fileID: 1632766242}
+  - {fileID: 416171548}
+  - {fileID: 2010619346}
   - {fileID: 1693709502}
   - {fileID: 276121211}
   m_Father: {fileID: 0}
@@ -925,8 +927,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -2}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.99999}
+  m_SizeDelta: {x: 0, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &764991545
 MonoBehaviour:
@@ -1639,7 +1641,7 @@ RectTransform:
   - {fileID: 1184808493}
   - {fileID: 1485380287}
   m_Father: {fileID: 438703163}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1683,8 +1685,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -80}
-  m_SizeDelta: {x: 164.6, y: 69.6}
+  m_AnchoredPosition: {x: 0.000030518, y: -85.4369}
+  m_SizeDelta: {x: 244, y: 68.0466}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1693709503
 MonoBehaviour:
@@ -1840,6 +1842,10 @@ PrefabInstance:
       value: LogicManager
       objectReference: {fileID: 0}
     - target: {fileID: 3284777306563882911, guid: 64b3246f42f7e8c46a80d2dd7312a9dd, type: 3}
+      propertyPath: test
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3284777306563882911, guid: 64b3246f42f7e8c46a80d2dd7312a9dd, type: 3}
       propertyPath: highScoreText
       value: 
       objectReference: {fileID: 1485380288}
@@ -1882,7 +1888,7 @@ GameObject:
   - component: {fileID: 2010619348}
   - component: {fileID: 2010619347}
   m_Layer: 5
-  m_Name: restart
+  m_Name: RestartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1902,7 +1908,7 @@ RectTransform:
   m_Children:
   - {fileID: 2014055020}
   m_Father: {fileID: 438703163}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
