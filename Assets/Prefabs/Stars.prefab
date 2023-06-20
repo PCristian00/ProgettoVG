@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 472069595900286786}
   - component: {fileID: 472069595900286797}
-  - component: {fileID: 472069595900286787}
+  - component: {fileID: -944957837495444786}
   m_Layer: 0
   m_Name: Stars
   m_TagString: Untagged
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 1f143f02523e34144827d10b07936d61, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &472069595900286787
+--- !u!114 &-944957837495444786
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,8 +94,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 472069595900286799}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77c707414e8a3184db772af33c463d14, type: 3}
+  m_Script: {fileID: 11500000, guid: 7df33fe09559f9d418cba2ab57a3dcd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
   deadZone: -10
