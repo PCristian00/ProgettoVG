@@ -67,11 +67,20 @@ public class LogicScript : MonoBehaviour
             scoreText.text = playerScore.ToString();
         }
     }
+
+    // RIMUOVERE E COLLEGARE A MENU PER FUNZIONI CHE LA USANO
     public void HowtoPlayExitButton()
     {
         SceneManager.LoadScene(0);
     }
 
+
+    // APPUNTI SU ERRORE DI SELEZIONE GAMEOVER CON MOUSE
+    // Il gioco si chiude qualsiasi sia l'opzione scelta in GameOver (SOLO CON ON CLICK).
+    // Il problema è presente anche nell'editor (NOTARE DEBUG)
+    // Questa funzione viene richiamata anche se il pulsante quit è disattivato.
+    // Se non si riesce a risolvere prima del 26, ricopiare la scena Menu, con selezione tramite astronave
+    // Verificare in versione molto precedente se il problema sia presente.
     public void QuitGame()
     {
         Debug.Log("CHIUSURA GIOCO");
