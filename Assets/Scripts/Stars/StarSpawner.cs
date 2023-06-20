@@ -17,7 +17,7 @@ public class StarSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer < (logic.speed-1))
+        if (timer < 2)
         {
             timer += Time.deltaTime;
         }
