@@ -1,30 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TutorialScript : MonoBehaviour
 {
     public GameObject[] istruzioni;
     public LogicScript logic;
-    public int i = 0;    
+    public int i = 0;
     public void Update()
     {
         if (Input.GetButtonDown("Right") && i < 3)
         {
-            right();
+            Right();
         }
         if (Input.GetButtonDown("Left") && i > 0)
         {
-            left();
+            Left();
+        }
+
+        if (Input.GetButtonDown("FireGreen") || Input.GetButtonDown("FireRed") || Input.GetButtonDown("FireYellow"))
+        {
+            logic.HowtoPlayExitButton();
         }
     }
-    public void right()
+    public void Right()
     {
         istruzioni[i].SetActive(false);
         i++;
         istruzioni[i].SetActive(true);
     }
-    public void left()
+    public void Left()
     {
         istruzioni[i].SetActive(false);
         i--;

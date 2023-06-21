@@ -1275,9 +1275,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3392572021058012624, guid: 70861451301642d4198f92f28c2c26d3, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 2fd6d5be7349dd840b1fc6d59045b3e0, type: 2}
     - target: {fileID: 326238789634209672, guid: 70861451301642d4198f92f28c2c26d3, type: 3}
       propertyPath: m_Name
       value: Ship
+      objectReference: {fileID: 0}
+    - target: {fileID: 326238789634209676, guid: 70861451301642d4198f92f28c2c26d3, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 326238789634209676, guid: 70861451301642d4198f92f28c2c26d3, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.28
       objectReference: {fileID: 0}
     - target: {fileID: 326238789634209678, guid: 70861451301642d4198f92f28c2c26d3, type: 3}
       propertyPath: m_FlipY
@@ -1286,7 +1298,19 @@ PrefabInstance:
     - target: {fileID: 326238789634209678, guid: 70861451301642d4198f92f28c2c26d3, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b559886cc9f0a54418f9b3a3c7c95f46, type: 3}
+      objectReference: {fileID: 1291995633, guid: f7df7f91ae8407f40bb1290478772a63, type: 3}
+    - target: {fileID: 326238789634209678, guid: 70861451301642d4198f92f28c2c26d3, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 326238789634209678, guid: 70861451301642d4198f92f28c2c26d3, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 326238789634209678, guid: 70861451301642d4198f92f28c2c26d3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 326238789634209678, guid: 70861451301642d4198f92f28c2c26d3, type: 3}
       propertyPath: m_DrawMode
       value: 0
