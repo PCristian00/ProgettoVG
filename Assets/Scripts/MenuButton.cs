@@ -25,23 +25,26 @@ public class MenuButton : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 7)
-        {
-            spriteRenderer.color = new Color(100, 0, 0);
-            // text.text = "Rosso";
-        }
+        // Scurisce leggermente il colore del pulsante sparato
+        spriteRenderer.color *= 0.6f;
 
-        if (collision.gameObject.layer == 12)
-        {
-            spriteRenderer.color = new Color(0, 100, 0);
-            // text.text = "Verde";
-        }
+        //if (collision.gameObject.layer == 7)
+        //{
+        //    spriteRenderer.color = new Color(100, 0, 0);
+        //    // text.text = "Rosso";
+        //}
 
-        if (collision.gameObject.layer == 13)
-        {
-            spriteRenderer.color = new Color(100, 100, 0);
-            // text.text = "Giallo";
-        }
+        //if (collision.gameObject.layer == 12)
+        //{
+        //    spriteRenderer.color = new Color(0, 100, 0);
+        //    // text.text = "Verde";
+        //}
+
+        //if (collision.gameObject.layer == 13)
+        //{
+        //    spriteRenderer.color = new Color(100, 100, 0);
+        //    // text.text = "Giallo";
+        //}
         // Debug.Log("Selezione");
 
         if (sceneToLoad != -1)
