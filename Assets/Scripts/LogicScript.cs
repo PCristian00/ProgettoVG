@@ -79,6 +79,7 @@ public class LogicScript : MonoBehaviour
     // Il gioco si chiude qualsiasi sia l'opzione scelta in GameOver (SOLO CON ON CLICK).
     // Il problema è presente anche nell'editor (NOTARE DEBUG)
     // Questa funzione viene richiamata anche se il pulsante quit è disattivato.
+    // VIENE RICHIAMATA CON QUALSIASI CLICK, ANCHE SU SFONDO
     // Se non si riesce a risolvere prima del 26, ricopiare la scena Menu, con selezione tramite astronave
     // Verificare in versione molto precedente se il problema sia presente.
     public void QuitGame()
