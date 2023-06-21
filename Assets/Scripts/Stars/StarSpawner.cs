@@ -19,14 +19,14 @@ public class StarSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer < 2)
+        if (timer < 1.5f)
         {
             timer += Time.deltaTime;
         }
         else
         {
-            if(starCount<5)
-            SpawnStars();
+            if (starCount < 4)
+                SpawnStars();
 
             timer = 0;
         }
@@ -34,11 +34,7 @@ public class StarSpawner : MonoBehaviour
 
     void SpawnStars()
     {
-        // Il range (-6,6) indica l'area delle corsie
-
-
-        Instantiate(star, new Vector3(Random.Range(-6, 6), transform.position.y, 0), transform.rotation);
+        Instantiate(star, transform.position, transform.rotation);
         starCount++;
-
     }
 }

@@ -38,6 +38,8 @@ public class LogicScript : MonoBehaviour
 
     // Messaggio di testo
     public TextMeshProUGUI message;
+    
+    
 
     // Controlla se il gioco e' finito
     public bool gameIsOver = false;
@@ -65,12 +67,25 @@ public class LogicScript : MonoBehaviour
             scoreText.text = playerScore.ToString();
         }
     }
+
+    // RIMUOVERE E COLLEGARE A MENU PER FUNZIONI CHE LA USANO
     public void HowtoPlayExitButton()
     {
         SceneManager.LoadScene(0);
     }
+
+
+    // APPUNTI SU ERRORE DI SELEZIONE GAMEOVER CON MOUSE
+    // Il gioco si chiude qualsiasi sia l'opzione scelta in GameOver (SOLO CON ON CLICK).
+    // Il problema è presente anche nell'editor (NOTARE DEBUG)
+    // Questa funzione viene richiamata anche se il pulsante quit è disattivato.
+    // VIENE RICHIAMATA CON QUALSIASI CLICK, ANCHE SU SFONDO
+    // Se non si riesce a risolvere prima del 26, ricopiare la scena Menu, con selezione tramite astronave
+    // Testata versione del 17/06. Prima implementazione del game over comandabile da tastiera. FUNZIONAVA ANCHE IL MOUSE
+    // Caricata la scena del 17/06 nel gioco attuale e NON FUNZIONA: IL PROBLEMA NON è LA SCENA MA QUALCOS'ALTRO
     public void QuitGame()
     {
+        Debug.Log("CHIUSURA GIOCO");
         Application.Quit();
     }
     public void Menu()
