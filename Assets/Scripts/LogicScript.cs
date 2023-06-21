@@ -81,7 +81,8 @@ public class LogicScript : MonoBehaviour
     // Questa funzione viene richiamata anche se il pulsante quit è disattivato.
     // VIENE RICHIAMATA CON QUALSIASI CLICK, ANCHE SU SFONDO
     // Se non si riesce a risolvere prima del 26, ricopiare la scena Menu, con selezione tramite astronave
-    // Verificare in versione molto precedente se il problema sia presente.
+    // Testata versione del 17/06. Prima implementazione del game over comandabile da tastiera. FUNZIONAVA ANCHE IL MOUSE
+    // Caricata la scena del 17/06 nel gioco attuale e NON FUNZIONA: IL PROBLEMA NON è LA SCENA MA QUALCOS'ALTRO
     public void QuitGame()
     {
         Debug.Log("CHIUSURA GIOCO");
