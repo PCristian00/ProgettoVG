@@ -644,6 +644,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1931087709977629405, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cd577bbb2a0f6794984a98e2fd284ebd, type: 3}
+    - target: {fileID: 1931087709977629405, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
+      propertyPath: m_Color.b
+      value: 0.14017442
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931087709977629405, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
+      propertyPath: m_Color.g
+      value: 0.14017442
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931087709977629405, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8490566
+      objectReference: {fileID: 0}
     - target: {fileID: 1931087709977629407, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
       propertyPath: sceneToLoad
       value: -1
@@ -1200,6 +1216,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1931087709977629405, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 80ff094f051f40c48a414b7e32366f05, type: 3}
+    - target: {fileID: 1931087709977629405, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
+      propertyPath: m_Color.b
+      value: 0.13803846
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931087709977629405, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7500227
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931087709977629405, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8867924
+      objectReference: {fileID: 0}
     - target: {fileID: 1931087709977629407, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
       propertyPath: sceneToLoad
       value: 0
@@ -1316,6 +1348,22 @@ PrefabInstance:
     - target: {fileID: 1931087709977629404, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931087709977629405, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd7549b71376fc24995feee2fe7eda6c, type: 3}
+    - target: {fileID: 1931087709977629405, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
+      propertyPath: m_Color.b
+      value: 0.22018273
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931087709977629405, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7169812
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931087709977629405, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
+      propertyPath: m_Color.r
+      value: 0.1724813
       objectReference: {fileID: 0}
     - target: {fileID: 1931087709977629407, guid: 684766f2e54877d4490d11b4d89af462, type: 3}
       propertyPath: text
