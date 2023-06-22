@@ -47,7 +47,15 @@ public class LogicScript : MonoBehaviour
     private void Start()
     {
         playerScore = 0;
-        // Preleva il punteggio migliore dai salvataggi di Unity
+        // Preleva i punteggi dai salvataggi di Unity
+        // Il punteggio precedente viene prelevato solo se il gioco e' finito       
+        if (gameIsOver)
+        {
+            playerScore = PlayerPrefs.GetInt("score", playerScore);
+            scoreText.text = playerScore.ToString();
+        }
+        
+
         highScore = PlayerPrefs.GetInt("highscore", highScore);
         highScoreText.text = highScore.ToString();
 
@@ -83,6 +91,8 @@ public class LogicScript : MonoBehaviour
     // Se non si riesce a risolvere prima del 26, ricopiare la scena Menu, con selezione tramite astronave
     // Testata versione del 17/06. Prima implementazione del game over comandabile da tastiera. FUNZIONAVA ANCHE IL MOUSE
     // Caricata la scena del 17/06 nel gioco attuale e NON FUNZIONA: IL PROBLEMA NON è LA SCENA MA QUALCOS'ALTRO
+
+    // FORSE QUESTE TRE FUNZIONI NON SERVONO PIù PERCHé USATE SOLO IN VECCHIO MENU
     public void QuitGame()
     {
         Debug.Log("CHIUSURA GIOCO");
@@ -100,6 +110,7 @@ public class LogicScript : MonoBehaviour
 
     public void GameOver()
     {
+        PlayerPrefs.SetInt("score", playerScore);
         // Debug.Log("Partita finita con un punteggio di " + playerScore);
         if (playerScore > highScore)
         {
