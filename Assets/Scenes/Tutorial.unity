@@ -525,7 +525,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "incrementa la velocit\xE0 di spostamento"
+  m_text: incrementa la velocita' di spostamento
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 05d209c99735e6a48950f7be4f32bb2a, type: 2}
   m_sharedMaterial: {fileID: 1026810779115758897, guid: 05d209c99735e6a48950f7be4f32bb2a, type: 2}
@@ -1341,7 +1341,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "uccidendola riceverai uno\ntra i vari power up e \notterrai 10 punti in
-    pi\xF9"
+    piu'"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 05d209c99735e6a48950f7be4f32bb2a, type: 2}
   m_sharedMaterial: {fileID: 1026810779115758897, guid: 05d209c99735e6a48950f7be4f32bb2a, type: 2}
@@ -2124,9 +2124,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "per controllare la velocit\xE0.\nla velocit\xE0, oltre all'astronave,\ncontrolla
-    anche la difficolt\xE0 del gioco;\nperci\xF2 il numero dei nemici e  degli ostacoli\ncrescer\xE0
-    in base ad essa"
+  m_text: 'per controllare la velocita''.
+
+    la velocita'', oltre all''astronave,
+
+    controlla
+    anche la difficolta'' del gioco;
+
+    percio'' il numero dei nemici e  degli
+    ostacoli
+
+    crescera'' in base ad essa'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 05d209c99735e6a48950f7be4f32bb2a, type: 2}
   m_sharedMaterial: {fileID: 1026810779115758897, guid: 05d209c99735e6a48950f7be4f32bb2a, type: 2}
@@ -2396,10 +2404,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'per muovere l''astronave
+  m_text: 'per muovere l''astronave Perseus-23
 
-    hai 5 vite a disposizione, attento a non
-    sprecarle'
+    hai 5 vite a disposizione, attento
+    a non sprecarle'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 05d209c99735e6a48950f7be4f32bb2a, type: 2}
   m_sharedMaterial: {fileID: 1026810779115758897, guid: 05d209c99735e6a48950f7be4f32bb2a, type: 2}
@@ -2533,7 +2541,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2225c0734fab8dd45abfdbd5c5c64be3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3276,7 +3284,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 738059073, guid: a430e4d8f598ddb48bc44566d69029f6, type: 3}
+  m_Sprite: {fileID: -129204707, guid: a430e4d8f598ddb48bc44566d69029f6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3715,7 +3723,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "uccidendo i tuoi nemici hai il 20% di possibilit\xE0 di\nricevere un power
+  m_text: "uccidendo i tuoi nemici hai il 20% di possibilita' di\nricevere un power
     up che durer\xE0 10 secondi"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 05d209c99735e6a48950f7be4f32bb2a, type: 2}
@@ -4303,7 +4311,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: attento alle meteore, se ti colpiranno, perderai una vita
+  m_text: 'attento agli asteroidi: se ti colpiranno, perderai una vita'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 05d209c99735e6a48950f7be4f32bb2a, type: 2}
   m_sharedMaterial: {fileID: 1026810779115758897, guid: 05d209c99735e6a48950f7be4f32bb2a, type: 2}

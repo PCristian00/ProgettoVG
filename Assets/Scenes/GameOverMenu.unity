@@ -1155,7 +1155,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 200}
-  m_SizeDelta: {x: 400, y: 200}
+  m_SizeDelta: {x: 800, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &784649565
 MonoBehaviour:
@@ -1179,7 +1179,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Game Over
 
-    Sei morto'
+    Perseus-23 Abbattuto'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d92e4ee1d357b6c469206a2e90cafcf8, type: 2}
   m_sharedMaterial: {fileID: 8925165947000026234, guid: d92e4ee1d357b6c469206a2e90cafcf8, type: 2}
