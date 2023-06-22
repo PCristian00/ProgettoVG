@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class Star : MonoBehaviour
 {
-    // Velocita' di movimento
-    //public float moveSpeed = 1f;
     // Zona di despawn
     public float deadZone = -6.5f;
     // Update is called once per frame

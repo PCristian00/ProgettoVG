@@ -38,8 +38,8 @@ public class LogicScript : MonoBehaviour
 
     // Messaggio di testo
     public TextMeshProUGUI message;
-    
-    
+
+
 
     // Controlla se il gioco e' finito
     public bool gameIsOver = false;
@@ -54,7 +54,7 @@ public class LogicScript : MonoBehaviour
             playerScore = PlayerPrefs.GetInt("score", playerScore);
             scoreText.text = playerScore.ToString();
         }
-        
+
 
         highScore = PlayerPrefs.GetInt("highscore", highScore);
         highScoreText.text = highScore.ToString();
@@ -65,13 +65,13 @@ public class LogicScript : MonoBehaviour
         speedImage = speedBar.GetComponent<Image>();
     }
 
-    
+
     public void AddScore(int scoreToAdd)
     {
-        
+
         if (!gameIsOver)
         {
-            playerScore += (scoreToAdd*scoreMultiplier);
+            playerScore += (scoreToAdd * scoreMultiplier);
             scoreText.text = playerScore.ToString();
         }
     }
@@ -80,32 +80,6 @@ public class LogicScript : MonoBehaviour
     public void HowtoPlayExitButton()
     {
         SceneManager.LoadScene(0);
-    }
-
-
-    // APPUNTI SU ERRORE DI SELEZIONE GAMEOVER CON MOUSE
-    // Il gioco si chiude qualsiasi sia l'opzione scelta in GameOver (SOLO CON ON CLICK).
-    // Il problema è presente anche nell'editor (NOTARE DEBUG)
-    // Questa funzione viene richiamata anche se il pulsante quit è disattivato.
-    // VIENE RICHIAMATA CON QUALSIASI CLICK, ANCHE SU SFONDO
-    // Se non si riesce a risolvere prima del 26, ricopiare la scena Menu, con selezione tramite astronave
-    // Testata versione del 17/06. Prima implementazione del game over comandabile da tastiera. FUNZIONAVA ANCHE IL MOUSE
-    // Caricata la scena del 17/06 nel gioco attuale e NON FUNZIONA: IL PROBLEMA NON è LA SCENA MA QUALCOS'ALTRO
-
-    // FORSE QUESTE TRE FUNZIONI NON SERVONO PIù PERCHé USATE SOLO IN VECCHIO MENU
-    public void QuitGame()
-    {
-        Debug.Log("CHIUSURA GIOCO");
-        Application.Quit();
-    }
-    public void Menu()
-    {
-        SceneManager.LoadScene(0);
-    }
-
-    public void RestartGame()
-    { 
-        SceneManager.LoadScene(1);
     }
 
     public void GameOver()
@@ -134,7 +108,6 @@ public class LogicScript : MonoBehaviour
         {
             if (speed > maxSpeed)
             {
-                Debug.Log("Velocita' in aumento");
                 speed--;
                 speedLevel++;
                 // Debug.Log("Nuova traccia musicale");
@@ -145,16 +118,13 @@ public class LogicScript : MonoBehaviour
                 musicLayers[speedLevel - 1].volume -= 0.2f;
             }
             else ShowMessage("MAX SPEED", 1);
-         }
+        }
         // Diminuzione di velocita'
         else if (input == -1f)
         {
             if (speed < minSpeed)
             {
-                Debug.Log("Velocita' in diminuzione");
                 speed++;
-                // Debug.Log("Traccia musicale rimossa");
-
                 // Spegne il layer attuale
                 musicLayers[speedLevel].mute = true;
                 // Aumenta il volume del layer inferiore
@@ -173,20 +143,20 @@ public class LogicScript : MonoBehaviour
     public void IncreaseDifficulty()
     {
         // Se il giocatore e' attualmente alla velocita' minima, la sua velocita' viene aumentata
-        if (speed==minSpeed)
+        if (speed == minSpeed)
             ChangeSpeed(1);
 
-            // Aumento velocita' minima
-            if (minSpeed > maxSpeed)
-            {
-                // Mostra per 1 secondo il messaggio a schermo (sotto le barre)
-                // Forse da sostituire con una soluzione migliore
+        // Aumento velocita' minima
+        if (minSpeed > maxSpeed)
+        {
+            // Mostra per 1 secondo il messaggio a schermo (sotto le barre)
+            // Forse da sostituire con una soluzione migliore
 
-                ShowMessage("SPEED UP!!!", 1);
+            ShowMessage("SPEED UP!!!", 1);
 
-                minSpeed--;
-                Debug.Log("NUOVA VELOCITA' MINIMA: " + (7 - minSpeed));
-            }
+            minSpeed--;
+            Debug.Log("NUOVA VELOCITA' MINIMA: " + (7 - minSpeed));
+        }
     }
 
     // Mostra il testo scelto per il tempo scelto.
@@ -196,8 +166,8 @@ public class LogicScript : MonoBehaviour
     {
         message.text = messageText;
         message.gameObject.SetActive(true);
-        if(time!=0)
-        Invoke(nameof(ToggleMessage), time);
+        if (time != 0)
+            Invoke(nameof(ToggleMessage), time);
     }
 
     // Rende nuovamente invisibile il messaggio
@@ -205,19 +175,4 @@ public class LogicScript : MonoBehaviour
     {
         message.gameObject.SetActive(false);
     }
-
-    // Svuota il DebugLog
-    // ATTENZIONE! CAUSA ERRORI DURANTE BUILD
-    // INSERIRE IN COMMENTO PRIMA DI BUILD
-
-    
-    //public void ClearLog()
-    //{
-    //    var assembly = Assembly.GetAssembly(typeof(UnityEditor.Editor));
-    //    var type = assembly.GetType("UnityEditor.LogEntries");
-    //    var method = type.GetMethod("Clear");
-    //    method.Invoke(new object(), null);
-    //}
-
- 
 }

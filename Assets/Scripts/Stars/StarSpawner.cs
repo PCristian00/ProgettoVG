@@ -9,7 +9,6 @@ public class StarSpawner : MonoBehaviour
 
     public int starCount = 0;
 
-    // Update is called once per frame
     void Update()
     {
         if (timer < 1.5f)

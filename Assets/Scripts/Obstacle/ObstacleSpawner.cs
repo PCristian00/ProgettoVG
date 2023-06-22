@@ -32,7 +32,7 @@ public class ObstacleSpawner : MonoBehaviour
     {
         // Il range (-6,6) indica l'area delle corsie
 
-        int positionX = (int) Random.Range(-6, 6);
+        int positionX = (int)Random.Range(-6, 6);
 
         Instantiate(obstacle, new Vector3(positionX, transform.position.y, 0), transform.rotation);
     }
