@@ -39,8 +39,8 @@ public class BossScript : MonoBehaviour
 
     void Start()
     {
-        spawner = GameObject.FindGameObjectWithTag("Respawn").GetComponent<EnemySpawner>();        
-        
+        spawner = GameObject.FindGameObjectWithTag("Respawn").GetComponent<EnemySpawner>();
+
         // Direzione in cui il Boss si avvia alla partenza
         direction = -1;
 
@@ -61,10 +61,10 @@ public class BossScript : MonoBehaviour
             if (transform.position.Equals(target))
             {
                 Debug.Log("ARRIVATO A DESTINAZIONE");
-                Debug.Log("Posizione: " +transform.position+" Target: "+target);
+                Debug.Log("Posizione: " + transform.position + " Target: " + target);
                 isMoving = true;
             }
-                        
+
         }
 
         Debug.Log("EEEE Posizione: " + transform.position + " Target: " + target);
@@ -82,8 +82,8 @@ public class BossScript : MonoBehaviour
         else
         {
             timer = 0;
-            if(canFire)
-            FireBullet();
+            if (canFire)
+                FireBullet();
         }
     }
 
@@ -136,8 +136,6 @@ public class BossScript : MonoBehaviour
             if (other.gameObject.layer == 7 || other.gameObject.layer == 12 || other.gameObject.layer == 13)
             {
                 life--;
-                // Debug.Log("Vita BOSS: " + life + " / 3");
-
                 hitSound.Play();
 
                 Destroy(other.gameObject);
