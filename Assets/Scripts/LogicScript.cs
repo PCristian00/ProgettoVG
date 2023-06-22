@@ -62,6 +62,7 @@ public class LogicScript : MonoBehaviour
         speed = 7f;
         maxSpeed = 2f;
         minSpeed = speed;
+        if(!gameIsOver)
         speedImage = speedBar.GetComponent<Image>();
     }
 

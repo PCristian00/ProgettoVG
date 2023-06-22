@@ -1598,11 +1598,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 326238789634209676, guid: 70861451301642d4198f92f28c2c26d3, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.28
+      value: 1.24
       objectReference: {fileID: 0}
     - target: {fileID: 326238789634209676, guid: 70861451301642d4198f92f28c2c26d3, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.28
+      value: 0.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 326238789634209677, guid: 70861451301642d4198f92f28c2c26d3, type: 3}
+      propertyPath: MenuMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 326238789634209678, guid: 70861451301642d4198f92f28c2c26d3, type: 3}
       propertyPath: m_FlipY

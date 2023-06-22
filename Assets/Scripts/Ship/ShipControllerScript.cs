@@ -55,6 +55,9 @@ public class ShipControllerScript : MonoBehaviour
     //Icone dei power-up attivi
     public GameObject[] icons;
 
+    // Indica se l'astronave sia in modalita' menu
+    public bool MenuMode = false;
+
 
     private void Start()
     {
@@ -65,6 +68,7 @@ public class ShipControllerScript : MonoBehaviour
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
 
         life = 5;
+        if(!MenuMode)
         lifeImage = lifeBar.GetComponent<Image>();
     }
 
