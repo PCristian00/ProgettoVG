@@ -255,7 +255,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "aumenta la velocit\xE0 di sparo "
+  m_text: 'aumenta la velocita'' di sparo '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 05d209c99735e6a48950f7be4f32bb2a, type: 2}
   m_sharedMaterial: {fileID: 1026810779115758897, guid: 05d209c99735e6a48950f7be4f32bb2a, type: 2}
@@ -367,7 +367,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 80, y: 100}
+  m_AnchoredPosition: {x: 46, y: 104.3}
   m_SizeDelta: {x: 40, y: 13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &122346036
@@ -626,7 +626,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 242953291}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -398.93335, y: -224.95728, z: 0}
+  m_LocalPosition: {x: -261.4, y: -250.9, z: 0}
   m_LocalScale: {x: 4.1025643, y: 4.1025643, z: 4.1025643}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -638,6 +638,9 @@ Transform:
   - {fileID: 1594136430}
   - {fileID: 1675749966}
   - {fileID: 1259487443}
+  - {fileID: 1153522349}
+  - {fileID: 758144681}
+  - {fileID: 788760215}
   m_Father: {fileID: 1732626874}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -760,8 +763,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 60, y: 80}
-  m_SizeDelta: {x: 129.5953, y: 27.7849}
+  m_AnchoredPosition: {x: 76.99739, y: 79.86067}
+  m_SizeDelta: {x: 140.7411, y: 28.0635}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &428821301
 MonoBehaviour:
@@ -783,9 +786,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "la pelagia aliena pi\xF9 mortale tra tutte\nspawna dopo 10 nemici sconfitti
-    \nper poterlo annientare servono tre colpi fatali,\nma attento a non morire,\nspara
-    tre proiettili contemporaneamente"
+  m_text: "La pelagia aliena pi\xF9 mortale tra tutte.\nCompare ogni 10 nemici sconfitti.\nPer
+    poterla annientare servono tre colpi fatali, ma attento a non morire!\nSpara
+    tre proiettili contemporaneamente."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 05d209c99735e6a48950f7be4f32bb2a, type: 2}
   m_sharedMaterial: {fileID: 1026810779115758897, guid: 05d209c99735e6a48950f7be4f32bb2a, type: 2}
@@ -819,7 +822,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -920,7 +923,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: per uccidere la noctiluca
+  m_text: per uccidere la noctiluca spherea
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 05d209c99735e6a48950f7be4f32bb2a, type: 2}
   m_sharedMaterial: {fileID: 1026810779115758897, guid: 05d209c99735e6a48950f7be4f32bb2a, type: 2}
@@ -1317,8 +1320,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 100, y: 45}
-  m_SizeDelta: {x: 67.9618, y: 16.5685}
+  m_AnchoredPosition: {x: 113.51431, y: 43.746098}
+  m_SizeDelta: {x: 94.9904, y: 19.0763}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &511307703
 MonoBehaviour:
@@ -1340,8 +1343,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "uccidendola riceverai uno\ntra i vari power up e \notterrai 10 punti in
-    piu'"
+  m_text: Uccidendola riceverai uno tra i vari power up e 10 punti
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 05d209c99735e6a48950f7be4f32bb2a, type: 2}
   m_sharedMaterial: {fileID: 1026810779115758897, guid: 05d209c99735e6a48950f7be4f32bb2a, type: 2}
@@ -1900,9 +1902,163 @@ Transform:
   - {fileID: 1107213855}
   - {fileID: 445891670}
   - {fileID: 2106004626}
+  - {fileID: 1117311895}
+  - {fileID: 1671176232}
   m_Father: {fileID: 1732626874}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &758144680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 758144681}
+  - component: {fileID: 758144683}
+  - component: {fileID: 758144682}
+  m_Layer: 0
+  m_Name: Cerchio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &758144681
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758144680}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -7.6293745}
+  m_LocalScale: {x: 0.0975, y: 0.0975, z: 0.0975}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 242953292}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 86.00312, y: 69.74}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &758144682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758144680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 7c9a81c1fba003a43834510d61e1b5d2, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &758144683
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758144680}
+  m_CullTransparentMesh: 1
+--- !u!1 &788760214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 788760215}
+  - component: {fileID: 788760217}
+  - component: {fileID: 788760216}
+  m_Layer: 0
+  m_Name: Quadrato
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &788760215
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788760214}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -7.6293745}
+  m_LocalScale: {x: 0.0975, y: 0.0975, z: 0.0975}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 242953292}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 86.00312, y: 40.3}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &788760216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788760214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 0973ea7d4bb410c44b8b1bf629528769, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &788760217
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788760214}
+  m_CullTransparentMesh: 1
 --- !u!1 &818686774
 GameObject:
   m_ObjectHideFlags: 0
@@ -1930,7 +2086,7 @@ RectTransform:
   m_GameObject: {fileID: 818686774}
   m_LocalRotation: {x: -0, y: 0.9997667, z: -0, w: 0.021602692}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 721363292}
@@ -2101,8 +2257,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 125.5, y: 34.2}
-  m_SizeDelta: {x: 112.52, y: 24.5394}
+  m_AnchoredPosition: {x: 115.28267, y: 30.8}
+  m_SizeDelta: {x: 92.0853, y: 24.8917}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1107213856
 MonoBehaviour:
@@ -2126,15 +2282,11 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'per controllare la velocita''.
 
-    la velocita'', oltre all''astronave,
+    la velocita'' controlla anche la difficolta''
+    del gioco: il numero dei nemici e  degli ostacoli
 
-    controlla
-    anche la difficolta'' del gioco;
-
-    percio'' il numero dei nemici e  degli
-    ostacoli
-
-    crescera'' in base ad essa'
+    crescera'' in base ad
+    essa'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 05d209c99735e6a48950f7be4f32bb2a, type: 2}
   m_sharedMaterial: {fileID: 1026810779115758897, guid: 05d209c99735e6a48950f7be4f32bb2a, type: 2}
@@ -2381,8 +2533,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 83.45059, y: 83.5546}
-  m_SizeDelta: {x: 129.9012, y: 8.8908}
+  m_AnchoredPosition: {x: 67.6, y: 78.5}
+  m_SizeDelta: {x: 95.7656, y: 16.799}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1112620032
 MonoBehaviour:
@@ -2404,10 +2556,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'per muovere l''astronave Perseus-23
-
-    hai 5 vite a disposizione, attento
-    a non sprecarle'
+  m_text: per muovere l'astronave Perseus-23
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 05d209c99735e6a48950f7be4f32bb2a, type: 2}
   m_sharedMaterial: {fileID: 1026810779115758897, guid: 05d209c99735e6a48950f7be4f32bb2a, type: 2}
@@ -2441,8 +2590,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 8192
+  m_HorizontalAlignment: 8
+  m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2483,6 +2632,158 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1112620030}
+  m_CullTransparentMesh: 1
+--- !u!1 &1117311894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1117311895}
+  - component: {fileID: 1117311897}
+  - component: {fileID: 1117311896}
+  m_Layer: 0
+  m_Name: Speed Up
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1117311895
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117311894}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 721363292}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 43.67, y: 38.74}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1117311896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117311894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 1848c117f43e0a547b07632ab83919b8, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1117311897
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117311894}
+  m_CullTransparentMesh: 1
+--- !u!1 &1153522348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1153522349}
+  - component: {fileID: 1153522351}
+  - component: {fileID: 1153522350}
+  m_Layer: 0
+  m_Name: Triangolo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1153522349
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153522348}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -7.6293745}
+  m_LocalScale: {x: 0.0975, y: 0.0975, z: 0.0975}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 242953292}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 86.00312, y: 55.222004}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1153522350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153522348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: fa94a74fdd324ff4c82636dc69c45886, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1153522351
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153522348}
   m_CullTransparentMesh: 1
 --- !u!1 &1188932644
 GameObject:
@@ -3329,7 +3630,7 @@ RectTransform:
   m_GameObject: {fileID: 1636232279}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 721363292}
@@ -3453,6 +3754,82 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1644110101}
+  m_CullTransparentMesh: 1
+--- !u!1 &1671176231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1671176232}
+  - component: {fileID: 1671176234}
+  - component: {fileID: 1671176233}
+  m_Layer: 0
+  m_Name: Speed Down
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1671176232
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671176231}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 721363292}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 42.8, y: 23.2}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1671176233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671176231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 1848c117f43e0a547b07632ab83919b8, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1671176234
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671176231}
   m_CullTransparentMesh: 1
 --- !u!1 &1674674125
 GameObject:
@@ -3700,8 +4077,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 60, y: 85}
-  m_SizeDelta: {x: 120, y: 12}
+  m_AnchoredPosition: {x: 79.5, y: 85}
+  m_SizeDelta: {x: 124.7355, y: 12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1729543669
 MonoBehaviour:
@@ -3723,8 +4100,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "uccidendo i tuoi nemici hai il 20% di possibilita' di\nricevere un power
-    up che durer\xE0 10 secondi"
+  m_text: 'Uccidendo i tuoi nemici hai il 20% di possibilita'' di
+
+    ricevere un
+    power up che durera'' 10 secondi.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 05d209c99735e6a48950f7be4f32bb2a, type: 2}
   m_sharedMaterial: {fileID: 1026810779115758897, guid: 05d209c99735e6a48950f7be4f32bb2a, type: 2}
@@ -4074,8 +4453,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 41.238907, y: 85}
-  m_SizeDelta: {x: 91.9923, y: 12.8733}
+  m_AnchoredPosition: {x: 45.6, y: 86.28976}
+  m_SizeDelta: {x: 96.4376, y: 20.4938}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1816410058
 MonoBehaviour:
@@ -4097,10 +4476,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'ogni medusa aliena e'' associata ad una forma e ad un colore
+  m_text: 'Ogni medusa aliena e'' associata ad una forma e ad un colore.
 
-    uccidendone
-    una, otterrai un punto '
+    Uccidendone
+    una, otterrai un punto.
+
+    Attenzione ai loro colpi! '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 05d209c99735e6a48950f7be4f32bb2a, type: 2}
   m_sharedMaterial: {fileID: 1026810779115758897, guid: 05d209c99735e6a48950f7be4f32bb2a, type: 2}
@@ -4288,8 +4669,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 45.000015, y: 57.42}
-  m_SizeDelta: {x: 65, y: 6}
+  m_AnchoredPosition: {x: 48.5, y: 58.5}
+  m_SizeDelta: {x: 65.635, y: 17.1132}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2106004627
 MonoBehaviour:
@@ -4311,7 +4692,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'attento agli asteroidi: se ti colpiranno, perderai una vita'
+  m_text: 'Hai 5 vite a disposizione.
+
+    Attento agli asteroidi: se ti colpiranno,
+    perderai una vita!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 05d209c99735e6a48950f7be4f32bb2a, type: 2}
   m_sharedMaterial: {fileID: 1026810779115758897, guid: 05d209c99735e6a48950f7be4f32bb2a, type: 2}
@@ -4345,7 +4729,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -4374,7 +4758,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -17.325394, w: 0}
+  m_margin: {x: 0, y: 0, z: -49.07742, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
