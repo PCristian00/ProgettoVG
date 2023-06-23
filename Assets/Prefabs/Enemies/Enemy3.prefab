@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 893378567151498894, guid: ce4db71eaee18ee4fbceb821cc2ad153, type: 3}
-  bulletSound: {fileID: -1745034096772077209, guid: 83844528e040c354b86bd5c898bb423e, type: 3}
+  bulletSound: {fileID: -8216562876163282985}
   powerups:
   - {fileID: 618094963217292138, guid: 1c6993bd7ad90e9479d3a7f57c3726f6, type: 3}
   - {fileID: 6636638421958929776, guid: c1657756631806c4fba88b819b93ff72, type: 3}

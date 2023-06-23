@@ -98,7 +98,7 @@ public class EnemyScript : MonoBehaviour
         // Sorteggia un numero da 1 a 100.
         // Se il numero e' inferiore a 20 (1 possiblita' su 5) viene rilasciato un power-up 
         int number = (int)Random.Range(1, 100);
-        Debug.Log("Numero sorteggiato: " + number);
+        
         if (number <= 20)
             Instantiate(powerups[Random.Range(0, powerups.Length)], transform.position, transform.rotation);
 
