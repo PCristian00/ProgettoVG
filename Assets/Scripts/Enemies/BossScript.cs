@@ -60,14 +60,10 @@ public class BossScript : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, target, 2.5f * Time.deltaTime);
             if (transform.position.Equals(target))
             {
-                Debug.Log("ARRIVATO A DESTINAZIONE");
-                Debug.Log("Posizione: " + transform.position + " Target: " + target);
                 isMoving = true;
             }
 
         }
-
-        Debug.Log("EEEE Posizione: " + transform.position + " Target: " + target);
 
         // Cambio direzione se arrivato al limite orizzontale
         if (transform.position.x == 6 || transform.position.x == -6)
