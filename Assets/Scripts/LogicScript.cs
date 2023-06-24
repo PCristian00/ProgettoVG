@@ -126,17 +126,12 @@ public class LogicScript : MonoBehaviour
     public void GameOver()
     {
         PlayerPrefs.SetInt("score", playerScore);
-        // Debug.Log("Partita finita con un punteggio di " + playerScore);
         if (playerScore > highScore)
         {
-            // Debug.Log("NUOVO RECORD");
-
             highScore = playerScore;
             highScoreText.text = playerScore.ToString();
             PlayerPrefs.SetInt("highscore", highScore);
-            // Debug.Log(highScore);
         }
-
         SceneManager.LoadScene(3);
     }
 
@@ -156,14 +151,12 @@ public class LogicScript : MonoBehaviour
             {
                 speed--;
                 speedLevel++;
-                // Debug.Log("Nuova traccia musicale");
-
-                // Attiva il layer attuale
+                 // Attiva il layer attuale
                 musicLayers[speedLevel].mute = false;
                 // Diminuisce il volume del layer inferiore
                 musicLayers[speedLevel - 1].volume -= 0.2f;
             }
-            else ShowMessage("MAX SPEED", 1);
+            else ShowMessage("VELOCITA' MASSIMA", 1);
         }
         // Diminuzione di velocita'
         else if (input == -1f)
@@ -177,7 +170,7 @@ public class LogicScript : MonoBehaviour
                 musicLayers[speedLevel - 1].volume += 0.2f;
                 speedLevel--;
             }
-            else ShowMessage("MIN SPEED", 1);
+            else ShowMessage("VELOCITA' MINIMA", 1);
         }
 
         // Debug.Log("VELOCITA': " + speedLevel + " / 5");
@@ -198,18 +191,12 @@ public class LogicScript : MonoBehaviour
         // Aumento velocita' minima
         if (minSpeed > maxSpeed)
         {
-            // Mostra per 1 secondo il messaggio a schermo (sotto le barre)
-            // Forse da sostituire con una soluzione migliore
-
-            ShowMessage("SPEED UP!!!", 1);
-
+            // Mostra per 1 secondo il messaggio a schermo
+            ShowMessage("PIU' VELOCE!!!", 1);
             minSpeed--;
-            Debug.Log("NUOVA VELOCITA' MINIMA: " + (7 - minSpeed));
+            
         }
     }
-
-
-
 
     /// <summary>
     /// Mostra il testo scelto per il tempo scelto.
