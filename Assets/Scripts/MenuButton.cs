@@ -2,27 +2,23 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Gestisce i pulsanti da sparare usati nei menu
+/// </summary>
 public class MenuButton : MonoBehaviour
 {
-
+    /// <summary>
+    /// Riferimento allo sprite renderer
+    /// </summary>
     public SpriteRenderer spriteRenderer;
-
-    public TextMeshProUGUI text;
-
+    /// <summary>
+    /// Scena da caricare una volta sparato
+    /// </summary>
     public int sceneToLoad;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    /// <summary>
+    /// Gestione della collsione con il proiettive e caricamento della scena.
+    /// </summary>
+    /// <param name="collision">oggetto in collisione</param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Scurisce leggermente il colore del pulsante sparato

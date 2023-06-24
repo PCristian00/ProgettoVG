@@ -1,12 +1,20 @@
 using UnityEngine;
-
+/// <summary>
+/// Gestisce il movimento delle stelle
+/// </summary>
 public class Star : MonoBehaviour
 {
-    // Zona di despawn
+    /// <summary>
+    /// Zona di despawn
+    /// </summary>    
     public float deadZone = -6.5f;
-    // Update is called once per frame
+    /// <summary>
+    /// Riferimento allo spawner
+    /// </summary>
     StarSpawner spawner;
-
+    /// <summary>
+    /// Riferimento a logic
+    /// </summary>
     LogicScript logic;
 
     void Start()
@@ -18,7 +26,7 @@ public class Star : MonoBehaviour
     void Update()
     {
         transform.position += (8-logic.speed) * Time.deltaTime * Vector3.down;
-        // Distrugge il power-up quando arriva oltre il limite dello schermo
+        // Distrugge la stella quando arriva oltre il limite dello schermo
         if (transform.position.y <= deadZone)
         {
             Destroy(gameObject);

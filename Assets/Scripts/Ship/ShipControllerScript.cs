@@ -1,61 +1,103 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Controlla il movimento, lo sparo, la vita e i power-up dell'astronave.
+/// </summary>
 public class ShipControllerScript : MonoBehaviour
 {
-    // Posizione dopo spostamento
+    /// <summary>
+    /// Posizione dopo spostamento
+    /// </summary>
     private Vector2 endPos = new(0, -4);
 
-    // Velocita di spostamento laterale
+    /// <summary>
+    /// Velocita' di spostamento laterale
+    /// </summary>
     public float speed = 15f;
-    // Direzione del movimento orizzontale
+    /// <summary>
+    /// Direzione del movimento orizzontale
+    /// </summary>
     float horizontalMove = 0f;
-
-    // Indica se l'astronave sia viva o no
+    /// <summary>
+    /// Indica se l'astronave sia distrutta o meno
+    /// </summary>
     public bool isAlive = true;
-
-    // Riferimento al collider
+    /// <summary>
+    ///Riferimento al collider
+        /// </summary>
     private Collider2D colliderComponent;
 
-    // Riferimento al rigidBody
+    /// <summary>
+    /// Riferimento al rigidBody
+    /// </summary>
     private Rigidbody2D myBody;
 
-    // SOLO PER TESTING IMMORTALITA'
+    /// <summary>
+    /// Rende l'astronave invulnerabile
+    /// </summary>
     private bool NoClip = false;
 
-    // Riferimento al LogicManager
+    /// <summary>
+    /// Riferimento al LogicManager
+    /// </summary>    
     public LogicScript logic;
 
-    // Riferimento al Bullet
+    /// <summary>
+    /// Riferimento al Bullet
+    /// </summary>    
     public GameObject Bullet;
-
-    // Array degli sprite
-    // public Sprite[] sprites;
-    // Riferimento allo SpriteRenderer
+    /// <summary>
+    /// Riferimento allo SpriteRenderer
+    /// </summary>    
     public SpriteRenderer spriteRenderer;
 
-    // Contatore che calcola il tempo al prossimo sparo possibile
+    /// <summary>
+    /// Contatore che calcola il tempo al prossimo sparo possibile
+    /// </summary>    
     private float nextFireTime;
-    // Secondi che devono passare tra uno sparo e l'altro, misurato in secondi
+    /// <summary>
+    /// Secondi che devono passare tra uno sparo e l'altro, misurato in secondi
+    /// </summary>    
     private float timeBetweenShots = 1;
 
-    // Riferimento alla barra della vita
+    /// <summary>
+    /// Riferimento alla barra della vita
+    /// </summary>    
     public GameObject lifeBar;
-    // Riferimento a Image della barra della vita
+    /// <summary>
+    /// Riferimento a Image della barra della vita
+    /// </summary>
     private Image lifeImage;
-    // Array contenente i vari sprite della barra della vita
+    /// <summary>
+    /// Array contenente i vari sprite della barra della vita
+    /// </summary>    
     public Sprite[] lifeSprites;
-    // La vita dell'astronave
+    /// <summary>
+    /// La vita dell'astronave
+    /// </summary>    
     public int life;
-
+    /// <summary>
+    /// Suono dello sparo
+    /// </summary>
     public AudioSource shootSound;
+    /// <summary>
+    /// Suono raccolta power-up
+    /// </summary>
     public AudioSource powerUpSound;
+    /// <summary>
+    /// Suono eseguito se colpita
+    /// </summary>
     public AudioSource deathSound;
 
-    //Icone dei power-up attivi
+    /// <summary>
+    /// Icone dei power-up attivi
+    /// </summary>
     public GameObject[] icons;
 
-    // Indica se l'astronave sia in modalita' menu
+    /// <summary>
+    /// Indica se l'astronave sia in modalita' menu (rimuove pulsanti velocita')
+    /// </summary>    
     public bool MenuMode = false;
 
 
@@ -68,8 +110,8 @@ public class ShipControllerScript : MonoBehaviour
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
 
         life = 5;
-        if(!MenuMode)
-        lifeImage = lifeBar.GetComponent<Image>();
+        if (!MenuMode)
+            lifeImage = lifeBar.GetComponent<Image>();
     }
 
     void Update()
@@ -92,45 +134,36 @@ public class ShipControllerScript : MonoBehaviour
             // Sparo (Arma 1)
             if (Input.GetButtonDown("FireRed"))
             {
-                // Spara un proiettile che colpisce il layer 6, ovvero i nemici
-                // Bozza
                 Shoot(7);
-
             }
 
             // Sparo (Arma 2)
             if (Input.GetButtonDown("FireGreen"))
             {
-                // Colpisce su layer 2, NON UCCIDE NEMICI PER ORA
-
                 Shoot(12);
             }
 
             // Sparo (Arma 3)
             if (Input.GetButtonDown("FireYellow"))
             {
-                // Colpisce su layer 3, NON UCCIDE NEMICI PER ORA
-
                 Shoot(13);
             }
 
-            // Astronave immortale. TOGLIERE DA PRODOTTO FINALE
-            if (Input.GetButtonDown("No Clip"))
-            {
-                Shield();
-                if (NoClip) logic.ShowMessage("NO CLIP ATTIVATO", 0);
-                else logic.ToggleMessage();
-            }
+            // Astronave immortale.
+            // USATO SOLO IN FASE DI TESTING
+            //if (Input.GetButtonDown("No Clip"))
+            //{
+            //    Shield();
+            //    if (NoClip) logic.ShowMessage("NO CLIP ATTIVATO", 0);
+            //    else logic.ToggleMessage();
+            //}
         }
-        // Se il giocatore e' morto, il pulsante Restart riavvia la partita
-        // CAMBIATO FUNZIONAMENTO DI GAMEOVER: RIMUOVERE
-        //else if (Input.GetButtonDown("Restart"))
-        //{
-        //    logic.RestartGame();
-        //}
     }
 
-    // Movimento libero fluido
+    /// <summary>
+    /// Permette all'astronave di muoversi lateralmente in due direzioni e con una leggera animazione di inclinazione
+    /// </summary>
+    /// <param name="moveRate">Quantita' di spostamento</param>
     private void Move(float moveRate)
     {
         endPos.x += moveRate * Time.deltaTime;
@@ -141,26 +174,22 @@ public class ShipControllerScript : MonoBehaviour
         {
             if (Mathf.Sign(moveRate) == -1)
             {
-                // Debug.Log("VERSO SINISTRA");
-                // spriteRenderer.sprite = sprites[1];
                 transform.rotation = Quaternion.Euler(0, 0, 10);
             }
             else if (Mathf.Sign(moveRate) == 1)
             {
-                // Debug.Log("VERSO DESTRA");
-                // spriteRenderer.sprite = sprites[2];
                 transform.rotation = Quaternion.Euler(0, 0, -10);
             }
         }
         else
         {
-            // Debug.Log("Sto fermo");
-            // spriteRenderer.sprite = sprites[0];
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 
-    // Controlla se l'astronave puo' sparare
+    /// <summary>
+    /// Controlla se l'astronave sia pronta a sparare
+    /// </summary>
     private bool CanFire
     {
         get { return Time.time > nextFireTime; }
@@ -169,31 +198,31 @@ public class ShipControllerScript : MonoBehaviour
     // Permette di sparare proiettili.
     // Il valore type indica il tipo di nemico che il proiettile puo' distruggere.
     // Associare ogni tipo di nemico ad un layer diverso e collegare al proiettile giusto.
+    /// <summary>
+    /// Permette di sparare proiettili diversi.
+    /// </summary>
+    /// <param name="type">Indica il tipo (layer / colore) del proiettile</param>
     private void Shoot(int type)
     {
         if (CanFire)
         {
             nextFireTime = Time.time + timeBetweenShots;
-
-            // Debug.Log("Proiettile di tipo " + type);
-
             // Crea un oggetto di tipo Bullet
             // Il movimento del Bullet viene gestito in un altro script
             GameObject bullet = Instantiate(Bullet);
             // Il proiettile ha lo stesso layer specificato dall'input
-
             shootSound.Play();
-
             bullet.layer = type;
-
-            // Debug.Log("Assegnato tipo "+bullet.layer);
-
             // Il Bullet parte dalla posizione di Ship modificata di +1 in verticale
             Vector2 shootPos = new(transform.position.x, transform.position.y + 1);
             bullet.transform.position = shootPos;
         }
     }
 
+    /// <summary>
+    /// Gestisce tutte le collisioni tra astronave e proiettili, ostacoli e power-up
+    /// </summary>
+    /// <param name="collision">oggetto con cui e' avvenuta la collisione</param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Se la collisione avviene con Obstacle o Bullet e il NoClip disattivato (Immortalita')
@@ -202,15 +231,11 @@ public class ShipControllerScript : MonoBehaviour
             life--;
             lifeImage.sprite = lifeSprites[life];
             deathSound.Play();
-
-
             if (life == 0)
             {
                 DeathAnimation();
-                // Debug.Log("SEI MORTO");
                 logic.gameIsOver = true;
                 Invoke(nameof(LoadGameOver), 1.5f);
-                // Debug.Log("INVOKE ...");
                 // Disattiva il trigger dell'ostacolo / proiettile per evitare di morire piu' volte
                 // contro lo stesso ostacolo
                 collision.isTrigger = false;
@@ -225,17 +250,14 @@ public class ShipControllerScript : MonoBehaviour
                 Invoke(nameof(Shield), 1);
             }
         }
-
         // Collisioni con PowerUp
         if (collision.gameObject.CompareTag("PowerUp"))
         {
             powerUpSound.Play();
-            // Debug.Log("PowerUp preso: "+ collision.name);
-
             // Se la collisione avviene con HealthPowerUp
             if (collision.gameObject.layer == 8)
             {
-                logic.ShowMessage("HEALTH", 1);
+                logic.ShowMessage("RECUPERO SALUTE", 1);
                 if (life < 5)
                 {
                     life = 5;
@@ -243,26 +265,20 @@ public class ShipControllerScript : MonoBehaviour
                 }
 
             }
-
-            // Se la collisione avviene con MultiplierPowerUp
+            // Se la collisione avviene con FastFirePowerUp
             if (collision.gameObject.layer == 9)
             {
-                // powerUpSound.Play();
-                // Debug.Log("Fuoco rapido");
-                logic.ShowMessage("SHOOT FASTER", 10);
+                logic.ShowMessage("FUOCO RAPIDO", 1);
                 icons[1].SetActive(true);
                 timeBetweenShots = 0.5f;
                 // Il power-up dura 10 secondi
-                Invoke(nameof(MultiplierResetEffect), 10);
+                Invoke(nameof(FireResetEffect), 10);
 
             }
-
             // Se la collisione avviene con SpeedPowerUp
             if (collision.gameObject.layer == 10)
             {
-                // powerUpSound.Play();
-                // Debug.Log("Spostamento veloce");
-                logic.ShowMessage("INCREASE SPEED", 10);
+                logic.ShowMessage("SCHIVATA RAPIDA", 1);
                 icons[0].SetActive(true);
                 speed += 10;
                 // Il power-up dura 10 secondi
@@ -274,9 +290,7 @@ public class ShipControllerScript : MonoBehaviour
 
             if (collision.gameObject.layer == 11)
             {
-                // powerUpSound.Play();
-                // Debug.Log("Punti doppi");
-                logic.ShowMessage("DOUBLE POINTS", 10);
+                logic.ShowMessage("DOPPI PUNTI", 1);
                 icons[2].SetActive(true);
                 logic.scoreMultiplier *= 2;
                 // Il power-up dura 10 secondi
@@ -284,52 +298,49 @@ public class ShipControllerScript : MonoBehaviour
 
             }
         }
-
         Destroy(collision.gameObject);
     }
 
-    // Sposta l'astronave al contatto con l'ostacolo in una direzione casuale
-    // Non e' necessario per il funzionamento del gioco, solo effetto estetico
-    // della collisione
-
+    /// <summary>
+    /// Lancia l'astronave in una direzione casuale (effetto estetico usato per la sconfitta).
+    /// </summary>
     public void DeathAnimation()
     {
         isAlive = false;
         colliderComponent.isTrigger = false;
         myBody.isKinematic = false;
         gameObject.GetComponent<Rigidbody2D>().AddForce(Random.insideUnitCircle.normalized * 500f);
-
-
-        // Rende invisibile la barra della vita dopo la morte
-        // lifeBar.SetActive(false);
     }
 
-    // Annulla il power-up Multiplier
-    private void MultiplierResetEffect()
+    /// <summary>
+    /// Annulla il power-up FastFire
+    /// </summary>
+    private void FireResetEffect()
     {
-        // Debug.Log("Tempo power-up Multiplier scaduto");
-        //logic.ShowMessage("FINE FUOCO RAPIDO", 1);
         icons[1].SetActive(false);
         timeBetweenShots = 1;
     }
-
+    /// <summary>
+    /// Annulla il power-up Speed
+    /// </summary>
     private void SpeedResetEffect()
     {
-        // Debug.Log("Tempo power-up Speed scaduto");
-        //logic.ShowMessage("FINE SPOSTAMENTO RAPIDO", 1);
         icons[0].SetActive(false);
         speed -= 10;
     }
 
+    /// <summary>
+    /// Annulla il power-up DoubleScore
+    /// </summary>
     private void ScoreResetEffect()
     {
-        // Debug.Log("Tempo power-up DoubleScore scaduto");
-        //logic.ShowMessage("FINE PUNTI DOPPI", 1);
         icons[2].SetActive(false);
         logic.scoreMultiplier /= 2;
     }
 
-    // Attiva / disattiva NoClip (Invulnerabilita') e attiva un effetto di trasparenza
+    /// <summary>
+    /// Rende l'astronave invulnerabile e trasparente, o disattiva l'effetto se gia' presente
+    /// </summary>
     private void Shield()
     {
         NoClip = !NoClip;
@@ -340,7 +351,9 @@ public class ShipControllerScript : MonoBehaviour
             spriteRenderer.color = new Color(1, 1, 1, 1);
     }
 
-    // Richiama il GameOver di LogicScript per risolvere il problema di Invoke
+  /// <summary>
+  /// Richiama logic.GameOver (Risolve problemi di Invoke alla sconfitta)
+  /// </summary>
     private void LoadGameOver()
     {
         logic.GameOver();

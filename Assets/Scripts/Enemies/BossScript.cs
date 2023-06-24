@@ -1,40 +1,74 @@
 using UnityEngine;
-
+/// <summary>
+/// Gestisce l'animazione d'arrivo, il movimento, gli spari e la morte del Boss
+/// </summary>
 public class BossScript : MonoBehaviour
 {
-    // Spawner dei nemici, utilizzato per resettare il contatore di Spawn
+    /// <summary>
+    /// Spawner dei nemici, utilizzato per resettare il contatore di Spawn
+    /// </summary>    
     EnemySpawner spawner;
-    // Vita del Boss
+    /// <summary>
+    /// Vita del Boss
+    /// </summary>    
     int life = 3;
-    // Array contenente tutti i power-up che il boss puo' rilasciare alla morte
+    /// <summary>
+    /// Array contenente tutti i power-up che il boss puo' rilasciare alla morte
+    /// </summary>    
     public GameObject[] powerups;
-    // Array contenente tutti i tipi di proiettili che il boss spara contemporaneamente
+    /// <summary>
+    /// Array contenente tutti i tipi di proiettili che il boss spara contemporaneamente
+    /// </summary>
     public GameObject[] bullets;
 
-    // Suono emesso se colpito
+    /// <summary>
+    /// Suono emesso se colpito
+    /// </summary>    
     public AudioSource hitSound;
 
-    //Suono allo sparo
+    /// <summary>
+    /// Suono allo sparo
+    /// </summary>
     public AudioSource bulletSound;
+    /// <summary>
+    /// Indica se il Boss puo' sparare o meno
+    /// </summary>
     private bool canFire = true;
 
-    // Posizione finale del movimento
+    /// <summary>
+    /// Posizione finale del movimento
+    /// </summary>    
     private Vector2 endPos;
-    //Direzione del movimento
+    /// <summary>
+    /// Direzione del movimento
+    /// </summary>
     private int direction;
+    /// <summary>
+    /// Indica se il boss e' in movimento
+    /// </summary>
     private bool isMoving = false;
 
-    // Timer usato per le pause tra uno sparo e l'altro
+    /// <summary>
+    /// Timer usato per le pause tra uno sparo e l'altro
+    /// </summary>
     private float timer = 0;
-    // Frequenza di fuoco in secondi
+    /// <summary>
+    /// Frequenza di fuoco in secondi
+    /// </summary>    
     private float fireRate = 2;
 
-    // Riferimento al collider
+    /// <summary>
+    /// Riferimento al collider
+    /// </summary>
     private Collider2D colliderComponent;
 
-    // Riferimento al rigidBody
+    /// <summary>
+    /// Riferimento al rigidBody
+    /// </summary>
     private Rigidbody2D myBody;
-
+    /// <summary>
+    /// Posizione del boss scelta casualmente
+    /// </summary>
     private Vector2 target;
 
     void Start()
@@ -60,14 +94,10 @@ public class BossScript : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, target, 2.5f * Time.deltaTime);
             if (transform.position.Equals(target))
             {
-                Debug.Log("ARRIVATO A DESTINAZIONE");
-                Debug.Log("Posizione: " + transform.position + " Target: " + target);
                 isMoving = true;
             }
 
         }
-
-        Debug.Log("EEEE Posizione: " + transform.position + " Target: " + target);
 
         // Cambio direzione se arrivato al limite orizzontale
         if (transform.position.x == 6 || transform.position.x == -6)
@@ -87,6 +117,10 @@ public class BossScript : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Permette lo spostamento laterale del nemico, con effetto di inclinazione sprite associato
+    /// </summary>
+    /// <param name="moveRate">tasso e direzione di movimento</param>
     private void Move(float moveRate)
     {
         endPos.x += moveRate * Time.deltaTime;
@@ -111,7 +145,9 @@ public class BossScript : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
-
+    /// <summary>
+    /// Spara i tre proiettili
+    /// </summary>
     void FireBullet()
     {
         // Array necessario per instanziare i proiettili correttamente
@@ -127,7 +163,10 @@ public class BossScript : MonoBehaviour
             objects[i].transform.position = transform.position;
         }
     }
-
+    /// <summary>
+    /// Gestisce le collisioni con i proiettili e dunque danni e morte del nemico
+    /// </summary>
+    /// <param name="other">Oggetto in collisione</param>
     private void OnTriggerEnter2D(Collider2D other)
     {
 
@@ -146,7 +185,10 @@ public class BossScript : MonoBehaviour
         }
     }
 
-    // Lancia il Boss verso l'alto con una direzione diagonale casuale, segnala allo spawner la morte e infine distrugge se stesso.
+    /// <summary>
+    /// Lancia il Boss verso l'alto con una direzione diagonale casuale,
+    /// segnala allo spawner la morte e infine distrugge se stesso.
+    /// </summary>    
     private void DeathAnimation()
     {
         isMoving = false;
@@ -162,7 +204,9 @@ public class BossScript : MonoBehaviour
 
         Invoke(nameof(Kill), 0.5f);
     }
-
+    /// <summary>
+    /// Uccide il boss
+    /// </summary>
     private void Kill()
     {
         Destroy(gameObject);

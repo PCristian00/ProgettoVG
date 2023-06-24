@@ -1,27 +1,38 @@
 using UnityEngine;
-
+/// <summary>
+/// Gestisce il movimento e il tipo del proiettile dell'astronave
+/// </summary>
 public class ShipBullet : MonoBehaviour
 {
-    // Velocita' del proiettile
+    /// <summary>
+    /// Velocita' del proiettile
+    /// </summary>    
     public float bulletSpeed = 8f;
-    // Zona di despawn
+    /// <summary>
+    /// Zona di despawn
+    /// </summary>    
     public float deadZone = 5.5f;
-
+    /// <summary>
+    /// riferimento allo spriteRenderer, necessario per cambiare lo sprite
+    /// </summary>
     public SpriteRenderer spriteRenderer;
-
+    /// <summary>
+    /// Proiettile rosso, uccide nemici rossi
+    /// </summary>
     public Sprite redBullet;
+    /// <summary>
+    /// Proiettile verde, uccide nemici verdi
+    /// </summary>
     public Sprite greenBullet;
+    /// <summary>
+    /// Proiettile giallo, uccide nemici gialli
+    /// </summary>
     public Sprite yellowBullet;
 
-    // Update is called once per frame
     void Update()
     {
 
         LoadSprite();
-        //Vector2 pos = transform.position;
-        //pos.y += bulletSpeed * Time.deltaTime;
-        //transform.position = pos;
-
         transform.position += bulletSpeed * Time.deltaTime * Vector3.up;
 
         // Despawn del proiettile
@@ -29,8 +40,9 @@ public class ShipBullet : MonoBehaviour
             Destroy(gameObject);
     }
 
-    // SOLO PER PROVA
-    // Sostituire sprite invece di colorare e basta per un effetto migliore
+  /// <summary>
+  /// Carica lo sprite corretto in base al tipo (layer) del proiettile istanziato
+  /// </summary>
     void LoadSprite()
     {
         // colora di rosso

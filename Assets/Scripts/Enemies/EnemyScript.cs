@@ -1,27 +1,51 @@
 using UnityEngine;
-
+/// <summary>
+/// Gestisce l'animazione d'arrivo, lo sparo, la morte del nemico
+/// </summary>
 public class EnemyScript : MonoBehaviour
 {
+    /// <summary>
+    /// Riferimento allo spawner
+    /// </summary>
     private EnemySpawner spawner;
-
+    /// <summary>
+    /// Il proiettile da sparare
+    /// </summary>
     public GameObject Bullet;
-
+    /// <summary>
+    /// Timer
+    /// </summary>
     private float timer = 0;
 
-    // Frequenza di sparo
+    /// <summary>
+    /// Frequenza di sparo
+    /// </summary>    
     private float fireRate = 2;
-    // Suono del proiettile
+    /// <summary>
+    /// Suono del proiettile
+    /// </summary>    
     public AudioSource bulletSound;
+    /// <summary>
+    /// Indica se il nemico puo' sparare o no
+    /// </summary>
     private bool canFire = false;
 
-    // Array contenente tutti i power-up che il boss puo' rilasciare alla morte
+    /// <summary>
+    /// Array contenente tutti i power-up che il boss puo' rilasciare alla morte
+    /// </summary>    
     public GameObject[] powerups;
 
-    // Riferimento al collider
+    /// <summary>
+    /// Riferimento al collider
+    /// </summary>    
     private Collider2D colliderComponent;
-    // Riferimento al rigidBody
+    /// <summary>
+    /// Riferimento al rigidBody
+    /// </summary>    
     private Rigidbody2D myBody;
-
+    /// <summary>
+    /// Posizione del nemico scelta casualmente
+    /// </summary>
     private Vector2 target;
 
     void Start()
@@ -54,7 +78,9 @@ public class EnemyScript : MonoBehaviour
                 FireBullet();
         }
     }
-
+    /// <summary>
+    /// Spara il proiettile
+    /// </summary>
     void FireBullet()
     {
         // preleviamo la posizione del player
@@ -71,7 +97,10 @@ public class EnemyScript : MonoBehaviour
             bullet.GetComponent<EnemyBullet>().SetDirection(direction);
         }
     }
-
+    /// <summary>
+    /// Gestisce la collisione
+    /// </summary>
+    /// <param name="other">oggetto in collisione</param>
     public void OnTriggerEnter2D(Collider2D other)
     {
 
@@ -83,13 +112,18 @@ public class EnemyScript : MonoBehaviour
                 Destroy(other.gameObject);
             }
     }
-
+    /// <summary>
+    /// Distrugge il nemico
+    /// </summary>
     private void Kill()
     {
         Destroy(gameObject);
     }
 
-    // Lancia Enemy verso l'alto con una direzione diagonale casuale, segnala allo spawner la morte e infine distrugge se stesso.
+    /// <summary>
+    /// Lancia Enemy verso l'alto con una direzione diagonale casuale,
+    /// segnala allo spawner la morte e infine distrugge se stesso.
+    /// </summary>    
     private void DeathAnimation()
     {
         canFire = false;
@@ -98,7 +132,7 @@ public class EnemyScript : MonoBehaviour
         // Sorteggia un numero da 1 a 100.
         // Se il numero e' inferiore a 20 (1 possiblita' su 5) viene rilasciato un power-up 
         int number = (int)Random.Range(1, 100);
-        
+
         if (number <= 20)
             Instantiate(powerups[Random.Range(0, powerups.Length)], transform.position, transform.rotation);
 

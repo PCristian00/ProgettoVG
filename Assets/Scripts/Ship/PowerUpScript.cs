@@ -1,12 +1,18 @@
 using UnityEngine;
-
+/// <summary>
+/// Gestisce il movimento verticale dei power-up.
+/// </summary>
 public class PowerUpScript : MonoBehaviour
 {
-    // Velocita' di movimento
+    /// <summary>
+    /// Velocita' di movimento
+    /// </summary>    
     public float moveSpeed = 1f;
-    // Zona di despawn
+    /// <summary>
+    /// Zona di despawn
+    /// </summary>    
     public float deadZone = -6.5f;
-    // Update is called once per frame
+
     void Update()
     {
         transform.position += moveSpeed * Time.deltaTime * Vector3.down;
