@@ -5,9 +5,10 @@ Progetto d'esame di User Experience e Grafica 2D.
 
 L’astronave Perseus-23, comandata dal giocatore (o dai due giocatori) deve sopravvivere schivando gli asteroidi e gli attacchi delle varie meduse aliene, per poi giungere alla temibile Infestatrix Mortalis, la più potente tra le pelagie, più difficile da uccidere, che sparerà tre colpi contemporaneamente tentando di annientare il giocatore.
 
-Una volta uccisa, guadagnerai 10 punti e aumenta la velocità, aumentando di conseguenza la difficoltà di gioco.
+Una volta uccisa, guadagnerai 10 punti e aumenterà la velocità e di conseguenza la difficoltà di gioco.
 
-Alla sconfitta dell’astronave ti verrà mostrato il punteggio record.
+Alla sconfitta dell’astronave ti verrà mostrato il punteggio raggiunto e il record attuale.
+
 
 ## Comandi
 - Frecce direzionali sinistra e destra: Movimento laterale
