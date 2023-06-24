@@ -1,36 +1,51 @@
 using UnityEngine;
-
+/// <summary>
+/// Gestisce e calcola, attraverso la posizione dell'astronave, la traiettoria del proiettile nemico
+/// </summary>
 public class EnemyBullet : MonoBehaviour
 {
+    /// <summary>
+    /// Velocita' del proiettile
+    /// </summary>
     public float speed;
-    Vector2 _direction; // per indirizzare il proiettile verso il player
-    bool isReady;       // controlla se il proiettile ha trovato la direzione dove andare
-                        // Start is called before the first frame update
-
-    public void Awake() // nel momento in cui viene istanziato il gameobject del proiettile, gli
-                        // assegnamo una velocità
+    /// <summary>
+    /// direzione necessaria a indirizzare il proiettile verso il player
+    /// </summary>
+    Vector2 _direction;
+    /// <summary>
+    /// Indica se il proiettile ha trovato la direzione dove andare
+    /// </summary>
+    bool isReady;
+    /// <summary>
+    /// Nel momento in cui viene istanziato il gameobject del proiettile, assegna una velocità
+    /// </summary>
+    public void Awake()
     {
         speed = 4f;
-        isReady = false; // ancora non trova la direzione
+        isReady = false;
     }
-    public void
-    SetDirection(Vector2 direction) // calcoliamo la direzione, la normalizziamo, quindi isReady
+    /// <summary>
+    ///  Calcola la direzione, la normalizza e da' la conferma
+    /// </summary>
+    /// <param name="direction">Direzione del proiettile</param>
+    public void SetDirection(Vector2 direction)
     {
-        // normalizziamo la direzione
-        _direction = direction.normalized; // normalized ci restituisce un vettore unitario
+        // Normalizziamo la direzione
+        // normalized ci restituisce un vettore unitario
+        _direction = direction.normalized;
         isReady = true;
     }
-    // Update is called once per frame
+
     void Update()
     {
-        if (isReady) // quando è pronto, inizia ad aggiornare il movimento del proiettile
+        // quando è pronto, inizia ad aggiornare il movimento del proiettile
+        if (isReady)
         {
-            // aggiorno la posizione del proiettile
-            Vector2 position = transform.position; // prelevo la posizione
-            position += _direction * speed *
-                        Time.deltaTime;    // la incremento per direction per speed e time.delta<time
-            transform.position = position; // applichiamo di nuovo la posizione
-                                           // prelevo i bordi della camera
+            // la posizione del proiettile viene aggiornata
+            Vector2 position = transform.position;
+            position += _direction * speed * Time.deltaTime;
+            transform.position = position;
+            // Distruggo il proiettile se esce dai bordi dello schermo
             Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
             Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
             if (transform.position.x < min.x || transform.position.x > max.x ||

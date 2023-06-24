@@ -1,47 +1,79 @@
-// Reflection serve solo per ClearLog, rimuovere da versione finale
-using System.Reflection;
-
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// LogicScript contiene varie funzioni collegate alla logica di gioco, tra cui la gestione della velocita',
+/// dei punteggi, della musica e delle notifiche
+/// </summary>
+
 public class LogicScript : MonoBehaviour
 {
-    // Punteggio del giocatore
+    /// <summary>
+    /// Punteggio del giocatore
+    /// </summary>
     public int playerScore;
-    // Punteggio migliore di sempre
+    /// <summary>
+    /// Punteggio migliore di sempre 
+    /// </summary>
     public static int highScore;
-    // Velocita' di gioco (tasso di spawn ostacoli), inversamente proporzionale
+    /// <summary>
+    /// Velocita' di gioco, inversamente proporzionale 
+    /// </summary>
     public float speed = 7f;
+    /// <summary>
+    /// Velocita' massima del gioco
+    /// </summary>
     private float maxSpeed;
+    /// <summary>
+    /// Velocita' minima del gioco
+    /// </summary>
     private float minSpeed;
-
+    /// <summary>
+    /// Moltiplicatore del punteggio
+    /// </summary>
     public int scoreMultiplier = 1;
-
-    // Contatore di velocita' (TROVARE MODO DI RIMUOVERE)
+    /// <summary>
+    /// Livello di velocita', usato per comodita' negli array di ChangeSpeed
+    /// </summary>
     private int speedLevel = 0;
-    // Casella di testo che mostra il punteggio attuale
+    /// <summary>
+    /// Contiene il conteggio dei punti raggiunti
+    /// </summary>
     public TextMeshProUGUI scoreText;
-    // Casella di testo che mostra il punteggio migliore di sempre
+    /// <summary>
+    /// Contiene il conteggio del punteggio piu' alto mai raggiunto
+    /// </summary>
     public TextMeshProUGUI highScoreText;
 
-    // Strati musicali, regolati da velocita'
+    /// <summary>
+    /// Contiene le varie tracce audio che si aggiungono alla prima aumentando la velocita'
+    /// </summary>
     public AudioSource[] musicLayers;
 
-    // Riferimento alla barra della velocita'
+    /// <summary>
+    /// Barra della velocita'
+    /// </summary>
     public GameObject speedBar;
-    // Array contenente i vari sprite della barra della velocita'
+    /// <summary>
+    /// Contiene gli sprite che la barra della velocita' puo' mostrare
+    /// </summary>
     public Sprite[] speedSprites;
-    //Riferimento a Image della barra della velocita'
+    /// <summary>
+    /// Riferimento a Image di SpeedBar, serve per modificare sprite
+    /// </summary>
     private Image speedImage;
 
-    // Messaggio di testo
+    /// <summary>
+    /// Casella di testo usata per notifiche e messaggi
+    /// </summary>
     public TextMeshProUGUI message;
 
 
-
-    // Controlla se il gioco e' finito
+    /// <summary>
+    /// Indica se la partita e' finita
+    /// </summary>
     public bool gameIsOver = false;
 
     private void Start()
@@ -55,18 +87,21 @@ public class LogicScript : MonoBehaviour
             scoreText.text = playerScore.ToString();
         }
 
-
         highScore = PlayerPrefs.GetInt("highscore", highScore);
         highScoreText.text = highScore.ToString();
 
         speed = 7f;
         maxSpeed = 2f;
         minSpeed = speed;
-        if(!gameIsOver)
-        speedImage = speedBar.GetComponent<Image>();
+        // La barra di velocita' viene caricata solo se il gioco non e' finito
+        if (!gameIsOver)
+            speedImage = speedBar.GetComponent<Image>();
     }
 
-
+    /// <summary>
+    /// Aggiunge n punti, eventualmente moltiplicati 
+    /// </summary>
+    /// <param name="scoreToAdd"> Punti da aggiungere</param>
     public void AddScore(int scoreToAdd)
     {
 
@@ -77,12 +112,17 @@ public class LogicScript : MonoBehaviour
         }
     }
 
-    // RIMUOVERE E COLLEGARE A MENU PER FUNZIONI CHE LA USANO
+    /// <summary>
+    /// Ritorna al menu principale
+    /// </summary>
     public void HowtoPlayExitButton()
     {
         SceneManager.LoadScene(0);
     }
 
+    /// <summary>
+    /// Carica la schermata del game over e, eventualmente, sovrascrive high score
+    /// </summary>
     public void GameOver()
     {
         PlayerPrefs.SetInt("score", playerScore);
@@ -100,6 +140,11 @@ public class LogicScript : MonoBehaviour
         SceneManager.LoadScene(3);
     }
 
+    /// <summary>
+    /// Aumento e diminuzione della velocita', se consentito.
+    /// Aggiorna inoltre la visualizzazione della barra della velocita'.
+    /// </summary>
+    /// <param name="input"> Indica se aumentare (se ==1) o diminuire (se ==-1)</param>
     public void ChangeSpeed(float input)
     {
         // Debug.Log("Changing speed");
@@ -140,7 +185,10 @@ public class LogicScript : MonoBehaviour
         speedImage.sprite = speedSprites[speedLevel];
     }
 
-    // Aumenta la velocita' minima raggiungibile in gioco.    
+    /// <summary>
+    ///  Aumenta la velocita' minima raggiungibile in gioco.  
+    /// </summary>
+
     public void IncreaseDifficulty()
     {
         // Se il giocatore e' attualmente alla velocita' minima, la sua velocita' viene aumentata
@@ -160,9 +208,16 @@ public class LogicScript : MonoBehaviour
         }
     }
 
-    // Mostra il testo scelto per il tempo scelto.
-    // Se il tempo viene impostato a 0 la disattivazione automatica non viene impostata.
-    // Il messaggio viene mostrato a schermo sotto la barra della velocita'.
+
+
+
+    /// <summary>
+    /// Mostra il testo scelto per il tempo scelto.
+    /// Se il tempo viene impostato a 0 la disattivazione automatica non viene impostata.
+    /// Il messaggio viene mostrato a schermo in alto al centro.
+    /// </summary>
+    /// <param name="messageText"> Messaggio da mostrare</param>
+    /// <param name="time">Tempo di visualizzazione (0 se infinito)</param> 
     public void ShowMessage(string messageText, int time)
     {
         message.text = messageText;
@@ -171,7 +226,9 @@ public class LogicScript : MonoBehaviour
             Invoke(nameof(ToggleMessage), time);
     }
 
-    // Rende nuovamente invisibile il messaggio
+    /// <summary>
+    /// Disattiva il messaggio precedentemente attivato.
+    /// </summary>
     public void ToggleMessage()
     {
         message.gameObject.SetActive(false);

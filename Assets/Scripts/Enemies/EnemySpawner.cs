@@ -1,21 +1,42 @@
 using UnityEngine;
-
+/// <summary>
+/// Spawner di nemici e boss, collegato alla velocita'.
+/// </summary>
 public class EnemySpawner : MonoBehaviour
 {
+    /// <summary>
+    /// Contiene le varianti dei nemici
+    /// </summary>
     public GameObject[] enemies;
+    /// <summary>
+    /// Contiene il boss
+    /// </summary>
     public GameObject Boss;
+    /// <summary>
+    /// Timer
+    /// </summary>
     float timer = 0;
+    /// <summary>
+    /// Conta quanti nemici sono attualmente su schermo
+    /// </summary>
     float countSpawn = 0;
+    /// <summary>
+    /// Conta quanti nemici sono stati uccisi
+    /// </summary>
     float countEnemyKill = 0;
-
+    /// <summary>
+    /// Indica se il boss sia vivo o meno
+    /// </summary>
     bool bossIsAlive;
-
+    /// <summary>
+    /// Riferimento a logic
+    /// </summary>
     public LogicScript logic;
-
+    /// <summary>
+    /// Suono di morte dei nemici
+    /// </summary>
     public AudioSource deathSound;
 
-
-    // Update is called once per frame
     void Update()
     {
         if (countEnemyKill < 10)
@@ -49,6 +70,9 @@ public class EnemySpawner : MonoBehaviour
         }
 
     }
+    /// <summary>
+    /// Spawna un nemico a caso tra le varianti caricate
+    /// </summary>
     void SpawnEnemy()
     {
         countSpawn++;
@@ -62,6 +86,9 @@ public class EnemySpawner : MonoBehaviour
 
         enemy.transform.position = transform.position;
     }
+    /// <summary>
+    /// Spawna un boss
+    /// </summary>
     void SpawnBoss()
     {
         Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
@@ -73,6 +100,9 @@ public class EnemySpawner : MonoBehaviour
         Boss.transform.position = transform.position;
     }
 
+    /// <summary>
+    /// Conta il nemico come ucciso e riproduce un suono, modifica i contatori e aggiunge 1 punto
+    /// </summary>
     public void EnemyKilled()
     {
         countEnemyKill++;
@@ -83,6 +113,9 @@ public class EnemySpawner : MonoBehaviour
             countSpawn--;
     }
 
+    /// <summary>
+    /// Conta il boss come ucciso, aumenta la difficolta' e aggiunge 10 punti
+    /// </summary>
     public void BossKilled()
     {
         deathSound.Play();

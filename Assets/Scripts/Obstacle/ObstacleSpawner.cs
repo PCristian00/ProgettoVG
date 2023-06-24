@@ -1,12 +1,20 @@
 using UnityEngine;
-
+/// <summary>
+/// Permette di spawnare in base alla velocita' attuale gli ostacoli
+/// </summary>
 public class ObstacleSpawner : MonoBehaviour
 {
+    /// <summary>
+    /// Ostacolo da spawnare
+    /// </summary>
     public GameObject obstacle;
-    //public float spawnRate = 5;
-
+    /// <summary>
+    /// Riferimento a LogicScript
+    /// </summary>
     public LogicScript logic;
-
+    /// <summary>
+    /// Timer
+    /// </summary>
     private float timer = 0;
     // Start is called before the first frame update
     void Start()
@@ -27,7 +35,9 @@ public class ObstacleSpawner : MonoBehaviour
             timer = 0;
         }
     }
-
+    /// <summary>
+    /// Spawna l'ostacolo
+    /// </summary>
     void SpawnObstacle()
     {
         // Il range (-6,6) indica l'area delle corsie
