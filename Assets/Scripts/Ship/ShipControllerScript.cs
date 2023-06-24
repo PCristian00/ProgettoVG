@@ -134,42 +134,30 @@ public class ShipControllerScript : MonoBehaviour
             // Sparo (Arma 1)
             if (Input.GetButtonDown("FireRed"))
             {
-                // Spara un proiettile che colpisce il layer 6, ovvero i nemici
-                // Bozza
                 Shoot(7);
-
             }
 
             // Sparo (Arma 2)
             if (Input.GetButtonDown("FireGreen"))
             {
-                // Colpisce su layer 2, NON UCCIDE NEMICI PER ORA
-
                 Shoot(12);
             }
 
             // Sparo (Arma 3)
             if (Input.GetButtonDown("FireYellow"))
             {
-                // Colpisce su layer 3, NON UCCIDE NEMICI PER ORA
-
                 Shoot(13);
             }
 
-            // Astronave immortale. TOGLIERE DA PRODOTTO FINALE
-            if (Input.GetButtonDown("No Clip"))
-            {
-                Shield();
-                if (NoClip) logic.ShowMessage("NO CLIP ATTIVATO", 0);
-                else logic.ToggleMessage();
-            }
+            // Astronave immortale.
+            // USATO SOLO IN FASE DI TESTING
+            //if (Input.GetButtonDown("No Clip"))
+            //{
+            //    Shield();
+            //    if (NoClip) logic.ShowMessage("NO CLIP ATTIVATO", 0);
+            //    else logic.ToggleMessage();
+            //}
         }
-        // Se il giocatore e' morto, il pulsante Restart riavvia la partita
-        // CAMBIATO FUNZIONAMENTO DI GAMEOVER: RIMUOVERE
-        //else if (Input.GetButtonDown("Restart"))
-        //{
-        //    logic.RestartGame();
-        //}
     }
 
     /// <summary>
