@@ -268,7 +268,7 @@ public class ShipControllerScript : MonoBehaviour
             // Se la collisione avviene con FastFirePowerUp
             if (collision.gameObject.layer == 9)
             {
-                logic.ShowMessage("FUOCO RAPIDO", 10);
+                logic.ShowMessage("FUOCO RAPIDO", 1);
                 icons[1].SetActive(true);
                 timeBetweenShots = 0.5f;
                 // Il power-up dura 10 secondi
@@ -278,7 +278,7 @@ public class ShipControllerScript : MonoBehaviour
             // Se la collisione avviene con SpeedPowerUp
             if (collision.gameObject.layer == 10)
             {
-                logic.ShowMessage("SCHIVATA RAPIDA", 10);
+                logic.ShowMessage("SCHIVATA RAPIDA", 1);
                 icons[0].SetActive(true);
                 speed += 10;
                 // Il power-up dura 10 secondi
@@ -290,7 +290,7 @@ public class ShipControllerScript : MonoBehaviour
 
             if (collision.gameObject.layer == 11)
             {
-                logic.ShowMessage("DOPPI PUNTI", 10);
+                logic.ShowMessage("DOPPI PUNTI", 1);
                 icons[2].SetActive(true);
                 logic.scoreMultiplier *= 2;
                 // Il power-up dura 10 secondi
